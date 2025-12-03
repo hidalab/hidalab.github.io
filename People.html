@@ -1,235 +1,571 @@
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://www.hidalab.org/#org",
-      "name": "Hi Da Research Lab",
-      "alternateName": "Hi Da Lab",
-      "url": "https://www.hidalab.org/",
-      "logo": "https://www.hidalab.org/assets/logo.png",
-      "description": "Hi Da Research Lab at the University of South Carolina focuses on human centered AI, health information, social media analytics, and the science of science.",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of South Carolina",
-        "url": "https://sc.edu"
-      },
-      "sameAs": [
-        "https://www.ehsanmohammadi.com/",
-        "https://scholar.google.com/citations?user=ddrRUEMAAAAJ",
-        "https://orcid.org/0000-0003-3481-6991"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.hidalab.org/#website",
-      "url": "https://www.hidalab.org/",
-      "name": "Hi Da Research Lab",
-      "inLanguage": "en",
-      "publisher": {
-        "@id": "https://www.hidalab.org/#org"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://www.hidalab.org/people#webpage",
-      "url": "https://www.hidalab.org/people",
-      "name": "People - Hi Da Research Lab",
-      "headline": "People",
-      "description": "People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members.",
-      "isPartOf": {
-        "@id": "https://www.hidalab.org/#website"
-      },
-      "about": {
-        "@id": "https://www.hidalab.org/#org"
-      },
-      "breadcrumb": {
-        "@id": "https://www.hidalab.org/people#breadcrumb"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.hidalab.org/people#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.hidalab.org/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "People",
-          "item": "https://www.hidalab.org/people"
-        }
-      ]
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://www.hidalab.org/people#people-list",
-      "name": "Hi Da Lab team",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#ehsan-mohammadi",
-            "name": "Dr. Ehsan Mohammadi",
-            "jobTitle": "Director, Hi Da Research Lab",
-            "url": "https://www.ehsanmohammadi.com/",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkcz1vTcSzU_xlnCwfxljhwNa52bvecqYZr9ZAJ7Italb5lqoTy3rSYl_H8848Lf_xM42jcZUcDarEhsRdI7QxCybhwHvUf4IIQPvudig5uTDh4EvXhjN6mkjwnKkQe75XSh0Xam5zDwpu3gWz1OoLOHs9sDNSis61HhsGm8gGef-DutVrM-eYTeJH2NP_sk-Td4fSZxeN7wLXw3HUDklql8m7Exy3LV20_aJfI=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            },
-            "sameAs": [
-              "https://scholar.google.com/citations?user=ddrRUEMAAAAJ",
-              "https://orcid.org/0000-0003-3481-6991",
-              "https://www.linkedin.com/in/ehsanmohammadi"
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#mike-thelwall",
-            "name": "Professor Mike Thelwall",
-            "jobTitle": "Collaborator",
-            "url": "https://www.sheffield.ac.uk/is/people/academic/mike-thelwall",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkfHDDI6WIWasUkskNIqaXeZQlNilVx8wZwtkmk3YMgij4bYp8Es8u_DKBQdix8xcA6L4Vb-v6bcZuArxXsHwGOneaXr3qv4sbzi4OJ9fzVnEfvip8G4XKflovH1z-nSVcX_dgXxCvEU4uZRBH8Hybn9wr10E7uWhh_UkHcF6zmRbCxdrgVFzMQ=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#ting-fung-ma",
-            "name": "Dr. Ting Fung Ma",
-            "jobTitle": "Collaborator",
-            "url": "https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/faculty/ma_tingfung.php",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkd-bcrFIk6uvFmL8pkkYx6NHBhbudF2tCK2GdPJ4Mwos6klvjmDJqP-_ULwPZLv9skiZRzt3EsaP5OhT1-nUzyUGDjjU9qFmOvWikPRnirz45D4uEUVgbJLn25OXgcB3Xmm4bJc-zJSzpM3mv0evxDNqM6ddanajT7zsTgqOxM6zCn08BF_uc82kI=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#iman-tahamtan",
-            "name": "Dr. Iman Tahamtan",
-            "jobTitle": "Collaborator",
-            "url": "https://sis.utk.edu/profile/iman-tahamtan",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCke3nr2U4HyWSDrDESxtBc4p7iy9G16BMdN3dWE9du7Lm2qQaMdYnrDd8p1aLid2al2h25h7Ww3EbbFAhHW2IqOmt3u70XGqvCjz2M2QzmI_DL_VgMNUyeADvHDjcqbNzpwkICvCG4gYe9eB0v9e2qBr_901IK-uTFzrJZOaJY3zxtbov6y89aURnBsZ2ajB0CxHg7h1pUkHg6Aneos8rxMSRbu41SIbsk2O=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#valerie-vera",
-            "name": "Valerie Vera",
-            "jobTitle": "PhD Student, School of Information Science",
-            "url": "https://scholar.google.com/citations?user=i3MzovYAAAAJ",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkc9BqpAifhbg7etWpgjJGPO7c7Pt47FN1vI44J6n0-OSr_4mDhyidmei3KpDWRNl8SuerL4nWzZHMORXfZAMNjzoC067z9BnmBbT_nqnsJ9o0gMPMazFvAofmdpJAQW933QBYg294zY-nqgG_svdY7U9ZmtpBzqx71f7U2N-45Kr5IfVsVSLYBK=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#yizhou-cai",
-            "name": "Yizhou Cai",
-            "alternateName": "Jake Cai",
-            "jobTitle": "PhD Candidate, Statistics",
-            "url": "https://scholar.google.com/citations?user=AUwCB1UAAAAJ",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkf7E0qhqhAf9UiNYBvfJTkMNT4Jq3zdj2fycnkbPmITOzoKjQjA_fU3MD7bd_EbLlpCTc2C6vtrf5RaSIErQNgRIAM7wUw9TheJj_eRzAEmFuRgH9rmAoUakQcnniEpiUOK75xkzfOj03t55p97iqJDQzl2Izi4ADIb65DZfJqiEwyg3pakV0Tn-V9V_FUA50tTIhQ0reECNq7xtiEtzGfIo4o3mKC25DtY=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 7,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#amirreza-kalantari",
-            "name": "Amirreza Kalantari",
-            "jobTitle": "PhD Student, School of Information Science",
-            "url": "https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkc05pGNlydTSJaxPz0Br4W1gJV1cPXUGLYkZdPXEI9CrzWRrf9mNah2bhjCpwWJURCQlNzlqLXJzfJZOUS1Gm2ZuAv5I5TOWp0foERhtUXZzUS2WIYz_adI26l4042-EtkAqEWjvOD4lRLObEZAisP-0O14HUq39X2hvO5eFlsOuvnNEy6daQzeTz0=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 8,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#quynh-nguyen",
-            "name": "Quynh Nguyen",
-            "jobTitle": "PhD Student, School of Information Science",
-            "url": "https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkfK_SL-C24BxXT_UqM9K2Au2iP6NxXipwA5tTMBN1u40z9cbhUeG8k4Wfm5ladY6HJhZzgQFpkqQ-VCSjmKHnpzbRAQ3zlq3qB55D_xORfwd2XkXIMeFPm55tk_1vNYFsaIfxbR6SfTsl0WvurKCbR1OQKGaeVkKVI7SNMQ7OJE04VypMHJWWOs=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 9,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#samaneh-borji",
-            "name": "Samaneh Borji",
-            "jobTitle": "PhD Student, School of Information Science",
-            "url": "https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkeYyOupOKk6XUv0lM4ua0eDeyNTGGPrz0hbByCZ42N602eSjioEf9RdNjkdyPYuPPjbEyY8Nt7HKKZF5Tw1QFSdGir2FanxQ5pmaVuNulCYSmorI6nwi-8mzUZNgPdWHQzGcqY1dWefO0nDaEwcwqmXu51sLzGQoLJ59SLe_otZQIHy_lqSUf-dH9p2YAn_0FPm-NcaTBTQLvSoJLkMTeV4datYI403qk1uiD4=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 10,
-          "item": {
-            "@type": "Person",
-            "@id": "https://www.hidalab.org/people#taylor-collier",
-            "name": "Taylor Collier",
-            "jobTitle": "AI Librarian, College of Charleston",
-            "url": "https://libguides.charleston.edu/prf.php?account_id=262361",
-            "image": "https://lh3.googleusercontent.com/sitesv/AAzXCkd8zfIpScRf_6D5rGdUN9ruKMcvwynigcXS3KRLdRZNXJeDbu9YjxFI15HlXu2OatBEqUz04A_CV9Ou0jbKB64tQ4eZ7z7WlTdszrOVzzqIVf6e6EIxI_MIf-S9JgLXbpDUwUbVYJDz3oHkvH71_Nhv3nDwP22ml9WfRrwASiOJto00mC4hpJPt1KSsmfbpSFN7zmUKJMkiSML1UT0GmEaUYmY9MAFMwxHA=w1280",
-            "affiliation": {
-              "@id": "https://www.hidalab.org/#org"
-            }
-          }
-        }
-      ]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Charset + viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>People | Hi Da Research Lab</title>
+  <meta name="description" content="People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.hidalab.org/people" />
+
+  <!-- Basic styling to match main site -->
+  <style>
+    :root {
+      --usc-garnet: #73000a;
+      --usc-light-garnet: #a30015;
+      --usc-gray: #f4f4f4;
+      --tab-bg: #ffffff;
+      --tab-border: #e0e0e0;
+      --tab-active-bg: #73000a;
+      --tab-active-text: #ffffff;
     }
-  ]
-}
-</script>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--usc-gray);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--usc-garnet);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+
+    .nav a.logo {
+      font-weight: 700;
+      color: var(--usc-garnet);
+      font-size: 1.25rem;
+    }
+
+    /* Tabs navbar */
+    .tabs-wrapper {
+      background: transparent;
+    }
+
+    .tabs {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 12px 20px;
+    }
+
+    .tabs-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 12px;
+      background: var(--tab-bg);
+      border-radius: 999px;
+      border: 1px solid var(--tab-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .tab-item {
+      flex: 0 0 auto;
+    }
+
+    .tab-link {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      color: #444;
+      background: transparent;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    }
+
+    .tab-link:hover {
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .tab-link.active {
+      background: var(--tab-active-bg);
+      color: var(--tab-active-text);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    }
+
+    .hero {
+      background: linear-gradient(120deg, var(--usc-garnet), var(--usc-light-garnet));
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+
+    .hero p {
+      margin: 10px 0 0;
+    }
+
+    .section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      color: var(--usc-garnet);
+    }
+
+    .intro-text {
+      max-width: 800px;
+      font-size: 1rem;
+    }
+
+    .people-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .person-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .person-photo-wrap {
+      width: 100%;
+      max-width: 110px;
+    }
+
+    .person-photo-wrap img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .person-name {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--usc-garnet);
+    }
+
+    .person-role {
+      margin: 4px 0 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .person-text {
+      font-size: 0.95rem;
+    }
+
+    .former-section {
+      margin-top: 40px;
+    }
+
+    .former-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .former-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .former-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .former-name {
+      margin: 0;
+      font-weight: 600;
+      color: var(--usc-garnet);
+      font-size: 0.95rem;
+    }
+
+    .former-text {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0 30px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .footer-nav a {
+      margin: 0 0.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .people-grid,
+      .former-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .person-card {
+        grid-template-columns: 80px 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tabs-list {
+        border-radius: 16px;
+      }
+
+      .person-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .person-photo-wrap {
+        max-width: 120px;
+        margin: 0 auto;
+      }
+
+      .former-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .former-photo {
+        max-width: 100px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Brand">
+      <a class="logo" href="/">Hi Da Lab</a>
+    </nav>
+  </header>
+
+  <!-- Tabs navigation -->
+  <div class="tabs-wrapper" aria-label="Main navigation">
+    <nav class="tabs">
+      <ul class="tabs-list">
+        <li class="tab-item">
+          <a class="tab-link" href="/">Welcome</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link active" href="people.html">People</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="publications.html">Publications</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="projects.html">Projects</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <h1>People</h1>
+    <p>Researchers, students, and collaborators in the Hi Da Research Lab</p>
+  </section>
+
+  <main class="section" aria-labelledby="people-heading">
+    <h2 id="people-heading">Hi Da Lab Team</h2>
+    <p class="intro-text">
+      Hi Da Lab is led by Professor <a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">Ehsan Mohammadi</a> in the School of Information Science at the University of South Carolina. The lab brings together graduate students, undergraduate researchers, and collaborators from a variety of disciplines.
+    </p>
+
+    <div class="people-grid">
+      <!-- Ehsan -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <!-- You can later replace this src with an image stored in assets/images/ -->
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcz1vTcSzU_xlnCwfxljhwNa52bvecqYZr9ZAJ7Italb5lqoTy3rSYl_H8848Lf_xM42jcZUcDarEhsRdI7QxCybhwHvUf4IIQPvudig5uTDh4EvXhjN6mkjwnKkQe75XSh0Xam5zDwpu3gWz1OoLOHs9sDNSis61HhsGm8gGef-DutVrM-eYTeJH2NP_sk-Td4fSZxeN7wLXw3HUDklql8m7Exy3LV20_aJfI=w1280" alt="Dr. Ehsan Mohammadi" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">Dr. Ehsan Mohammadi</a>
+          </h3>
+          <p class="person-role">Director, Hi Da Research Lab</p>
+          <p class="person-text">
+            Ehsan applies data science and web analytics to social science questions. His research spans scholarly communication, health information, misinformation and disinformation, and how people search for and use information in digital environments.
+          </p>
+        </div>
+      </article>
+
+      <!-- Mike Thelwall -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkfHDDI6WIWasUkskNIqaXeZQlNilVx8wZwtkmk3YMgij4bYp8Es8u_DKBQdix8xcA6L4Vb-v6bcZuArxXsHwGOneaXr3qv4sbzi4OJ9fzVnEfvip8G4XKflovH1z-nSVcX_dgXxCvEU4uZRBH8Hybn9wr10E7uWhh_UkHcF6zmRbCxdrgVFzMQ=w1280" alt="Professor Mike Thelwall" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://www.sheffield.ac.uk/is/people/academic/mike-thelwall" target="_blank" rel="noopener">Professor Mike Thelwall</a>
+          </h3>
+          <p class="person-role">Collaborator</p>
+          <p class="person-text">
+            Mike is a Professor of Data Science at the Information School of the University of Sheffield and a Research Associate at the Oxford Internet Institute. His work focuses on webometrics, altmetrics, and the measurement of scholarly communication online.
+          </p>
+        </div>
+      </article>
+
+      <!-- Ting Fung Ma -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkd-bcrFIk6uvFmL8hPkkYx6NHBhbudF2tCK2GdPJ4Mwos6klvjmDJqP-_ULwPZLv9skiZRzt3EsaP5OhT1-nUzyUGDjjU9qFmOvWikPRnirz45D4uEUVgbJLn25OXgcB3Xmm4bJc-zJSzpM3mv0evxDNqM6ddanajT7zsTgqOxM6zCn08BF_uc82kI=w1280" alt="Dr. Ting Fung Ma" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/faculty/ma_tingfung.php" target="_blank" rel="noopener">Dr. Ting Fung Ma</a>
+          </h3>
+          <p class="person-role">Collaborator</p>
+          <p class="person-text">
+            Ting Fung is an Assistant Professor in the Department of Statistics at the University of South Carolina. He develops scalable statistical methods for complex data, including spatial and spatio temporal data, and collaborates on multidisciplinary projects that involve large and dependent datasets.
+          </p>
+        </div>
+      </article>
+
+      <!-- Iman Tahamtan -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCke3nr2U4HyWSDrDESxtBc4p7iy9G16BMdN3dWE9du7Lm2qQaMdYnrDd8p1aLid2al2h25h7Ww3EbbFAhHW2IqOmt3u70XGqvCjz2M2QzmI_DL_VgMNUyeADvHDjcqbNzpwkICvCG4gYe9eB0v9e2qBr_901IK-uTFzrJZOaJY3zxtbov6y89aURnBsZ2ajB0CxHg7h1pUkHg6Aneos8rxMSRbu41SIbsk2O=w1280" alt="Dr. Iman Tahamtan" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sis.utk.edu/profile/iman-tahamtan" target="_blank" rel="noopener">Dr. Iman Tahamtan</a>
+          </h3>
+          <p class="person-role">Collaborator</p>
+          <p class="person-text">
+            Iman holds a PhD in Communication and Information from the University of Tennessee, Knoxville and is a UX lecturer at UTK. His research explores research impact, human computer interaction, social media, and digital health.
+          </p>
+        </div>
+      </article>
+
+      <!-- Valerie Vera -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkc9BqpAifhbg7etWpgjJGPO7c7Pt47FN1vI44J6n0-OSr_4mDhyidmei3KpDWRNl8SuerL4nWzZHMORXfZAMNjzoC067z9BnmBbT_nqnsJ9o0gMPMazFvAofmdpJAQW933QBYg294zY-nqgG_svdY7U9ZmtpBzqx71f7U2N-45Kr5IfVsVSLYBK=w1280" alt="Valerie Vera" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://scholar.google.com/citations?user=i3MzovYAAAAJ" target="_blank" rel="noopener">Valerie Vera</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Valerie is a PhD student in the School of Information Science at the University of South Carolina. She studies how social and structural factors shape interactions with mental health information and how people navigate these factors through emerging information and communication technologies.
+          </p>
+        </div>
+      </article>
+
+      <!-- Yizhou (Jake) Cai -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkf7E0qhqhAf9UiNYBvfJTkMNT4Jq3zdj2fycnkbPmITOzoKjQjA_fU3MD7bd_EbLlpCTc2C6vtrf5RaSIErQNgRIAM7wUw9TheJj_eRzAEmFuRgH9rmAoUakQcnniEpiUOK75xkzfOj03t55p97iqJDQzl2Izi4ADIb65DZfJqiEwyg3pakV0Tn-V9V_FUA50tTIhQ0reECNq7xtiEtzGfIo4o3mKC25DtY=w1280" alt="Yizhou (Jake) Cai" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://scholar.google.com/citations?user=AUwCB1UAAAAJ" target="_blank" rel="noopener">Yizhou Cai (Jake)</a>
+          </h3>
+          <p class="person-role">PhD Candidate, Statistics</p>
+          <p class="person-text">
+            Jake is a PhD candidate in the Department of Statistics at the University of South Carolina. He has experience applying machine learning to financial problems and is interested in advanced statistical applications across information science, finance, economics, and computer science.
+          </p>
+        </div>
+      </article>
+
+      <!-- Amirreza Kalantari -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkc05pGNlydTSJaxPz0Br4W1gJV1cPXUGLYkZdPXEI9CrzWRrf9mNah2bhjCpwWJURCQlNzlqLXJzfJZOUS1Gm2ZuAv5I5TOWp0foERhtUXZzUS2WIYz_adI26l4042-EtkAqEWjvOD4lRLObEZAisP-0O14HUq39X2hvO5eFlsOuvnNEy6daQzeTz0=w1280" alt="Amirreza Kalantari" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">Amirreza Kalantari</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Amirreza joined the School of Information Science at the University of South Carolina in August 2024. His research interests include human centered AI, information behavior, and computational methods for studying digital information spaces.
+          </p>
+        </div>
+      </article>
+
+      <!-- Quynh Nguyen -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkfK_SL-C24BxXT_UqM9K2Au2iP6NxXipwA5tTMBN1u40z9cbhUeG8k4Wfm5ladY6HJhZzgQFpkqQ-VCSjmKHnpzbRAQ3zlq3qB55D_xORfwd2XkXIMeFPm55tk_1vNYFsaIfxbR6SfTsl0WvurKCbR1OQKGaeVkKVI7SNMQ7OJE04VypMHJWWOs=w1280" alt="Quynh Nguyen" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">Quynh Nguyen</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Quynh is a PhD student at the University of South Carolina who is interested in how data and technology can address contemporary information challenges. She is excited to work on interdisciplinary projects that connect people, data, and technological systems.
+          </p>
+        </div>
+      </article>
+
+      <!-- Samaneh Borji -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkeYyOupOKk6XUv0lM4ua0eDeyNTGGPrz0hbByCZ42N602eSjioEf9RdNjkdyPYuPPjbEyY8Nt7HKKZF5Tw1QFSdGir2FanxQ5pmaVuNulCYSmorI6nwi-8mzUZNgPdWHQzGcqY1dWefO0nDaEwcwqmXu51sLzGQoLJ59SLe_otZQIHy_lqSUf-dH9p2YAn_0FPm-NcaTBTQLvSoJLkMTeV4datYI403qk1uiD4=w1280" alt="Samaneh Borji" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">Samaneh Borji</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Samaneh has a background in computer science, teaching, communication, and research. She is interested in building bridges between computer science and information science and focuses on improving information literacy so that people can better navigate mass information and avoid misleading content.
+          </p>
+        </div>
+      </article>
+
+      <!-- Taylor Collier -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkd8zfIpScRf_6D5rGdUN9ruKMcvwynigcXS3KRLdRZNXJeDbu9YjxFI15HlXu2OatBEqUz04A_CV9Ou0jbKB64tQ4eZ7z7WlTdszrOVzzqIVf6e6EIxI_MIf-S9JgLXbpDUwUbVYJDz3oHkvH71_Nhv3nDwP22ml9WfRrwASiOJto00mC4hpJPt1KSsmfbpSFN7zmUKJMkiSML1UT0GmEaUYmY9MAFMwxHA=w1280" alt="Taylor Collier" loading="lazy">
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://libguides.charleston.edu/prf.php?account_id=262361" target="_blank" rel="noopener">Taylor Collier</a>
+          </h3>
+          <p class="person-role">AI Librarian, College of Charleston</p>
+          <p class="person-text">
+            Taylor is an AI librarian at the College of Charleston. She is interested in the use of artificial intelligence in libraries and information science and how AI tools can support information services and user communities.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Former members -->
+    <section class="former-section" aria-labelledby="former-heading">
+      <h2 id="former-heading">Former Members</h2>
+
+      <div class="former-grid">
+        <!-- Alireza Salahirad -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkdv7Lo8cHliAWSXZZgyElJpMjoNdrwMAjPp1bV8fyhU3a-pt1a2TQAh4S7NCjUmnAVNQrgpUA7POAyTymfgoU6Rg6TIrJ2b7panlA8KXqM-jkLKx05O-EvRevRolgde1agJbMcY21jRxlMvcltsZY4WpS-QbYJ4liT88irQ73z_BNlw2ql-T46nZh1BPJzxJtJoFZwcO2F5Dh2gwFXgLGdS6Rlh7MkRzQ9SaKc=w1280" alt="Alireza Salahirad" loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">
+              <a href="https://www.linkedin.com/in/alireza-salahirad" target="_blank" rel="noopener">Alireza Salahirad</a>
+            </h3>
+            <p class="former-text">
+              Alireza is a PhD candidate in Computer Science and Engineering at the University of South Carolina. He worked in Hi Da Lab as a data engineer and data scientist between April 2020 and September 2021, with interests in software testing, machine learning, and data science.
+            </p>
+          </div>
+        </article>
+
+        <!-- Dalton Bickford -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkcgt7-E656RTrj3DnKh8sSOuFazaZZHf36eA6XcpK-7f-1IkzbEMiBDIV_N1BMm9wxhaeOQ8M4NVhFWHl51PX0xAs7j0sBGH3jYQ5jUXR4Pq9nTjLO-OBGpnGPUs12hpM4bvmXY0YcLSGVD9oxDgtUzlKteeeobERUOb0rFTnDG0wCzWSJ5av7iwFo=w1280" alt="Dalton Bickford" loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">Dalton Bickford</h3>
+            <p class="former-text">
+              Dalton was a data science research assistant in 2018 and 2019 while he was a PhD student in Computer Science and Engineering at the University of South Carolina.
+            </p>
+          </div>
+        </article>
+
+        <!-- Constance Caddell -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkdeeNhiOxx9fy_BhvQvizG85b_5FusWWT8d1vai4KP2sfMQnpwcJIsvJW5qyAv2waEhmaK_Ed4iWyqHBhR0GV1GFcMT7s6jcr7KrFSS1z3QB5xP6e3AV5walsdKym7_N__hB7X-3CPKBY0icoP7wJ31kZ1U6Vx5mRV8oKe8471RuY9kuNs7lbsaKOvhkQ3qSOLqSWYQ8TYCe0RuyececY46slk35_5sy-8r=w1280" alt="Constance Caddell" loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">Constance Caddell</h3>
+            <p class="former-text">
+              Constance is a PhD candidate in the School of Information Science at the University of South Carolina. She served as a graduate assistant in Hi Da Lab in 2019.
+            </p>
+          </div>
+        </article>
+
+        <!-- Katie Hoskins -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="https://lh3.googleusercontent.com/sitesv/AAzXCkd6ecD7OcmAELDPukZEAAsmbXYQunVdb5qtyA8mF5WDkfM_uXhEwKdFpUZHjV1N1H6fC2K-oV-BfK3GP5Vr0F_pjw4OQxJ2Fw4XLWB-w53y8iCDBACe6-JGUKujyfZLFtiLRa1sZoeaEoa3gmgHsRUsACXLxw6qIUj9K3uOVPDNDawHLGBm4cgjVgUzcG2f09oeciELxJqFFJeMSutEEVXxobT-evhuMV3AApA=w1280" alt="Katie Hoskins" loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">Katie Hoskins</h3>
+            <p class="former-text">
+              Katie was a graduate assistant in Hi Da Lab while she was an MLIS student. Her interests include metadata policy and equity in information organization.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="/">Welcome</a> |
+      <a href="people.html">People</a> |
+      <a href="publications.html">Publications</a> |
+      <a href="projects.html">Projects</a>
+    </div>
+    <p>© <span id="year"></span> Hi Da Lab · Human Insight for Data &amp; AI</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
