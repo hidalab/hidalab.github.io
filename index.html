@@ -26,7 +26,7 @@
   <meta name="twitter:description" content="Human-centered research at the intersection of AI, health, and society." />
   <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
 
-  <!-- Google Tag Manager: use ONE container ID consistently (GTM-T338LLNV) -->
+  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,6 +42,10 @@
       --usc-black: #000000;
       --usc-gray: #f4f4f4;
       --usc-light-garnet: #a30015;
+      --tab-bg: #ffffff;
+      --tab-border: #e0e0e0;
+      --tab-active-bg: #73000a;
+      --tab-active-text: #ffffff;
     }
     * { box-sizing: border-box; }
     body {
@@ -69,75 +73,187 @@
     .nav a.logo {
       font-weight: 700;
       color: var(--usc-garnet);
-      font-size: 1.1rem;
+      font-size: 1.25rem;
     }
 
-    /* TOP TABS */
-    .nav ul {
+    /* FANCY TABS NAVBAR */
+    .tabs-wrapper {
+      background: transparent;
+    }
+
+    .tabs {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 12px 20px;
+    }
+
+    .tabs-list {
       list-style: none;
       display: flex;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
       margin: 0;
-      padding: 0;
-    }
-    .nav li {
-      margin: 0;
-    }
-    .nav ul a {
-      display: block;
-      padding: 6px 14px;
+      padding: 12px;
+      background: var(--tab-bg);
       border-radius: 999px;
-      background: transparent;
-      color: var(--usc-black);
+      border: 1px solid var(--tab-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .tab-item {
+      flex: 0 0 auto;
+    }
+
+    .tab-link {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
       font-size: 0.95rem;
       font-weight: 500;
-    }
-    .nav ul a:hover {
-      background: var(--usc-garnet);
-      color: #fff;
+      border: 1px solid transparent;
+      color: #444;
+      background: transparent;
       text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    }
+
+    .tab-link:hover {
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    /* Mark the current page as active (Welcome tab on this page) */
+    .tab-link.active {
+      background: var(--tab-active-bg);
+      color: var(--tab-active-text);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    }
+
+    .tab-link.active:hover {
+      background: var(--tab-active-bg);
     }
 
     .hero {
       background: linear-gradient(120deg, var(--usc-garnet), var(--usc-light-garnet));
-      color: #fff; text-align: center; padding: 60px 20px;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
     }
     .hero h1 { font-size: 2.8rem; margin: 0; }
     .hero p { font-size: 1.1rem; margin: 10px 0 0; }
 
-    .section { max-width: 1280px; margin: auto; padding: 40px 20px; }
-    .section h2 { border-bottom: 2px solid #ccc; padding-bottom: 10px; color: var(--usc-garnet); margin-top: 0; }
+    .section {
+      max-width: 1280px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      color: var(--usc-garnet);
+      margin-top: 0;
+    }
 
-    .about-grid { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 24px; }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 24px;
+    }
     .about-grid > div { flex: 1; min-width: 300px; }
 
-    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 24px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
 
-    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
     .card h3 { margin-top: 0; color: var(--usc-garnet); }
 
-    img.lab-photo { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .caption { text-align: center; font-style: italic; margin-top: 10px; color: #555; }
+    img.lab-photo {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .caption {
+      text-align: center;
+      font-style: italic;
+      margin-top: 10px;
+      color: #555;
+    }
 
-    .news-scroll { max-height: none; overflow-y: visible; border-left: 4px solid var(--usc-light-garnet); padding: 16px 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .news-scroll ul { padding-left: 20px; margin: 0; }
+    .news-scroll {
+      max-height: none;
+      overflow-y: visible;
+      border-left: 4px solid var(--usc-light-garnet);
+      padding: 16px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .news-scroll ul {
+      padding-left: 20px;
+      margin: 0;
+    }
     .news-scroll li { margin-bottom: 14px; }
 
-    footer { background: #fff; border-top: 1px solid #eee; }
-    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 20px; font-size: .95rem; color: #555; }
+    footer {
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: .95rem;
+      color: #555;
+    }
 
-    @media (max-width: 1200px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    /* Separate footer nav styling */
+    .hidalab-footer {
+      margin-top: 3rem;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .hidalab-footer-nav a {
+      text-decoration: none;
+      margin: 0 0.25rem;
+    }
+
+    .hidalab-footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hidalab-footer-text {
+      margin-top: 0.5rem;
+      color: #555;
+    }
+
+    @media (max-width: 1200px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 640px) {
       .grid { grid-template-columns: 1fr; }
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+      .tabs-list {
+        border-radius: 16px;
       }
     }
   </style>
 
-  <!-- Structured data: Organization, WebSite, ResearchProject, Breadcrumbs -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -203,22 +319,38 @@
   </script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) placed immediately after opening <body> -->
+  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T338LLNV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
   <header>
-    <nav class="nav" aria-label="Primary">
-      <a class="logo" href="https://www.hidalab.org/">Hi Da Lab</a>
-      <ul>
-        <li><a href="https://www.hidalab.org/welcome">Welcome</a></li>
-        <li><a href="https://www.hidalab.org/people">People</a></li>
-        <li><a href="https://www.hidalab.org/publications">Publications</a></li>
-        <li><a href="https://www.hidalab.org/projects">Projects</a></li>
-      </ul>
+    <nav class="nav" aria-label="Brand">
+      <a class="logo" href="/">Hi Da Lab</a>
     </nav>
   </header>
+
+  <!-- FANCY TABS NAVBAR -->
+  <div class="tabs-wrapper" aria-label="Main navigation">
+    <nav class="tabs">
+      <ul class="tabs-list">
+        <!-- On this page, Welcome is active.
+             On other pages (people.html, publications.html, etc.) you will move the 'active' class. -->
+        <li class="tab-item">
+          <a class="tab-link active" href="/">Welcome</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="people.html">People</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="publications.html">Publications</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="projects.html">Projects</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
   <section class="hero">
     <h1>Hi Da Research Lab</h1>
@@ -235,7 +367,7 @@
       </div>
       <div>
         <img class="lab-photo" src="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" alt="Hi Da Lab team at Davis" loading="lazy" />
-        <p class="caption"><a href="https://www.hidalab.org/people" target="_blank" rel="noopener">Hi Da Lab Team</a></p>
+        <p class="caption"><a href="people.html" target="_blank" rel="noopener">Hi Da Lab Team</a></p>
       </div>
     </div>
   </section>
@@ -283,13 +415,10 @@
 
   <footer class="hidalab-footer">
     <nav class="hidalab-footer-nav">
-      <a href="https://www.hidalab.org/welcome">Welcome</a>
-      |
-      <a href="https://www.hidalab.org/people">People</a>
-      |
-      <a href="https://www.hidalab.org/publications">Publications</a>
-      |
-      <a href="https://www.hidalab.org/projects">Projects</a>
+      <a href="/">Welcome</a> |
+      <a href="people.html">People</a> |
+      <a href="publications.html">Publications</a> |
+      <a href="projects.html">Projects</a>
     </nav>
 
     <p class="hidalab-footer-text">
@@ -301,31 +430,5 @@
     // Auto update the year
     document.getElementById('hidalab-year').textContent = new Date().getFullYear();
   </script>
-
-  <style>
-    .hidalab-footer {
-      margin-top: 3rem;
-      padding: 1.5rem 0;
-      border-top: 1px solid #ddd;
-      text-align: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.9rem;
-      background: #fff;
-    }
-
-    .hidalab-footer-nav a {
-      text-decoration: none;
-      margin: 0 0.25rem;
-    }
-
-    .hidalab-footer-nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hidalab-footer-text {
-      margin-top: 0.5rem;
-      color: #555;
-    }
-  </style>
 </body>
 </html>
