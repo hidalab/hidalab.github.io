@@ -23,65 +23,82 @@
       line-height: 1.6;
     }
 
-    /* TOP OF PAGE – similar to https://hidalab.github.io/people.html */
+    /* TOP AREA LIKE hidalab.github.io */
+
     header {
-      background: #fff;
+      background: #ffffff;
       border-bottom: 1px solid #eee;
     }
 
     .site-header-inner {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 16px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
+      padding: 20px 16px 10px;
+      text-align: center;
     }
 
     .site-title {
-      font-size: 1.4rem;
+      font-size: 1.9rem;
       font-weight: 700;
+      margin: 0 0 8px 0;
       color: var(--usc-garnet);
       text-decoration: none;
+      display: inline-block;
     }
 
-    .site-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 0.95rem;
-    }
-
-    .site-nav a {
-      color: #555;
-      text-decoration: none;
-    }
-
-    .site-nav a:hover {
+    .site-title:hover {
       text-decoration: underline;
-      color: var(--usc-garnet);
     }
 
-    .page-header {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 32px 20px 12px;
-    }
-
-    .page-header h1 {
-      font-size: 2rem;
-      margin: 0 0 8px;
-      color: var(--usc-garnet);
-    }
-
-    .page-header p {
-      margin: 0;
+    .site-tagline {
+      margin: 0 0 12px 0;
+      font-size: 0.98rem;
       color: #555;
     }
 
-    /* MAIN CONTENT */
+    .site-tabs {
+      font-size: 0.98rem;
+      margin-top: 4px;
+    }
+
+    .site-tabs a {
+      color: var(--usc-garnet);
+      text-decoration: none;
+      padding: 4px 6px;
+    }
+
+    .site-tabs a:hover {
+      text-decoration: underline;
+    }
+
+    .site-tabs .divider {
+      color: #999;
+      margin: 0 2px;
+    }
+
+    .site-tabs a.active {
+      font-weight: 600;
+    }
+
+    /* PAGE CONTENT */
+
+    .hero {
+      background: linear-gradient(120deg, var(--usc-garnet), var(--usc-light-garnet));
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 12px 0 0;
+    }
+
     .section {
       max-width: 1280px;
       margin: auto;
@@ -162,20 +179,25 @@
   </style>
 </head>
 <body>
-  <!-- TOP OF PAGE (matching people.html style) -->
+
+  <!-- TOP LIKE hidalab.github.io -->
   <header>
     <div class="site-header-inner">
       <a href="https://www.hidalab.org/" class="site-title">Hi Da Research Lab</a>
-      <nav class="site-nav" aria-label="Primary navigation">
+      <p class="site-tagline">Human Insight for Data &amp; AI</p>
+      <nav class="site-tabs" aria-label="Primary">
         <a href="https://www.hidalab.org/">Welcome</a>
+        <span class="divider">|</span>
         <a href="https://www.hidalab.org/people">People</a>
+        <span class="divider">|</span>
         <a href="https://www.hidalab.org/publications">Publications</a>
-        <a href="https://www.hidalab.org/projects">Projects</a>
+        <span class="divider">|</span>
+        <a href="https://www.hidalab.org/projects" class="active">Projects</a>
       </nav>
     </div>
   </header>
 
-  <section class="page-header">
+  <section class="hero">
     <h1>Projects</h1>
     <p>Investigating how AI and human insight shape health, science, and society.</p>
   </section>
@@ -276,13 +298,13 @@
     <div class="footer-inner">
       <nav aria-label="Footer">
         <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:14px; margin:0 0 8px 0; padding:0; font-size:.95rem;">
-          <li><a href="https://www.hidalab.org/">Home</a></li>
+          <li><a href="https://www.hidalab.org/">Welcome</a></li>
           <li><a href="https://www.hidalab.org/people">People</a></li>
           <li><a href="https://www.hidalab.org/publications">Publications</a></li>
           <li><a href="https://www.hidalab.org/projects">Projects</a></li>
         </ul>
       </nav>
-      <p>© <span id="year"></span> Hi Da Research Lab. All rights reserved.</p>
+      <p>© <span id="year"></span> Hi Da Research Lab · Human Insight for Data &amp; AI</p>
     </div>
   </footer>
 
