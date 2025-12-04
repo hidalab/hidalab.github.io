@@ -6,10 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Basic SEO -->
-  <title>Hi Da Research Lab | Human Insight for Data & AI</title>
+  <title>Hi Da Research Lab | Human Insight for Data &amp; AI</title>
   <meta name="description" content="Hi Da Research Lab at the University of South Carolina explores human-centered AI, health informatics, social media analytics, and the science of science." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <link rel="canonical" href="https://www.hidalab.org/" />
+  <meta name="author" content="Hi Da Research Lab" />
+  <meta name="keywords" content="Hi Da Lab, Human Insight for Data and AI, research lab, AI literacy, health misinformation, social media analytics, science of science, information behavior, University of South Carolina" />
+
+  <!-- Canonical: GitHub Pages is the primary home -->
+  <link rel="canonical" href="https://hidalab.github.io/" />
 
   <!-- Performance hints -->
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -17,14 +21,16 @@
 
   <!-- Open Graph / Twitter for rich snippets -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.hidalab.org/" />
-  <meta property="og:title" content="Hi Da Research Lab | Human Insight for Data & AI" />
+  <meta property="og:url" content="https://hidalab.github.io/" />
+  <meta property="og:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta property="og:description" content="Human-centered research at the intersection of AI, health, and society." />
-  <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
+  <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Hi Da Research Lab | Human Insight for Data & AI" />
+  <meta name="twitter:url" content="https://hidalab.github.io/" />
+  <meta name="twitter:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta name="twitter:description" content="Human-centered research at the intersection of AI, health, and society." />
-  <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
+  <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
 
   <!-- Google Tag Manager -->
   <script>
@@ -35,56 +41,103 @@
   })(window,document,'script','dataLayer','GTM-T338LLNV');
   </script>
 
-  <!-- Styles -->
+  <!-- Styles (layout refreshed, text unchanged) -->
   <style>
     :root {
       --usc-garnet: #73000a;
-      --usc-black: #000000;
-      --usc-gray: #f4f4f4;
       --usc-light-garnet: #a30015;
+      --usc-gray: #f4f4f4;
+      --shell-bg: #faf7f8;
       --tab-bg: #ffffff;
       --tab-border: #e0e0e0;
       --tab-active-bg: #73000a;
       --tab-active-text: #ffffff;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: var(--usc-gray);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f8e9ec 0, #f4f4f4 40%, #f4f4f4 100%);
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
-    a { color: var(--usc-garnet); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    a {
+      color: var(--usc-garnet);
+      text-decoration: none;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
 
     header {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid #eee;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
+
     .nav {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 20px;
+      padding: 10px 20px;
     }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffccd5 0, var(--usc-garnet) 45%, var(--usc-light-garnet) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+
     .nav a.logo {
       font-weight: 700;
       color: var(--usc-garnet);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
     }
 
-    /* FANCY TABS NAVBAR */
+    .nav-tagline {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Tabs navbar */
     .tabs-wrapper {
       background: transparent;
     }
 
     .tabs {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 20px 12px 20px;
+      max-width: 1200px;
+      margin: 0 auto 6px auto;
+      padding: 0 20px 10px 20px;
     }
 
     .tabs-list {
@@ -93,11 +146,11 @@
       flex-wrap: wrap;
       gap: 8px;
       margin: 0;
-      padding: 12px;
+      padding: 8px;
       background: var(--tab-bg);
       border-radius: 999px;
       border: 1px solid var(--tab-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
     }
 
     .tab-item {
@@ -119,16 +172,15 @@
 
     .tab-link:hover {
       background: #f8f8f8;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       transform: translateY(-1px);
       text-decoration: none;
     }
 
-    /* Mark the current page as active (Welcome tab on this page) */
     .tab-link.active {
       background: var(--tab-active-bg);
       color: var(--tab-active-text);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
     }
 
     .tab-link.active:hover {
@@ -136,119 +188,294 @@
     }
 
     .hero {
-      background: linear-gradient(120deg, var(--usc-garnet), var(--usc-light-garnet));
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
+      background: #ffffff;
+      color: #1d0204;
+      padding: 48px 20px 40px;
+      margin-top: 4px;
+      border-bottom: 1px solid #eee;
     }
-    .hero h1 { font-size: 2.8rem; margin: 0; }
-    .hero p { font-size: 1.1rem; margin: 10px 0 0; }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2.7rem;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      margin: 6px 0 0;
+    }
+
+    .hero-subtext {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .hero-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 0.8rem;
+      opacity: 0.95;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-cta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1d0204;
+      background: #fff;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-button.secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: none;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+      text-decoration: none;
+    }
+
+    .hero-visual {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.18) 0, transparent 55%),
+                  radial-gradient(circle at bottom, rgba(0, 0, 0, 0.12) 0, transparent 55%);
+      padding: 10px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+    }
+
+    .hero-visual-caption {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .shell-section {
+      background: var(--shell-bg);
+    }
 
     .section {
-      max-width: 1280px;
-      margin: auto;
-      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 28px 26px 30px;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
+
     .section h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      color: var(--usc-garnet);
       margin-top: 0;
+      border-bottom: 1px solid #e4d4d7;
+      padding-bottom: 8px;
+      color: var(--usc-garnet);
+      font-size: 1.3rem;
     }
 
     .about-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 26px;
+      margin-top: 20px;
+      align-items: start;
     }
-    .about-grid > div { flex: 1; min-width: 300px; }
+
+    .about-grid > div {
+      min-width: 0;
+    }
+
+    .about-grid p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 24px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 22px;
     }
 
     .card {
       background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0e2e5;
     }
-    .card h3 { margin-top: 0; color: var(--usc-garnet); }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--usc-garnet);
+      font-size: 1rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
 
     img.lab-photo {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      display: block;
     }
+
     .caption {
-      text-align: center;
+      text-align: left;
       font-style: italic;
-      margin-top: 10px;
+      margin-top: 8px;
       color: #555;
+      font-size: 0.85rem;
     }
 
     .news-scroll {
       max-height: none;
       overflow-y: visible;
       border-left: 4px solid var(--usc-light-garnet);
-      padding: 16px 20px;
+      padding: 16px 20px 6px;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 14px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
+
+    .news-scroll::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 18px;
+      bottom: 18px;
+      border-left: 1px dashed rgba(115, 0, 10, 0.2);
+      pointer-events: none;
+    }
+
     .news-scroll ul {
-      padding-left: 20px;
+      padding-left: 24px;
       margin: 0;
+      list-style: none;
     }
-    .news-scroll li { margin-bottom: 14px; }
+
+    .news-scroll li {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .news-scroll li::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 0.45em;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--usc-light-garnet);
+      box-shadow: 0 0 0 3px rgba(163, 0, 21, 0.18);
+    }
 
     footer {
+      margin-top: 24px;
+      padding: 18px 0 26px;
       background: #fff;
       border-top: 1px solid #eee;
     }
+
     .footer-inner {
-      max-width: 1280px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 20px;
-      font-size: .95rem;
+      padding: 0 20px;
+      font-size: 0.85rem;
       color: #555;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
     }
 
-    /* Separate footer nav styling */
-    .hidalab-footer {
-      margin-top: 3rem;
-      padding: 1.5rem 0;
-      text-align: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.9rem;
-    }
-
-    .hidalab-footer-nav a {
-      text-decoration: none;
+    .footer-nav a {
       margin: 0 0.25rem;
     }
 
-    .hidalab-footer-nav a:hover {
-      text-decoration: underline;
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        max-width: 420px;
+        margin: 20px auto 0;
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    .hidalab-footer-text {
-      margin-top: 0.5rem;
-      color: #555;
-    }
-
-    @media (max-width: 1200px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
     @media (max-width: 640px) {
-      .grid { grid-template-columns: 1fr; }
       .tabs-list {
         border-radius: 16px;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -260,13 +487,16 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.hidalab.org/#org",
+        "@type": "Organization",
+        "@id": "https://hidalab.github.io/#org",
         "name": "Hi Da Research Lab",
-        "alternateName": "Human Insight for Data and AI",
-        "url": "https://www.hidalab.org/",
-        "logo": "https://www.hidalab.org/assets/logo.png",
+        "alternateName": "Human Insight for Data & AI",
+        "url": "https://hidalab.github.io/",
+        "logo": "https://hidalab.github.io/assets/logo.png",
         "sameAs": [
-          "https://www.wikidata.org/wiki/Q57911399"
+          "https://www.wikidata.org/wiki/Q57911399",
+          "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php"
         ],
         "affiliation": {
           "@type": "CollegeOrUniversity",
@@ -276,42 +506,56 @@
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.hidalab.org/#website",
-        "url": "https://www.hidalab.org/",
-        "name": "Hi Da Lab — Human Insight for Data & AI",
+        "@id": "https://hidalab.github.io/#website",
+        "url": "https://hidalab.github.io/",
+        "name": "Hi Da Research Lab",
         "inLanguage": "en",
-        "publisher": { "@id": "https://www.hidalab.org/#org" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.hidalab.org/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "publisher": { "@id": "https://hidalab.github.io/#org" }
       },
       {
         "@type": "ResearchProject",
-        "@id": "https://www.hidalab.org/#project",
-        "name": "Hi Da Lab",
-        "alternateName": "Human Insight for Data and AI",
-        "url": "https://www.hidalab.org/",
+        "@id": "https://hidalab.github.io/#project",
+        "name": "Hi Da Research Lab",
+        "alternateName": "Human Insight for Data & AI",
+        "url": "https://hidalab.github.io/",
         "description": "Hi Da Lab is a multidisciplinary research lab exploring the intersections of health, AI, social media, and science. We focus on misinformation, responsible innovation, and data-driven impact.",
-        "keywords": ["AI", "Health Informatics", "Social Media", "Misinformation", "Science of Science", "Information Behavior"],
+        "keywords": [
+          "AI",
+          "health informatics",
+          "health misinformation",
+          "social media analytics",
+          "science of science",
+          "altmetrics",
+          "information behavior",
+          "AI literacy"
+        ],
         "member": {
           "@type": "Person",
+          "@id": "https://hidalab.github.io/#ehsan-mohammadi",
           "name": "Ehsan Mohammadi",
-          "url": "https://www.hidalab.org/people/ehsan-mohammadi",
-          "jobTitle": "Director",
+          "jobTitle": "Director, Hi Da Research Lab",
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of South Carolina",
+            "url": "https://sc.edu"
+          },
+          "url": "https://www.ehsanmohammadi.com/",
           "sameAs": [
             "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
-            "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php",
-            "https://www.linkedin.com/in/ehsanmohammadi",
-            "https://orcid.org/0000-0003-3481-6991"
+            "https://orcid.org/0000-0003-3481-6991",
+            "https://www.linkedin.com/in/ehsanmohammadi"
           ]
         }
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.hidalab.org/"}
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://hidalab.github.io/"
+          }
         ]
       }
     ]
@@ -326,36 +570,35 @@
 
   <header>
     <nav class="nav" aria-label="Brand">
-      <a class="logo" href="/">Hi Da Lab</a>
+      <div class="nav-left">
+        <div class="nav-logo-circle">Hi</div>
+        <div>
+          <a class="logo" href="/">Hi Da Research Lab</a>
+          <div class="nav-tagline">Human Insight for Data &amp; AI</div>
+        </div>
+      </div>
     </nav>
+
+    <!-- Tabs navigation -->
+    <div class="tabs-wrapper" aria-label="Main navigation">
+      <nav class="tabs">
+        <ul class="tabs-list">
+          <li class="tab-item">
+            <a class="tab-link active" href="/">Welcome</a>
+          </li>
+          <li class="tab-item">
+            <a class="tab-link" href="people.html">People</a>
+          </li>
+          <li class="tab-item">
+            <a class="tab-link" href="publications.html">Publications</a>
+          </li>
+          <li class="tab-item">
+            <a class="tab-link" href="projects.html">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
-
-  <!-- FANCY TABS NAVBAR -->
-  <div class="tabs-wrapper" aria-label="Main navigation">
-    <nav class="tabs">
-      <ul class="tabs-list">
-        <!-- On this page, Welcome is active.
-             On other pages (people.html, publications.html, etc.) you will move the 'active' class. -->
-        <li class="tab-item">
-          <a class="tab-link active" href="/">Welcome</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="people.html">People</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="publications.html">Publications</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="projects.html">Projects</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <section class="hero">
-    <h1>Hi Da Research Lab</h1>
-    <p>Human Insight for Data and AI</p>
-  </section>
 
   <section id="about" class="section" aria-labelledby="about-heading">
     <h2 id="about-heading">About Us</h2>
@@ -366,7 +609,7 @@
         <p>If you are interested in joining our team, <a href="mailto:ehsan2@sc.edu">send us an email</a>.</p>
       </div>
       <div>
-        <img class="lab-photo" src="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" alt="Hi Da Lab team at Davis" loading="lazy" />
+        <img class="lab-photo" src="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" alt="Hi Da Lab team at Davis" loading="lazy" />
         <p class="caption"><a href="people.html" target="_blank" rel="noopener">Hi Da Lab Team</a></p>
       </div>
     </div>
@@ -413,22 +656,27 @@
     </div>
   </section>
 
-  <footer class="hidalab-footer">
-    <nav class="hidalab-footer-nav">
-      <a href="/">Welcome</a> |
-      <a href="people.html">People</a> |
-      <a href="publications.html">Publications</a> |
-      <a href="projects.html">Projects</a>
-    </nav>
-
-    <p class="hidalab-footer-text">
-      © <span id="hidalab-year"></span> Hi Da Lab · Human Insight for Data &amp; AI
-    </p>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Hi Da Research Lab</strong> · Human Insight for Data &amp; AI<br />
+        School of Information Science, University of South Carolina
+      </div>
+      <div>
+        <span class="footer-nav">
+          <a href="/">Welcome</a> |
+          <a href="people.html">People</a> |
+          <a href="publications.html">Publications</a> |
+          <a href="projects.html">Projects</a>
+        </span>
+        <br />
+        © <span id="year"></span> Hi Da Lab
+      </div>
+    </div>
   </footer>
 
   <script>
-    // Auto update the year
-    document.getElementById('hidalab-year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
