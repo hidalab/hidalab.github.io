@@ -15,100 +15,104 @@
       --usc-light-garnet: #a30015;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: var(--usc-gray);
+      background: #ffffff;
       color: #333;
       line-height: 1.6;
     }
 
-    /* TOP AREA LIKE hidalab.github.io */
-
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #eee;
-    }
-
-    .site-header-inner {
-      max-width: 900px;
+    .container {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 20px 16px 10px;
-      text-align: center;
+      padding: 0 16px;
     }
 
-    .site-title {
-      font-size: 1.9rem;
+    /* Top like hidalab.github.io */
+    header.site-header {
+      border-bottom: 1px solid #ddd;
+      padding: 16px 0 8px 0;
+      background: #fff;
+    }
+
+    .site-title-row {
+      margin-bottom: 8px;
+    }
+
+    .site-title-row h1 {
+      font-size: 1.8rem;
+      margin: 0;
       font-weight: 700;
-      margin: 0 0 8px 0;
-      color: var(--usc-garnet);
-      text-decoration: none;
-      display: inline-block;
     }
 
-    .site-title:hover {
-      text-decoration: underline;
+    .site-title-row h1 a {
+      color: var(--usc-black);
+      text-decoration: none;
     }
 
     .site-tagline {
-      margin: 0 0 12px 0;
+      margin: 2px 0 0 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .site-nav {
+      margin-top: 8px;
+      font-size: 0.98rem;
+    }
+
+    .site-nav a {
+      display: inline-block;
+      margin-right: 12px;
+      text-decoration: none;
+      color: #0645ad;
+    }
+
+    .site-nav a:visited {
+      color: #0645ad; /* keep same color after visit */
+    }
+
+    .site-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .site-nav a.active {
+      font-weight: 600;
+    }
+
+    main {
+      padding: 24px 0 40px 0;
+      background: #ffffff;
+    }
+
+    main h1 {
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+
+    main p.lead {
+      margin-top: 0;
+      margin-bottom: 16px;
       font-size: 0.98rem;
       color: #555;
     }
 
-    .site-tabs {
-      font-size: 0.98rem;
-      margin-top: 4px;
-    }
-
-    .site-tabs a {
-      color: var(--usc-garnet);
-      text-decoration: none;
-      padding: 4px 6px;
-    }
-
-    .site-tabs a:hover {
-      text-decoration: underline;
-    }
-
-    .site-tabs .divider {
-      color: #999;
-      margin: 0 2px;
-    }
-
-    .site-tabs a.active {
-      font-weight: 600;
-    }
-
-    /* PAGE CONTENT */
-
-    .hero {
-      background: linear-gradient(120deg, var(--usc-garnet), var(--usc-light-garnet));
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.6rem;
-      margin: 0;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin: 12px 0 0;
-    }
-
     .section {
-      max-width: 1280px;
-      margin: auto;
-      padding: 40px 20px;
+      margin-top: 16px;
     }
 
     .section h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
+      font-size: 1.3rem;
+      margin: 0 0 8px 0;
       color: var(--usc-garnet);
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
     }
 
     .grid {
@@ -121,31 +125,33 @@
     .card {
       background: #fff;
       border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
     .card h3 {
-      margin-top: 0;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
       color: var(--usc-garnet);
     }
 
     .card img {
       width: 100%;
-      height: 220px;
+      height: 210px;
       object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: block;
     }
 
     a {
-      color: var(--usc-garnet);
+      color: #0645ad;
       text-decoration: none;
     }
 
     a:visited {
-      color: var(--usc-garnet);
+      color: #0645ad;
     }
 
     a:hover {
@@ -155,14 +161,38 @@
     footer {
       background: #fff;
       border-top: 1px solid #eee;
+      margin-top: 24px;
     }
 
     .footer-inner {
-      max-width: 1280px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 20px;
-      font-size: .95rem;
+      padding: 16px;
+      font-size: 0.9rem;
       color: #555;
+    }
+
+    .footer-inner ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 0 0 8px 0;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-inner a {
+      color: #0645ad;
+      text-decoration: none;
+    }
+
+    .footer-inner a:visited {
+      color: #0645ad;
+    }
+
+    .footer-inner a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 960px) {
@@ -175,136 +205,138 @@
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .site-title-row h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- TOP LIKE hidalab.github.io -->
-  <header>
-    <div class="site-header-inner">
-      <a href="https://www.hidalab.org/" class="site-title">Hi Da Research Lab</a>
-      <p class="site-tagline">Human Insight for Data &amp; AI</p>
-      <nav class="site-tabs" aria-label="Primary">
-        <a href="https://www.hidalab.org/">Welcome</a>
-        <span class="divider">|</span>
-        <a href="https://www.hidalab.org/people">People</a>
-        <span class="divider">|</span>
-        <a href="https://www.hidalab.org/publications">Publications</a>
-        <span class="divider">|</span>
-        <a href="https://www.hidalab.org/projects" class="active">Projects</a>
+  <header class="site-header">
+    <div class="container">
+      <div class="site-title-row">
+        <h1><a href="https://hidalab.github.io/">Hi Da Research Lab</a></h1>
+        <p class="site-tagline">Human Insight for Data &amp; AI</p>
+      </div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="https://hidalab.github.io/">Welcome</a>
+        <a href="https://hidalab.github.io/people.html">People</a>
+        <a href="https://hidalab.github.io/publications.html">Publications</a>
+        <a href="https://www.hidalab.org/projects" class="active" aria-current="page">Projects</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <main class="container" role="main">
+    <!-- Page title only in normal content area, no garnet bar -->
     <h1>Projects</h1>
-    <p>Investigating how AI and human insight shape health, science, and society.</p>
-  </section>
+    <p class="lead">Selected ongoing and completed projects in Hi Da Research Lab.</p>
 
-  <section id="projects" class="section" aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Our Projects</h2>
-    <div class="grid">
+    <section id="projects" class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Our Projects</h2>
+      <div class="grid">
 
-      <!-- Project 1 -->
-      <article class="card">
-        <img src="https://media.istockphoto.com/id/1484291102/photo/chatbot-artificial-intelligence-intelligent-robot-technology-ai-aartificial-intelligence.jpg?s=612x612&w=0&k=20&c=ipMF48FXd6PZVeop1nEyx-q3awoEhgmBu6oh4pgbTdw=" alt="AI Literacy in School Libraries project" loading="lazy" />
-        <h3>AI Literacy</h3>
-        <p>This three-year project, funded by the Institute of Museum and Library Services (IMLS) Laura Bush 21st Century Librarian Program, supports AI literacy in school libraries. With $192,843 in funding, it aims to advance innovation, education, and the vital role of libraries in shaping informed communities.</p>
-      </article>
+        <!-- Project 1 -->
+        <article class="card">
+          <img src="https://media.istockphoto.com/id/1484291102/photo/chatbot-artificial-intelligence-intelligent-robot-technology-ai-aartificial-intelligence.jpg?s=612x612&w=0&k=20&c=ipMF48FXd6PZVeop1nEyx-q3awoEhgmBu6oh4pgbTdw=" alt="AI Literacy in School Libraries project" loading="lazy" />
+          <h3>AI Literacy</h3>
+          <p>This three-year project, funded by the Institute of Museum and Library Services (IMLS) Laura Bush 21st Century Librarian Program, supports AI literacy in school libraries. With $192,843 in funding, it aims to advance innovation, education, and the vital role of libraries in shaping informed communities.</p>
+        </article>
 
-      <!-- Project 2 (AI Peer) -->
-      <article class="card">
-        <img src="https://imageio.forbes.com/specials-images/imageserve/63bdffc05989c30c33964a41/Artificial-Intelligence/960x0.png?format=png&width=960" alt="AI Peer project" loading="lazy" />
-        <h3>
-          <a href="https://sites.google.com/sheffield.ac.uk/peer-ai/home" target="_blank" rel="noopener">
-            AI Peer
-          </a>
-        </h3>
-        <p>Investigates how large language models and other artificial intelligence methods can support peer and expert review of academic documents. This includes developing and evaluating algorithms and strategies.</p>
-        <p><strong>Project Highlight:</strong> Using Large Language Models to score journal articles for quality.</p>
-      </article>
+        <!-- Project 2 (AI Peer) -->
+        <article class="card">
+          <img src="https://imageio.forbes.com/specials-images/imageserve/63bdffc05989c30c33964a41/Artificial-Intelligence/960x0.png?format=png&width=960" alt="AI Peer project" loading="lazy" />
+          <h3>
+            <a href="https://sites.google.com/sheffield.ac.uk/peer-ai/home" target="_blank" rel="noopener">
+              AI Peer
+            </a>
+          </h3>
+          <p>Investigates how large language models and other artificial intelligence methods can support peer and expert review of academic documents. This includes developing and evaluating algorithms and strategies.</p>
+          <p><strong>Project Highlight:</strong> Using Large Language Models to score journal articles for quality.</p>
+        </article>
 
-      <!-- Project 3 -->
-      <article class="card">
-        <img src="https://mitcommlab.mit.edu/cheme/wp-content/uploads/sites/7/2023/06/chatGPT-thumb-e1686757371585-250x171.png" alt="PhD students and ChatGPT project" loading="lazy" />
-        <h3>
-          <a href="https://lib.purdue.edu/IILP/" target="_blank" rel="noopener">
-            Ph.D. Students &amp; Gen AI
-          </a>
-        </h3>
-        <p>Explores how doctoral students perceive and interact with ChatGPT-generated content, focusing on information literacy skills, trust judgments, and verification strategies in academic contexts.</p>
-      </article>
+        <!-- Project 3 -->
+        <article class="card">
+          <img src="https://mitcommlab.mit.edu/cheme/wp-content/uploads/sites/7/2023/06/chatGPT-thumb-e1686757371585-250x171.png" alt="PhD students and ChatGPT project" loading="lazy" />
+          <h3>
+            <a href="https://lib.purdue.edu/IILP/" target="_blank" rel="noopener">
+              Ph.D. Students &amp; Gen AI
+            </a>
+          </h3>
+          <p>Explores how doctoral students perceive and interact with ChatGPT-generated content, focusing on information literacy skills, trust judgments, and verification strategies in academic contexts.</p>
+        </article>
 
-      <!-- Project 4 -->
-      <article class="card">
-        <img src="https://files.hiv.gov/s3fs-public/2022-11/cdc-hiv-basics-covid19-1200x1200.png" alt="HIV and Covid project" loading="lazy" />
-        <h3>HIV and Covid</h3>
-        <p>Investigating pandemic-related disruptions in HIV care, this project examines how COVID-19 impacted HIV treatment access, retention, and health outcomes, using multilevel and electronic health record data.</p>
-      </article>
+        <!-- Project 4 -->
+        <article class="card">
+          <img src="https://files.hiv.gov/s3fs-public/2022-11/cdc-hiv-basics-covid19-1200x1200.png" alt="HIV and Covid project" loading="lazy" />
+          <h3>HIV and Covid</h3>
+          <p>Investigating pandemic-related disruptions in HIV care, this project examines how COVID-19 impacted HIV treatment access, retention, and health outcomes, using multilevel and electronic health record data.</p>
+        </article>
 
-      <!-- Project 5 -->
-      <article class="card">
-        <img src="https://static.www.tencent.com/uploads/2024/12/16/6d1d8017360143a5ee73cb52de93b57d.jpg" alt="Battle for Better Health project" loading="lazy" />
-        <h3>Battle for Better Health</h3>
-        <p>Using health literacy frameworks and AI to address obesity in South Carolina, this project develops interventions that improve health behaviors and access to reliable health information. Funded by the <a href="https://www.nnlm.gov/" target="_blank" rel="noopener">National Library of Medicine Region 2</a>.</p>
-      </article>
+        <!-- Project 5 -->
+        <article class="card">
+          <img src="https://static.www.tencent.com/uploads/2024/12/16/6d1d8017360143a5ee73cb52de93b57d.jpg" alt="Battle for Better Health project" loading="lazy" />
+          <h3>Battle for Better Health</h3>
+          <p>Using health literacy frameworks and AI to address obesity in South Carolina, this project develops interventions that improve health behaviors and access to reliable health information. Funded by the <a href="https://www.nnlm.gov/" target="_blank" rel="noopener">National Library of Medicine Region 2</a>.</p>
+        </article>
 
-      <!-- Project 6 -->
-      <article class="card">
-        <img src="https://www.epscorideafoundation.org/media/images/_1140x435_crop_center-center/nsf-epscor-background.jpeg" alt="NSF EPSCoR and NIH IDeA project" loading="lazy" />
-        <h3>
-          <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286991" target="_blank" rel="noopener">
-            NSF EPSCoR &amp; NIH IDeA Impact
-          </a>
-        </h3>
-        <p>This evaluation project measures the effectiveness and broader impacts of NSF’s EPSCoR and NIH’s IDeA programs nationally, assessing how these funding mechanisms influence research capacity, equity, scientific output, and long-term institutional growth.</p>
-        <p>The article is featured in <a href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener">Science</a>.</p>
-      </article>
+        <!-- Project 6 -->
+        <article class="card">
+          <img src="https://www.epscorideafoundation.org/media/images/_1140x435_crop_center-center/nsf-epscor-background.jpeg" alt="NSF EPSCoR and NIH IDeA project" loading="lazy" />
+          <h3>
+            <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286991" target="_blank" rel="noopener">
+              NSF EPSCoR &amp; NIH IDeA Impact
+            </a>
+          </h3>
+          <p>This evaluation project measures the effectiveness and broader impacts of NSF’s EPSCoR and NIH’s IDeA programs nationally, assessing how these funding mechanisms influence research capacity, equity, scientific output, and long-term institutional growth.</p>
+          <p>The article is featured in <a href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener">Science</a>.</p>
+        </article>
 
-      <!-- Project 7 -->
-      <article class="card">
-        <img src="https://ichef.bbci.co.uk/images/ic/1024x576/p088bnqx.jpg" alt="COVID-19 misinformation project" loading="lazy" />
-        <h3>
-          <a href="https://bigdata.sc.edu/bdhsc-faculty-awarded-internal-covid-19-research-grants/" target="_blank" rel="noopener">
-            COVID-19 Misinformation on YouTube
-          </a>
-        </h3>
-        <p>Evaluates the prevalence, thematic content, sentiment, and downstream information-seeking behavior associated with COVID-19 misinformation on YouTube, using topic modeling and sentiment analysis to identify patterns in misleading health content.</p>
-      </article>
+        <!-- Project 7 -->
+        <article class="card">
+          <img src="https://ichef.bbci.co.uk/images/ic/1024x576/p088bnqx.jpg" alt="COVID-19 misinformation project" loading="lazy" />
+          <h3>
+            <a href="https://bigdata.sc.edu/bdhsc-faculty-awarded-internal-covid-19-research-grants/" target="_blank" rel="noopener">
+              COVID-19 Misinformation on YouTube
+            </a>
+          </h3>
+          <p>Evaluates the prevalence, thematic content, sentiment, and downstream information-seeking behavior associated with COVID-19 misinformation on YouTube, using topic modeling and sentiment analysis to identify patterns in misleading health content.</p>
+        </article>
 
-      <!-- Project 8 -->
-      <article class="card">
-        <img src="https://www.theelectroniccigarette.co.uk/blog/wp-content/uploads/2022/12/vaping-misinformation-the-media-strikes-again.jpg" alt="Vaping misinformation project" loading="lazy" />
-        <h3>
-          <a href="https://www.tandfonline.com/doi/full/10.1080/10826084.2021.2019777" target="_blank" rel="noopener">
-            Vaping Misinformation
-          </a>
-        </h3>
-        <p>Analyzes how myths, false claims, and misleading content around vaping spread on social and digital media, identifying influencing factors and informing countermeasures for public health communication.</p>
-      </article>
+        <!-- Project 8 -->
+        <article class="card">
+          <img src="https://www.theelectroniccigarette.co.uk/blog/wp-content/uploads/2022/12/vaping-misinformation-the-media-strikes-again.jpg" alt="Vaping misinformation project" loading="lazy" />
+          <h3>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/10826084.2021.2019777" target="_blank" rel="noopener">
+              Vaping Misinformation
+            </a>
+          </h3>
+          <p>Analyzes how myths, false claims, and misleading content around vaping spread on social and digital media, identifying influencing factors and informing countermeasures for public health communication.</p>
+        </article>
 
-      <!-- Project 9 -->
-      <article class="card">
-        <img src="https://zimmer.fresnostate.edu/~johnca/spch100/becker.gif" alt="Mosaic of Communication Science project" loading="lazy" />
-        <h3>Mosaic of Communication Science</h3>
-        <p>Performs a 20-year bibliometric and network analysis of publication trends in communication science to map intellectual trajectories, topic evolution, collaboration networks, and influence over time.</p>
-      </article>
+        <!-- Project 9 -->
+        <article class="card">
+          <img src="https://zimmer.fresnostate.edu/~johnca/spch100/becker.gif" alt="Mosaic of Communication Science project" loading="lazy" />
+          <h3>Mosaic of Communication Science</h3>
+          <p>Performs a 20-year bibliometric and network analysis of publication trends in communication science to map intellectual trajectories, topic evolution, collaboration networks, and influence over time.</p>
+        </article>
 
-    </div>
-  </section>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
       <nav aria-label="Footer">
-        <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:14px; margin:0 0 8px 0; padding:0; font-size:.95rem;">
-          <li><a href="https://www.hidalab.org/">Welcome</a></li>
+        <ul>
+          <li><a href="https://www.hidalab.org/">Home</a></li>
           <li><a href="https://www.hidalab.org/people">People</a></li>
           <li><a href="https://www.hidalab.org/publications">Publications</a></li>
           <li><a href="https://www.hidalab.org/projects">Projects</a></li>
         </ul>
       </nav>
-      <p>© <span id="year"></span> Hi Da Research Lab · Human Insight for Data &amp; AI</p>
+      <p>© <span id="year"></span> Hi Da Research Lab. All rights reserved.</p>
     </div>
   </footer>
 
