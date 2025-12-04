@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,6 +14,7 @@
       --usc-gray: #f4f4f4;
       --usc-light-garnet: #a30015;
     }
+
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -21,25 +22,97 @@
       color: #333;
       line-height: 1.6;
     }
-    header { background: #fff; border-bottom: 1px solid #eee; }
-    .nav {
-      max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px;
+
+    /* TOP OF PAGE – similar to https://hidalab.github.io/people.html */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
     }
-    .nav a.logo { font-weight: 700; color: var(--usc-garnet); }
-    .hero {
-      background: linear-gradient(120deg, var(--usc-garnet), var(--usc-light-garnet));
-      color: #fff; text-align: center; padding: 60px 20px;
+
+    .site-header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
     }
-    .hero h1 { font-size: 2.6rem; margin: 0; }
-    .hero p { font-size: 1.2rem; margin: 12px 0 0; }
-    .section { max-width: 1280px; margin: auto; padding: 40px 20px; }
-    .section h2 { border-bottom: 2px solid #ccc; padding-bottom: 10px; color: var(--usc-garnet); }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+
+    .site-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--usc-garnet);
+      text-decoration: none;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .site-nav a:hover {
+      text-decoration: underline;
+      color: var(--usc-garnet);
+    }
+
+    .page-header {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 12px;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      margin: 0 0 8px;
+      color: var(--usc-garnet);
+    }
+
+    .page-header p {
+      margin: 0;
+      color: #555;
+    }
+
+    /* MAIN CONTENT */
+    .section {
+      max-width: 1280px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+      color: var(--usc-garnet);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
     .card {
-      background: #fff; border-radius: 12px; padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
-    .card h3 { margin-top: 0; color: var(--usc-garnet); }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--usc-garnet);
+    }
+
     .card img {
       width: 100%;
       height: 220px;
@@ -49,24 +122,60 @@
       display: block;
     }
 
-    a { color: var(--usc-garnet); text-decoration: none; }
-    a:visited { color: var(--usc-garnet); }  /* CHANGE: ensures visited links stay garnet */
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--usc-garnet);
+      text-decoration: none;
+    }
 
-    footer { background: #fff; border-top: 1px solid #eee; }
-    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 20px; font-size: .95rem; color: #555; }
-    @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    a:visited {
+      color: var(--usc-garnet);
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: .95rem;
+      color: #555;
+    }
+
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- TOP OF PAGE (matching people.html style) -->
   <header>
-    <nav class="nav" aria-label="Primary">
-      <a class="logo" href="https://www.hidalab.org/">Hi Da Lab</a>
-    </nav>
+    <div class="site-header-inner">
+      <a href="https://www.hidalab.org/" class="site-title">Hi Da Research Lab</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="https://www.hidalab.org/">Welcome</a>
+        <a href="https://www.hidalab.org/people">People</a>
+        <a href="https://www.hidalab.org/publications">Publications</a>
+        <a href="https://www.hidalab.org/projects">Projects</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
+  <section class="page-header">
     <h1>Projects</h1>
     <p>Investigating how AI and human insight shape health, science, and society.</p>
   </section>
@@ -77,7 +186,6 @@
 
       <!-- Project 1 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://media.istockphoto.com/id/1484291102/photo/chatbot-artificial-intelligence-intelligent-robot-technology-ai-aartificial-intelligence.jpg?s=612x612&w=0&k=20&c=ipMF48FXd6PZVeop1nEyx-q3awoEhgmBu6oh4pgbTdw=" alt="AI Literacy in School Libraries project" loading="lazy" />
         <h3>AI Literacy</h3>
         <p>This three-year project, funded by the Institute of Museum and Library Services (IMLS) Laura Bush 21st Century Librarian Program, supports AI literacy in school libraries. With $192,843 in funding, it aims to advance innovation, education, and the vital role of libraries in shaping informed communities.</p>
@@ -87,7 +195,7 @@
       <article class="card">
         <img src="https://imageio.forbes.com/specials-images/imageserve/63bdffc05989c30c33964a41/Artificial-Intelligence/960x0.png?format=png&width=960" alt="AI Peer project" loading="lazy" />
         <h3>
-          <a href="https://sites.google.com/sheffield.ac.uk/peer-ai/home" target="_blank" rel="noopener"> <!-- CHANGE -->
+          <a href="https://sites.google.com/sheffield.ac.uk/peer-ai/home" target="_blank" rel="noopener">
             AI Peer
           </a>
         </h3>
@@ -97,11 +205,10 @@
 
       <!-- Project 3 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://mitcommlab.mit.edu/cheme/wp-content/uploads/sites/7/2023/06/chatGPT-thumb-e1686757371585-250x171.png" alt="PhD students and ChatGPT project" loading="lazy" />
         <h3>
-          <a href="https://lib.purdue.edu/IILP/" target="_blank" rel="noopener"> <!-- CHANGE -->
-            Ph.D. Students & Gen AI
+          <a href="https://lib.purdue.edu/IILP/" target="_blank" rel="noopener">
+            Ph.D. Students &amp; Gen AI
           </a>
         </h3>
         <p>Explores how doctoral students perceive and interact with ChatGPT-generated content, focusing on information literacy skills, trust judgments, and verification strategies in academic contexts.</p>
@@ -109,7 +216,6 @@
 
       <!-- Project 4 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://files.hiv.gov/s3fs-public/2022-11/cdc-hiv-basics-covid19-1200x1200.png" alt="HIV and Covid project" loading="lazy" />
         <h3>HIV and Covid</h3>
         <p>Investigating pandemic-related disruptions in HIV care, this project examines how COVID-19 impacted HIV treatment access, retention, and health outcomes, using multilevel and electronic health record data.</p>
@@ -117,7 +223,6 @@
 
       <!-- Project 5 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://static.www.tencent.com/uploads/2024/12/16/6d1d8017360143a5ee73cb52de93b57d.jpg" alt="Battle for Better Health project" loading="lazy" />
         <h3>Battle for Better Health</h3>
         <p>Using health literacy frameworks and AI to address obesity in South Carolina, this project develops interventions that improve health behaviors and access to reliable health information. Funded by the <a href="https://www.nnlm.gov/" target="_blank" rel="noopener">National Library of Medicine Region 2</a>.</p>
@@ -125,50 +230,44 @@
 
       <!-- Project 6 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://www.epscorideafoundation.org/media/images/_1140x435_crop_center-center/nsf-epscor-background.jpeg" alt="NSF EPSCoR and NIH IDeA project" loading="lazy" />
         <h3>
-          <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286991" target="_blank" rel="noopener"> <!-- CHANGE -->
-            NSF EPSCoR & NIH IDeA Impact
+          <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286991" target="_blank" rel="noopener">
+            NSF EPSCoR &amp; NIH IDeA Impact
           </a>
         </h3>
         <p>This evaluation project measures the effectiveness and broader impacts of NSF’s EPSCoR and NIH’s IDeA programs nationally, assessing how these funding mechanisms influence research capacity, equity, scientific output, and long-term institutional growth.</p>
-         <p> The article is featured in <a href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener"> Science</a>.</p>
+        <p>The article is featured in <a href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener">Science</a>.</p>
       </article>
 
       <!-- Project 7 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://ichef.bbci.co.uk/images/ic/1024x576/p088bnqx.jpg" alt="COVID-19 misinformation project" loading="lazy" />
- <h3>
-    <a href="https://bigdata.sc.edu/bdhsc-faculty-awarded-internal-covid-19-research-grants/" target="_blank" rel="noopener"> <!-- CHANGE -->
-      COVID-19 Misinformation on YouTube
-    </a>
-  </h3>
+        <h3>
+          <a href="https://bigdata.sc.edu/bdhsc-faculty-awarded-internal-covid-19-research-grants/" target="_blank" rel="noopener">
+            COVID-19 Misinformation on YouTube
+          </a>
+        </h3>
         <p>Evaluates the prevalence, thematic content, sentiment, and downstream information-seeking behavior associated with COVID-19 misinformation on YouTube, using topic modeling and sentiment analysis to identify patterns in misleading health content.</p>
       </article>
 
       <!-- Project 8 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://www.theelectroniccigarette.co.uk/blog/wp-content/uploads/2022/12/vaping-misinformation-the-media-strikes-again.jpg" alt="Vaping misinformation project" loading="lazy" />
-  <h3>
-    <a href="https://www.tandfonline.com/doi/full/10.1080/10826084.2021.2019777" target="_blank" rel="noopener"> <!-- CHANGE -->
-      Vaping Misinformation
-    </a>
-  </h3>
+        <h3>
+          <a href="https://www.tandfonline.com/doi/full/10.1080/10826084.2021.2019777" target="_blank" rel="noopener">
+            Vaping Misinformation
+          </a>
+        </h3>
         <p>Analyzes how myths, false claims, and misleading content around vaping spread on social and digital media, identifying influencing factors and informing countermeasures for public health communication.</p>
       </article>
 
       <!-- Project 9 -->
       <article class="card">
-        <!-- Replace this image URL -->
         <img src="https://zimmer.fresnostate.edu/~johnca/spch100/becker.gif" alt="Mosaic of Communication Science project" loading="lazy" />
         <h3>Mosaic of Communication Science</h3>
         <p>Performs a 20-year bibliometric and network analysis of publication trends in communication science to map intellectual trajectories, topic evolution, collaboration networks, and influence over time.</p>
       </article>
-
-
 
     </div>
   </section>
@@ -179,9 +278,8 @@
         <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:14px; margin:0 0 8px 0; padding:0; font-size:.95rem;">
           <li><a href="https://www.hidalab.org/">Home</a></li>
           <li><a href="https://www.hidalab.org/people">People</a></li>
-          <li><a 
           <li><a href="https://www.hidalab.org/publications">Publications</a></li>
-<li><a href="https://www.hidalab.org/projects">Projects</a></li>
+          <li><a href="https://www.hidalab.org/projects">Projects</a></li>
         </ul>
       </nav>
       <p>© <span id="year"></span> Hi Da Research Lab. All rights reserved.</p>
