@@ -12,8 +12,8 @@
   <meta name="author" content="Hi Da Research Lab" />
   <meta name="keywords" content="Hi Da Lab, Human Insight for Data and AI, research lab, AI literacy, health misinformation, social media analytics, science of science, information behavior, University of South Carolina" />
 
-  <!-- Canonical: GitHub Pages is the primary home -->
-  <link rel="canonical" href="https://hidalab.github.io/" />
+  <!-- Canonical: hidalab.org is the primary home -->
+  <link rel="canonical" href="https://hidalab.org/" />
 
   <!-- Performance hints -->
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -21,13 +21,13 @@
 
   <!-- Open Graph / Twitter for rich snippets -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hidalab.github.io/" />
+  <meta property="og:url" content="https://hidalab.org/" />
   <meta property="og:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta property="og:description" content="Human-centered research at the intersection of AI, health, and society." />
   <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://hidalab.github.io/" />
+  <meta name="twitter:url" content="https://hidalab.org/" />
   <meta name="twitter:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta name="twitter:description" content="Human-centered research at the intersection of AI, health, and society." />
   <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
@@ -101,6 +101,20 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .nav-logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffccd5 0, var(--usc-garnet) 45%, var(--usc-light-garnet) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
     }
 
     .nav a.logo {
@@ -473,37 +487,72 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@type": "Organization",
-        "@id": "https://hidalab.github.io/#org",
+        "@id": "https://hidalab.org/#org",
         "name": "Hi Da Research Lab",
         "alternateName": "Human Insight for Data & AI",
-        "url": "https://hidalab.github.io/",
-        "logo": "https://hidalab.github.io/assets/logo.png",
+        "url": "https://hidalab.org/",
+        "logo": "https://hidalab.org/assets/logo.png",
+        "image": "https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1",
+        "description": "Hi Da Research Lab at the University of South Carolina explores human-centered AI, health informatics, social media analytics, and the science of science.",
         "sameAs": [
           "https://www.wikidata.org/wiki/Q57911399",
           "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
-          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php"
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php",
+          "https://ehsannu.github.io/HiDaLab/"
         ],
         "affiliation": {
           "@type": "CollegeOrUniversity",
           "name": "University of South Carolina",
           "url": "https://sc.edu"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://hidalab.org/"
         }
       },
       {
         "@type": "WebSite",
-        "@id": "https://hidalab.github.io/#website",
-        "url": "https://hidalab.github.io/",
+        "@id": "https://hidalab.org/#website",
+        "url": "https://hidalab.org/",
         "name": "Hi Da Research Lab",
         "inLanguage": "en",
-        "publisher": { "@id": "https://hidalab.github.io/#org" }
+        "publisher": { "@id": "https://hidalab.org/#org" },
+        "hasPart": [
+          {
+            "@type": "WebPage",
+            "@id": "https://hidalab.org/people.html",
+            "url": "https://hidalab.org/people.html",
+            "name": "People"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://hidalab.org/publications.html",
+            "url": "https://hidalab.org/publications.html",
+            "name": "Publications"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://hidalab.org/projects.html",
+            "url": "https://hidalab.org/projects.html",
+            "name": "Projects"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://hidalab.org/#webpage",
+        "url": "https://hidalab.org/",
+        "name": "Hi Da Research Lab – Human Insight for Data & AI",
+        "isPartOf": { "@id": "https://hidalab.org/#website" },
+        "about": { "@id": "https://hidalab.org/#org" },
+        "primaryImageOfPage": "https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1"
       },
       {
         "@type": "ResearchProject",
-        "@id": "https://hidalab.github.io/#project",
+        "@id": "https://hidalab.org/#project",
         "name": "Hi Da Research Lab",
         "alternateName": "Human Insight for Data & AI",
-        "url": "https://hidalab.github.io/",
+        "url": "https://hidalab.org/",
         "description": "Hi Da Lab is a multidisciplinary research lab exploring the intersections of health, AI, social media, and science. We focus on misinformation, responsible innovation, and data-driven impact.",
         "keywords": [
           "AI",
@@ -517,7 +566,7 @@
         ],
         "member": {
           "@type": "Person",
-          "@id": "https://hidalab.github.io/#ehsan-mohammadi",
+          "@id": "https://hidalab.org/#ehsan-mohammadi",
           "name": "Ehsan Mohammadi",
           "jobTitle": "Director, Hi Da Research Lab",
           "affiliation": {
@@ -525,12 +574,23 @@
             "name": "University of South Carolina",
             "url": "https://sc.edu"
           },
+          "worksFor": {
+            "@id": "https://hidalab.org/#org"
+          },
           "url": "https://www.ehsanmohammadi.com/",
           "sameAs": [
             "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
             "https://orcid.org/0000-0003-3481-6991",
-            "https://www.linkedin.com/in/ehsanmohammadi"
-          ]
+            "https://www.linkedin.com/in/ehsanmohammadi",
+            "https://www.wikidata.org/wiki/Q57911399",
+            "https://www.google.com/search?kgmid=/g/11h0lbv6r8&hl=en-US&q=Ehsan+Mohammadi"
+          ],
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "kgmid",
+            "value": "/g/11h0lbv6r8",
+            "url": "https://www.google.com/search?kgmid=/g/11h0lbv6r8&hl=en-US&q=Ehsan+Mohammadi"
+          }
         }
       },
       {
@@ -540,7 +600,7 @@
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://hidalab.github.io/"
+            "item": "https://hidalab.org/"
           }
         ]
       }
@@ -557,6 +617,7 @@
   <header>
     <nav class="nav" aria-label="Brand">
       <div class="nav-left">
+        <div class="nav-logo-circle">Hi</div>
         <div>
           <a class="logo" href="/">Hi Da Research Lab</a>
           <div class="nav-tagline">Human Insight for Data &amp; AI</div>
