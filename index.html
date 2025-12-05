@@ -12,8 +12,8 @@
   <meta name="author" content="Hi Da Research Lab" />
   <meta name="keywords" content="Hi Da Lab, Human Insight for Data and AI, research lab, AI literacy, health misinformation, social media analytics, science of science, information behavior, University of South Carolina" />
 
-  <!-- Canonical: hidalab.org is the primary home -->
-  <link rel="canonical" href="https://hidalab.org/" />
+  <!-- Canonical: GitHub Pages is the primary home -->
+  <link rel="canonical" href="https://hidalab.github.io/" />
 
   <!-- Performance hints -->
   <link rel="dns-prefetch" href="//www.googletagmanager.com" />
@@ -21,13 +21,13 @@
 
   <!-- Open Graph / Twitter for rich snippets -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hidalab.org/" />
+  <meta property="og:url" content="https://hidalab.github.io/" />
   <meta property="og:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta property="og:description" content="Human-centered research at the intersection of AI, health, and society." />
   <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://hidalab.org/" />
+  <meta name="twitter:url" content="https://hidalab.github.io/" />
   <meta name="twitter:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta name="twitter:description" content="Human-centered research at the intersection of AI, health, and society." />
   <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
@@ -274,3 +274,394 @@
     }
 
     .hero-visual-caption {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .shell-section {
+      background: var(--shell-bg);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 28px 26px 30px;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      border-bottom: 1px solid #e4d4d7;
+      padding-bottom: 8px;
+      color: var(--usc-garnet);
+      font-size: 1.3rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 26px;
+      margin-top: 20px;
+      align-items: start;
+    }
+
+    .about-grid > div {
+      min-width: 0;
+    }
+
+    .about-grid p {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0e2e5;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--usc-garnet);
+      font-size: 1rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    img.lab-photo {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      display: block;
+    }
+
+    .caption {
+      text-align: left;
+      font-style: italic;
+      margin-top: 8px;
+      color: #555;
+      font-size: 0.85rem;
+    }
+
+    .news-scroll {
+      max-height: none;
+      overflow-y: visible;
+      border-left: 4px solid var(--usc-light-garnet);
+      padding: 16px 20px 6px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .news-scroll::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 18px;
+      bottom: 18px;
+      border-left: 1px dashed rgba(115, 0, 10, 0.2);
+      pointer-events: none;
+    }
+
+    .news-scroll ul {
+      padding-left: 24px;
+      margin: 0;
+      list-style: none;
+    }
+
+    .news-scroll li {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .news-scroll li::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 0.45em;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--usc-light-garnet);
+      box-shadow: 0 0 0 3px rgba(163, 0, 21, 0.18);
+    }
+
+    footer {
+      margin-top: 24px;
+      padding: 18px 0 26px;
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      font-size: 0.85rem;
+      color: #555;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-nav a {
+      margin: 0 0.25rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        max-width: 420px;
+        margin: 20px auto 0;
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tabs-list {
+        border-radius: 16px;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@type": "Organization",
+        "@id": "https://hidalab.github.io/#org",
+        "name": "Hi Da Research Lab",
+        "alternateName": "Human Insight for Data & AI",
+        "url": "https://hidalab.github.io/",
+        "logo": "https://hidalab.github.io/assets/logo.png",
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q57911399",
+          "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php"
+        ],
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of South Carolina",
+          "url": "https://sc.edu"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hidalab.github.io/#website",
+        "url": "https://hidalab.github.io/",
+        "name": "Hi Da Research Lab",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://hidalab.github.io/#org" }
+      },
+      {
+        "@type": "ResearchProject",
+        "@id": "https://hidalab.github.io/#project",
+        "name": "Hi Da Research Lab",
+        "alternateName": "Human Insight for Data & AI",
+        "url": "https://hidalab.github.io/",
+        "description": "Hi Da Lab is a multidisciplinary research lab exploring the intersections of health, AI, social media, and science. We focus on misinformation, responsible innovation, and data-driven impact.",
+        "keywords": [
+          "AI",
+          "health informatics",
+          "health misinformation",
+          "social media analytics",
+          "science of science",
+          "altmetrics",
+          "information behavior",
+          "AI literacy"
+        ],
+        "member": {
+          "@type": "Person",
+          "@id": "https://hidalab.github.io/#ehsan-mohammadi",
+          "name": "Ehsan Mohammadi",
+          "jobTitle": "Director, Hi Da Research Lab",
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of South Carolina",
+            "url": "https://sc.edu"
+          },
+          "url": "https://www.ehsanmohammadi.com/",
+          "sameAs": [
+            "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
+            "https://orcid.org/0000-0003-3481-6991",
+            "https://www.linkedin.com/in/ehsanmohammadi"
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://hidalab.github.io/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T338LLNV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <header>
+    <nav class="nav" aria-label="Brand">
+      <div class="nav-left">
+        <div>
+          <a class="logo" href="/">Hi Da Research Lab</a>
+          <div class="nav-tagline">Human Insight for Data &amp; AI</div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tabs navigation -->
+    <div class="tabs-wrapper" aria-label="Main navigation">
+      <nav class="tabs">
+        <ul class="tabs-list">
+          <li class="tab-item">
+            <a class="tab-link active" href="/">Welcome</a>
+          </li>
+          <li class="tab-item">
+            <a class="tab-link" href="people.html">People</a>
+          </li>
+          <li class="tab-item">
+            <a class="tab-link" href="publications.html">Publications</a>
+          </li>
+          <li class="tab-item">
+            <a class="tab-link" href="projects.html">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <h2 id="about-heading">About Us</h2>
+    <div class="about-grid">
+      <div>
+        <p>Hi Da Lab is a network of researchers from various academic disciplines who work on interdisciplinary projects. Our mission is to address challenges in today’s information ecosystem where humans and technology intersect. We tackle real-world problems across diverse contexts using novel data sources and innovative techniques.</p>
+        <p>Hi Da Lab aims to inspire and support researchers and students from different backgrounds to collaborate and complete innovative projects. Our current focus includes the challenges and opportunities of AI, health and social media, misinformation, and the societal impacts of research.</p>
+        <p>If you are interested in joining our team, <a href="mailto:ehsan2@sc.edu">send us an email</a>.</p>
+      </div>
+      <div>
+        <img class="lab-photo" src="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" alt="Hi Da Lab team at Davis" loading="lazy" />
+        <p class="caption"><a href="people.html" target="_blank" rel="noopener">Hi Da Lab Team</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research-areas" class="section" aria-labelledby="research-areas-heading">
+    <h2 id="research-areas-heading">Research Areas</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Health Informatics</h3>
+        <p>Exploring how data and technology can improve health outcomes, digital health communication, and access to reliable information.</p>
+      </article>
+      <article class="card">
+        <h3>Science of Science</h3>
+        <p>Analyzing scientific production, networks, and impact to understand how science evolves and influences society.</p>
+      </article>
+      <article class="card">
+        <h3>Applied AI</h3>
+        <p>Building and evaluating AI systems that are practical, ethical, and human-centered with applications in education, health, and governance.</p>
+      </article>
+      <article class="card">
+        <h3>Social Media Analytics</h3>
+        <p>Mining and modeling digital conversations to uncover patterns, the spread of information, public opinion, and online behaviors.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="news" class="section" aria-labelledby="news-heading">
+    <h2 id="news-heading">Latest News</h2>
+    <div class="news-scroll">
+      <ul>
+        <li><a href="https://www.sciencedirect.com/science/article/pii/S0306457325002912" target="_blank" rel="noopener">Findings from our project on how generative AI is reshaping academic practices across twenty countries have been accepted for publication in <em>Information Processing &amp; Management</em>.</a></li>
+        <li><a href="https://link.springer.com/article/10.1007/s43681-025-00742-4" target="_blank" rel="noopener">Our team’s new study, published in <em>AI and Ethics</em>, reveals significant gender and racial biases in how Google Vision AI identifies scientists.</a></li>
+        <li><a href="https://lib.purdue.edu/IILP/" target="_blank" rel="noopener">Samaneh Borji received the 2024–2026 Institute for Information Literacy at Purdue research grant.</a></li>
+        <li><a href="https://www.betaphimu.org/garfield.html" target="_blank" rel="noopener">Valerie Vera received the Eugene Garfield Dissertation Fellowship.</a></li>
+        <li>Conducting a large-scale survey across 20 countries to explore the use, benefits, barriers, and trust associated with generative AI.</li>
+        <li><a href="https://www.jmir.org/2021/9/e30800/" target="_blank" rel="noopener">Analysis of 600K tweets about COVID-19 using framing theory identified frames that reflect public opinions in a health crisis. Published in the <em>Journal of Medical Internet Research</em>.</a></li>
+        <li><a href="https://sc.edu/about/offices_and_divisions/research/" target="_blank" rel="noopener">In collaboration with the Office of the Vice President for Research at UofSC, we are evaluating the impact of NSF’s EPSCoR and NIH’s IDeA programs.</a></li>
+        <li><a href="https://www.natcom.org/nca-107th-annual-convention-renewal-and-transformation" target="_blank" rel="noopener">Paper accepted in the National Communication Association Annual Convention (Public Relations Division).</a></li>
+        <li>Keynote at Altmetrics 20 on science and society in the age of disinformation.</li>
+        <li><a href="https://bigdata.sc.edu/bdhsc-faculty-awarded-internal-covid-19-research-grants/" target="_blank" rel="noopener">Received a $25,000 grant from UofSC to study COVID-19 misinformation on YouTube.</a></li>
+        <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0165551520932855" target="_blank" rel="noopener">Paper accepted in the <em>Journal of Information Science</em>.</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong>Hi Da Research Lab</strong> · Human Insight for Data &amp; AI<br />
+        School of Information Science, University of South Carolina
+      </div>
+      <div>
+        <span class="footer-nav">
+          <a href="/">Welcome</a> |
+          <a href="people.html">People</a> |
+          <a href="publications.html">Publications</a> |
+          <a href="projects.html">Projects</a>
+        </span>
+        <br />
+        © <span id="year"></span> Hi Da Lab
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
