@@ -1,355 +1,756 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Charset + viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hi Da Research Lab | Projects</title>
-  <meta name="description" content="Projects at Hi Da Research Lab: AI literacy, peer review with large language models, health informatics, misinformation, science of science, and applied AI." />
-  <link rel="canonical" href="https://www.hidalab.org/projects" />
 
+  <title>People | Hi Da Research Lab</title>
+  <meta name="description" content="People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical to main domain for SEO -->
+  <link rel="canonical" href="https://www.hidalab.org/people" />
+
+  <!-- Open Graph / Twitter for rich results -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.hidalab.org/people" />
+  <meta property="og:title" content="People | Hi Da Research Lab" />
+  <meta property="og:description" content="People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members." />
+  <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="People | Hi Da Research Lab" />
+  <meta name="twitter:description" content="People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members." />
+  <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
+
+  <!-- Consistent schema with Hi Da Lab main site and entity hub -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://hidalab.org/#org",
+        "name": "Hi Da Research Lab",
+        "alternateName": "Human Insight for Data and AI",
+        "url": "https://hidalab.org/",
+        "logo": "https://hidalab.org/assets/logo.png",
+        "image": "https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1",
+        "description": "Hi Da Research Lab at the University of South Carolina explores human-centered AI, health informatics, social media analytics, and the science of science.",
+        "sameAs": [
+          "https://hidalab.org/",
+          "https://www.hidalab.org/",
+          "https://ehsannu.github.io/HiDaLab/",
+          "https://www.wikidata.org/wiki/Q57911399",
+          "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php"
+        ],
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of South Carolina",
+          "url": "https://sc.edu"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://hidalab.org/"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hidalab.org/#website",
+        "url": "https://hidalab.org/",
+        "name": "Hi Da Research Lab",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://hidalab.org/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.hidalab.org/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://hidalab.org/people",
+        "url": "https://www.hidalab.org/people",
+        "name": "People | Hi Da Research Lab",
+        "isPartOf": { "@id": "https://hidalab.org/#website" },
+        "about": [
+          { "@id": "https://hidalab.org/#org" },
+          { "@id": "https://hidalab.org/people#ehsan-mohammadi" }
+        ],
+        "description": "People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members.",
+        "inLanguage": "en",
+        "breadcrumb": { "@id": "https://hidalab.org/#breadcrumb" },
+        "mainEntity": { "@id": "https://hidalab.org/people#ehsan-mohammadi" }
+      },
+      {
+        "@type": "ResearchProject",
+        "@id": "https://hidalab.org/#project",
+        "name": "Hi Da Research Lab",
+        "alternateName": "Human Insight for Data and AI",
+        "url": "https://hidalab.org/",
+        "description": "Hi Da Lab is a multidisciplinary research lab exploring the intersections of health, AI, social media, and science. We focus on misinformation, responsible innovation, and data-driven impact.",
+        "keywords": [
+          "AI",
+          "health informatics",
+          "health misinformation",
+          "social media analytics",
+          "science of science",
+          "information behavior",
+          "AI literacy"
+        ],
+        "member": {
+          "@id": "https://hidalab.org/people#ehsan-mohammadi"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://hidalab.org/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://hidalab.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "People",
+            "item": "https://www.hidalab.org/people"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://hidalab.org/people#ehsan-mohammadi",
+        "name": "Ehsan Mohammadi",
+        "givenName": "Ehsan",
+        "familyName": "Mohammadi",
+        "jobTitle": "Director, Hi Da Research Lab; Associate Professor of Information Science",
+        "affiliation": { "@id": "https://hidalab.org/#org" },
+        "worksFor": { "@id": "https://hidalab.org/#org" },
+        "url": "https://www.ehsanmohammadi.com/",
+        "sameAs": [
+          "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
+          "https://orcid.org/0000-0003-3481-6991",
+          "https://www.linkedin.com/in/ehsanmohammadi",
+          "https://www.wikidata.org/wiki/Q57911399",
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php",
+          "https://www.google.com/search?kgmid=/g/11h0lbv6r8&hl=en-US&q=Ehsan+Mohammadi"
+        ],
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "kgmid",
+          "value": "/g/11h0lbv6r8",
+          "url": "https://www.google.com/search?kgmid=/g/11h0lbv6r8&hl=en-US&q=Ehsan+Mohammadi"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Basic styling to match main site -->
   <style>
     :root {
       --usc-garnet: #73000a;
-      --usc-black: #000000;
-      --usc-gray: #f4f4f4;
       --usc-light-garnet: #a30015;
+      --usc-gray: #f4f4f4;
+      --tab-bg: #ffffff;
+      --tab-border: #e0e0e0;
+      --tab-active-bg: #73000a;
+      --tab-active-text: #ffffff;
     }
 
-    /* Overall page layout similar to GitHub Pages */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffffff;
-      color: #24292f;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--usc-gray);
+      color: #333;
       line-height: 1.6;
     }
 
-    .site-wrapper {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-      box-sizing: border-box;
-    }
-
-    /* Header like hidalab.github.io */
-    .site-header {
-      border-bottom: 1px solid #eaecef;
-      padding-bottom: 16px;
-      margin-bottom: 24px;
-    }
-
-    .site-title {
-      margin: 0 0 4px;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #24292f;
-    }
-
-    .site-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site-title a:hover {
-      text-decoration: underline;
-    }
-
-    .site-tagline {
-      margin: 0 0 12px;
-      color: #6a737d;
-      font-size: 0.98rem;
-    }
-
-    .site-nav-top {
-      font-size: 0.98rem;
-    }
-
-    .site-nav-top ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .site-nav-top li::after {
-      content: "·";
-      margin-left: 10px;
-      color: #6a737d;
-    }
-
-    .site-nav-top li:last-child::after {
-      content: "";
-      margin: 0;
-    }
-
-    .site-nav-top a {
-      color: #0366d6;
-      text-decoration: none;
-    }
-
-    .site-nav-top a:hover {
-      text-decoration: underline;
-    }
-
-    /* Page header (Projects) */
-    .page-header {
-      margin: 24px 0 16px;
-    }
-
-    .page-header h1 {
-      margin: 0 0 4px;
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: #24292f;
-    }
-
-    .page-header p {
-      margin: 0;
-      color: #586069;
-      font-size: 0.98rem;
-    }
-
-    /* Project section + cards (reuses your existing grid style but fits inside wrapper) */
-    .section {
-      margin: 0;
-      padding: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 16px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      border: 1px solid #eaecef;
-      box-sizing: border-box;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 1.05rem;
-      color: var(--usc-garnet);
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      margin-top: 0;
-      margin-bottom: 0.4rem;
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    /* Links GitHub-style */
     a {
-      color: #0366d6;
+      color: var(--usc-garnet);
       text-decoration: none;
-    }
-
-    a:visited {
-      color: #0366d6;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    /* Footer similar to bottom of hidalab.github.io */
-    .site-footer {
-      margin-top: 40px;
-      padding-top: 16px;
-      border-top: 1px solid #eaecef;
-      font-size: 0.92rem;
-      color: #6a737d;
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
     }
 
-    .footer-nav {
-      margin: 0 0 6px;
+    .nav {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+
+    .nav a.logo {
+      font-weight: 700;
+      color: var(--usc-garnet);
+      font-size: 1.25rem;
+    }
+
+    /* Tabs navbar (same style as home) */
+    .tabs-wrapper {
+      background: transparent;
+    }
+
+    .tabs {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 12px 20px;
+    }
+
+    .tabs-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 12px;
+      background: var(--tab-bg);
+      border-radius: 999px;
+      border: 1px solid var(--tab-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .tab-item {
+      flex: 0 0 auto;
+    }
+
+    .tab-link {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      color: #444;
+      background: transparent;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+    }
+
+    .tab-link:hover {
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .tab-link.active {
+      background: var(--tab-active-bg);
+      color: var(--tab-active-text);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+    }
+
+    .page-header {
+      max-width: 1280px;
+      margin: 24px auto 0;
+      padding: 0 20px 24px 20px;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      margin: 0 0 4px;
+      color: #111;
+    }
+
+    .page-subtitle {
+      margin: 0;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 20px 40px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      color: var(--usc-garnet);
+    }
+
+    .intro-text {
+      max-width: 800px;
+      font-size: 1rem;
+    }
+
+    .people-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .person-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .person-photo-wrap {
+      width: 100%;
+      max-width: 110px;
+    }
+
+    .person-photo-wrap img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .person-name {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--usc-garnet);
+    }
+
+    .person-role {
+      margin: 4px 0 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .person-text {
+      font-size: 0.95rem;
+    }
+
+    .former-section {
+      margin-top: 40px;
+    }
+
+    .former-grid {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .former-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .former-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .former-name {
+      margin: 0;
+      font-weight: 600;
+      color: var(--usc-garnet);
+      font-size: 0.95rem;
+    }
+
+    .former-text {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0 30px;
+      background: #fff;
+      border-top: 1px solid #eee;
       text-align: center;
+      font-size: 0.9rem;
+      color: #555;
     }
 
     .footer-nav a {
-      color: #0366d6;
-      text-decoration: none;
-      margin: 0 4px;
+      margin: 0 0.25rem;
     }
 
-    .footer-nav a:hover {
-      text-decoration: underline;
-    }
-
-    .site-footer p {
-      margin: 0;
-      text-align: center;
-    }
-
-    @media (max-width: 960px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .grid {
+    @media (max-width: 900px) {
+      .people-grid,
+      .former-grid {
         grid-template-columns: 1fr;
       }
 
-      .site-nav-top ul {
-        gap: 6px;
-        flex-wrap: wrap;
+      .person-card {
+        grid-template-columns: 80px 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .tabs-list {
+        border-radius: 16px;
       }
 
-      .site-title {
-        font-size: 1.6rem;
+      .person-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .person-photo-wrap {
+        max-width: 120px;
+        margin: 0 auto;
+      }
+
+      .former-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .former-photo {
+        max-width: 100px;
+        margin: 0 auto;
       }
     }
   </style>
 </head>
 <body>
-  <div class="site-wrapper">
-    <header class="site-header">
-      <h1 class="site-title">
-        <a href="https://www.hidalab.org/">Hi Da Research Lab</a>
-      </h1>
-      <p class="site-tagline">Human Insight for Data and AI</p>
+  <header>
+    <nav class="nav" aria-label="Brand">
+      <a class="logo" href="/">Hi Da Research Lab</a>
+    </nav>
+  </header>
 
-      <nav class="site-nav-top" aria-label="Main">
-        <ul>
-          <li><a href="https://www.hidalab.org/">Welcome</a></li>
-          <li><a href="https://www.hidalab.org/people">People</a></li>
-          <li><a href="https://www.hidalab.org/publications">Publications</a></li>
-          <li><a href="https://www.hidalab.org/projects">Projects</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <header class="page-header">
-        <h1>Projects</h1>
-        <p>Investigating how AI and human insight shape health, science, and society.</p>
-      </header>
-
-      <section id="projects" class="section" aria-labelledby="projects-heading">
-        <h2 id="projects-heading" style="position:absolute; left:-9999px;">Our Projects</h2>
-        <div class="grid">
-
-          <!-- Project 1 -->
-          <article class="card">
-            <img src="https://media.istockphoto.com/id/1484291102/photo/chatbot-artificial-intelligence-intelligent-robot-technology-ai-aartificial-intelligence.jpg?s=612x612&w=0&k=20&c=ipMF48FXd6PZVeop1nEyx-q3awoEhgmBu6oh4pgbTdw=" alt="AI Literacy in School Libraries project" loading="lazy" />
-            <h3>AI Literacy</h3>
-            <p>This three-year project, funded by the Institute of Museum and Library Services (IMLS) Laura Bush 21st Century Librarian Program, supports AI literacy in school libraries. With $192,843 in funding, it aims to advance innovation, education, and the vital role of libraries in shaping informed communities.</p>
-          </article>
-
-          <!-- Project 2 (AI Peer) -->
-          <article class="card">
-            <img src="https://imageio.forbes.com/specials-images/imageserve/63bdffc05989c30c33964a41/Artificial-Intelligence/960x0.png?format=png&width=960" alt="AI Peer project" loading="lazy" />
-            <h3>
-              <a href="https://sites.google.com/sheffield.ac.uk/peer-ai/home" target="_blank" rel="noopener">
-                AI Peer
-              </a>
-            </h3>
-            <p>Investigates how large language models and other artificial intelligence methods can support peer and expert review of academic documents. This includes developing and evaluating algorithms and strategies.</p>
-            <p><strong>Project Highlight:</strong> Using Large Language Models to score journal articles for quality.</p>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="card">
-            <img src="https://mitcommlab.mit.edu/cheme/wp-content/uploads/sites/7/2023/06/chatGPT-thumb-e1686757371585-250x171.png" alt="PhD students and ChatGPT project" loading="lazy" />
-            <h3>
-              <a href="https://lib.purdue.edu/IILP/" target="_blank" rel="noopener">
-                Ph.D. Students &amp; Gen AI
-              </a>
-            </h3>
-            <p>Explores how doctoral students perceive and interact with ChatGPT-generated content, focusing on information literacy skills, trust judgments, and verification strategies in academic contexts.</p>
-          </article>
-
-          <!-- Project 4 -->
-          <article class="card">
-            <img src="https://files.hiv.gov/s3fs-public/2022-11/cdc-hiv-basics-covid19-1200x1200.png" alt="HIV and Covid project" loading="lazy" />
-            <h3>HIV and Covid</h3>
-            <p>Investigating pandemic-related disruptions in HIV care, this project examines how COVID-19 impacted HIV treatment access, retention, and health outcomes, using multilevel and electronic health record data.</p>
-          </article>
-
-          <!-- Project 5 -->
-          <article class="card">
-            <img src="https://static.www.tencent.com/uploads/2024/12/16/6d1d8017360143a5ee73cb52de93b57d.jpg" alt="Battle for Better Health project" loading="lazy" />
-            <h3>Battle for Better Health</h3>
-            <p>Using health literacy frameworks and AI to address obesity in South Carolina, this project develops interventions that improve health behaviors and access to reliable health information. Funded by the <a href="https://www.nnlm.gov/" target="_blank" rel="noopener">National Library of Medicine Region 2</a>.</p>
-          </article>
-
-          <!-- Project 6 -->
-          <article class="card">
-            <img src="https://www.epscorideafoundation.org/media/images/_1140x435_crop_center-center/nsf-epscor-background.jpeg" alt="NSF EPSCoR and NIH IDeA project" loading="lazy" />
-            <h3>
-              <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0286991" target="_blank" rel="noopener">
-                NSF EPSCoR &amp; NIH IDeA Impact
-              </a>
-            </h3>
-            <p>This evaluation project measures the effectiveness and broader impacts of NSF’s EPSCoR and NIH’s IDeA programs nationally, assessing how these funding mechanisms influence research capacity, equity, scientific output, and long-term institutional growth.</p>
-            <p>The article is featured in <a href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener">Science</a>.</p>
-          </article>
-
-          <!-- Project 7 -->
-          <article class="card">
-            <img src="https://ichef.bbci.co.uk/images/ic/1024x576/p088bnqx.jpg" alt="COVID-19 misinformation project" loading="lazy" />
-            <h3>
-              <a href="https://bigdata.sc.edu/bdhsc-faculty-awarded-internal-covid-19-research-grants/" target="_blank" rel="noopener">
-                COVID-19 Misinformation on YouTube
-              </a>
-            </h3>
-            <p>Evaluates the prevalence, thematic content, sentiment, and downstream information-seeking behavior associated with COVID-19 misinformation on YouTube, using topic modeling and sentiment analysis to identify patterns in misleading health content.</p>
-          </article>
-
-          <!-- Project 8 -->
-          <article class="card">
-            <img src="https://www.theelectroniccigarette.co.uk/blog/wp-content/uploads/2022/12/vaping-misinformation-the-media-strikes-again.jpg" alt="Vaping misinformation project" loading="lazy" />
-            <h3>
-              <a href="https://www.tandfonline.com/doi/full/10.1080/10826084.2021.2019777" target="_blank" rel="noopener">
-                Vaping Misinformation
-              </a>
-            </h3>
-            <p>Analyzes how myths, false claims, and misleading content around vaping spread on social and digital media, identifying influencing factors and informing countermeasures for public health communication.</p>
-          </article>
-
-          <!-- Project 9 -->
-          <article class="card">
-            <img src="https://zimmer.fresnostate.edu/~johnca/spch100/becker.gif" alt="Mosaic of Communication Science project" loading="lazy" />
-            <h3>Mosaic of Communication Science</h3>
-            <p>Performs a 20-year bibliometric and network analysis of publication trends in communication science to map intellectual trajectories, topic evolution, collaboration networks, and influence over time.</p>
-          </article>
-
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p class="footer-nav">
-        <a href="https://www.hidalab.org/">Welcome</a> |
-        <a href="https://www.hidalab.org/people">People</a> |
-        <a href="https://www.hidalab.org/publications">Publications</a> |
-        <a href="https://www.hidalab.org/projects">Projects</a>
-      </p>
-      <p>© <span id="year"></span> Hi Da Research Lab. All rights reserved.</p>
-    </footer>
+  <!-- Tabs navigation (same structure as home) -->
+  <div class="tabs-wrapper" aria-label="Main navigation">
+    <nav class="tabs">
+      <ul class="tabs-list">
+        <li class="tab-item">
+          <a class="tab-link" href="/">Welcome</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link active" href="people.html">People</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="publications.html">Publications</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="projects.html">Projects</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 
+  <main class="section" aria-labelledby="people-heading">
+    <h2 id="people-heading">Hi Da Lab Team</h2>
+
+    <div class="people-grid">
+      <!-- Ehsan -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">
+            <img src="assets/images/people/Ehsan Mohammadi.png"
+                 alt="Dr. Ehsan Mohammadi, Director of Hi Da Lab"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">Dr. Ehsan Mohammadi</a>
+          </h3>
+          <p class="person-role">Director, Hi Da Research Lab</p>
+          <p class="person-text">
+            Ehsan applies data science and web analytics to social science questions. His research spans scholarly communication, health information, misinformation and disinformation, and how people search for and use information in digital environments.
+          </p>
+        </div>
+      </article>
+
+      <!-- Mike Thelwall -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://www.sheffield.ac.uk/is/people/academic/mike-thelwall" target="_blank" rel="noopener">
+            <img src="assets/images/people/Mike Thelwall.jpg"
+                 alt="Professor Mike Thelwall"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://www.sheffield.ac.uk/is/people/academic/mike-thelwall" target="_blank" rel="noopener">Professor Mike Thelwall</a>
+          </h3>
+          <p class="person-text">
+            Mike is a Professor of Data Science at the Information School of the University of Sheffield and a Research Associate at the Oxford Internet Institute. His work focuses on webometrics, altmetrics, and the measurement of scholarly communication online.
+          </p>
+        </div>
+      </article>
+
+      <!-- Ting Fung Ma -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/faculty/ma_tingfung.php" target="_blank" rel="noopener">
+            <img src="assets/images/people/Dr. Ting Fung Ma.jpg"
+                 alt="Dr. Ting Fung Ma"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/faculty/ma_tingfung.php" target="_blank" rel="noopener">Dr. Ting Fung Ma</a>
+          </h3>
+          <p class="person-text">
+            Ting Fung is an Assistant Professor in the Department of Statistics at the University of South Carolina. He develops scalable statistical methods for complex data, including spatial and spatio temporal data, and collaborates on multidisciplinary projects that involve large and dependent datasets.
+          </p>
+        </div>
+      </article>
+
+      <!-- Iman Tahamtan -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://sis.utk.edu/profile/iman-tahamtan" target="_blank" rel="noopener">
+            <img src="assets/images/people/Iman Tahamtan.jpg"
+                 alt="Dr. Iman Tahamtan"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sis.utk.edu/profile/iman-tahamtan" target="_blank" rel="noopener">Dr. Iman Tahamtan</a>
+          </h3>
+          <p class="person-text">
+            Iman holds a PhD in Communication and Information from the University of Tennessee, Knoxville and is a UX lecturer at UTK. His research explores research impact, human computer interaction, social media, and digital health.
+          </p>
+        </div>
+      </article>
+
+      <!-- Valerie Vera -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://scholar.google.com/citations?user=i3MzovYAAAAJ" target="_blank" rel="noopener">
+            <img src="assets/images/people/Valerie Vera.jpg"
+                 alt="Valerie Vera"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://scholar.google.com/citations?user=i3MzovYAAAAJ" target="_blank" rel="noopener">Valerie Vera</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Valerie is a PhD student in the School of Information Science at the University of South Carolina. She studies how social and structural factors shape interactions with mental health information and how people navigate these factors through emerging information and communication technologies.
+          </p>
+        </div>
+      </article>
+
+      <!-- Yizhou (Jake) Cai -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://scholar.google.com/citations?user=AUwCB1UAAAAJ" target="_blank" rel="noopener">
+            <img src="assets/images/people/Yizhou Cai (Jake).jpg"
+                 alt="Yizhou (Jake) Cai"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://scholar.google.com/citations?user=AUwCB1UAAAAJ" target="_blank" rel="noopener">Yizhou Cai (Jake)</a>
+          </h3>
+          <p class="person-role">PhD Candidate, Statistics</p>
+          <p class="person-text">
+            Jake is a PhD candidate in the Department of Statistics at the University of South Carolina. He has experience applying machine learning to financial problems and is interested in advanced statistical applications across information science, finance, economics, and computer science.
+          </p>
+        </div>
+      </article>
+
+      <!-- Amirreza Kalantari -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">
+            <img src="assets/images/people/Amirreza Kalantari.jpg"
+                 alt="Amirreza Kalantari"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">Amirreza Kalantari</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Amirreza joined the School of Information Science at the University of South Carolina in August 2024. His research interests include human centered AI, information behavior, and computational methods for studying digital information spaces.
+          </p>
+        </div>
+      </article>
+
+      <!-- Quynh Nguyen -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">
+            <img src="assets/images/people/Quynh Nguyen.jpg"
+                 alt="Quynh Nguyen"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">Quynh Nguyen</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Quynh is a PhD student at the University of South Carolina who is interested in how data and technology can address contemporary information challenges. She is excited to work on interdisciplinary projects that connect people, data, and technological systems.
+          </p>
+        </div>
+      </article>
+
+      <!-- Samaneh Borji -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">
+            <img src="assets/images/people/Samaneh Borji.jpg"
+                 alt="Samaneh Borji"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://sc.edu/study/colleges_schools/cic/info_sci/news/2024/newphdstudents.php" target="_blank" rel="noopener">Samaneh Borji</a>
+          </h3>
+          <p class="person-role">PhD Student, School of Information Science</p>
+          <p class="person-text">
+            Samaneh has a background in computer science, teaching, communication, and research. She is interested in building bridges between computer science and information science and focuses on improving information literacy so that people can better navigate mass information and avoid misleading content.
+          </p>
+        </div>
+      </article>
+
+      <!-- Taylor Collier -->
+      <article class="person-card">
+        <div class="person-photo-wrap">
+          <a href="https://libguides.charleston.edu/prf.php?account_id=262361" target="_blank" rel="noopener">
+            <img src="assets/images/people/Taylor Collier.jpg"
+                 alt="Taylor Collier"
+                 loading="lazy">
+          </a>
+        </div>
+        <div>
+          <h3 class="person-name">
+            <a href="https://libguides.charleston.edu/prf.php?account_id=262361" target="_blank" rel="noopener">Taylor Collier</a>
+          </h3>
+          <p class="person-role">AI Librarian, College of Charleston</p>
+          <p class="person-text">
+            Taylor is an AI librarian at the College of Charleston. She is interested in the use of artificial intelligence in libraries and information science and how AI tools can support information services and user communities.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Former members -->
+    <section class="former-section" aria-labelledby="former-heading">
+      <h2 id="former-heading">Former Members</h2>
+
+      <div class="former-grid">
+        <!-- Alireza Salahirad -->
+        <article class="former-card">
+          <div class="former-photo">
+            <a href="https://www.linkedin.com/in/alireza-salahirad" target="_blank" rel="noopener">
+              <img src="assets/images/people/Alireza Salahirad.jpg"
+                   alt="Alireza Salahirad"
+                   loading="lazy">
+            </a>
+          </div>
+          <div>
+            <h3 class="former-name">
+              <a href="https://www.linkedin.com/in/alireza-salahirad" target="_blank" rel="noopener">Alireza Salahirad</a>
+            </h3>
+            <p class="former-text">
+              Alireza is a PhD candidate in Computer Science and Engineering at the University of South Carolina. He worked in Hi Da Lab as a data engineer and data scientist between April 2020 and September 2021, with interests in software testing, machine learning, and data science.
+            </p>
+          </div>
+        </article>
+
+        <!-- Dalton Bickford -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="assets/images/people/Dalton Bickford.jpg"
+                 alt="Dalton Bickford"
+                 loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">Dalton Bickford</h3>
+            <p class="former-text">
+              Dalton was a data science research assistant in 2018 and 2019 while he was a PhD student in Computer Science and Engineering at the University of South Carolina.
+            </p>
+          </div>
+        </article>
+
+        <!-- Constance Caddell -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="assets/images/people/Constance Caddell.jpg"
+                 alt="Constance Caddell"
+                 loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">Constance Caddell</h3>
+            <p class="former-text">
+              Constance is a PhD candidate in the School of Information Science at the University of South Carolina. She served as a graduate assistant in Hi Da Lab in 2019.
+            </p>
+          </div>
+        </article>
+
+        <!-- Katie Hoskins -->
+        <article class="former-card">
+          <div class="former-photo">
+            <img src="assets/images/people/Katie Hoskins.jpg"
+                 alt="Katie Hoskins"
+                 loading="lazy">
+          </div>
+          <div>
+            <h3 class="former-name">Katie Hoskins</h3>
+            <p class="former-text">
+              Katie was a graduate assistant in Hi Da Lab while she was an MLIS student. Her interests include metadata policy and equity in information organization.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="/">Welcome</a> |
+      <a href="people.html">People</a> |
+      <a href="publications.html">Publications</a> |
+      <a href="projects.html">Projects</a>
+    </div>
+    <p>© <span id="year"></span> Hi Da Lab · Human Insight for Data &amp; AI</p>
+  </footer>
+
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
