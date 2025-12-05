@@ -1,580 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Charset + viewport -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Publications | Hi Da Research Lab</title>
-  <meta name="description" content="Publications from the Hi Da Research Lab on AI, health, social media, and the science of science." />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Canonical to main domain for SEO -->
-  <link rel="canonical" href="https://www.hidalab.org/publications" />
-
-  <!-- Open Graph / Twitter for rich results -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.hidalab.org/publications" />
-  <meta property="og:title" content="Publications | Hi Da Research Lab" />
-  <meta property="og:description" content="Publications from the Hi Da Research Lab on AI, health, social media, and the science of science." />
-  <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Publications | Hi Da Research Lab" />
-  <meta name="twitter:description" content="Publications from the Hi Da Research Lab on AI, health, social media, and the science of science." />
-  <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
-
-  <!-- Minimal structured data for this page -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://hidalab.org/#org",
-        "name": "Hi Da Research Lab",
-        "alternateName": "Human Insight for Data and AI",
-        "url": "https://hidalab.org/",
-        "logo": "https://hidalab.org/assets/logo.png",
-        "sameAs": [
-          "https://www.hidalab.org/",
-          "https://ehsannu.github.io/HiDaLab/",
-          "https://www.wikidata.org/wiki/Q57911399"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://hidalab.org/#website",
-        "url": "https://hidalab.org/",
-        "name": "Hi Da Research Lab",
-        "inLanguage": "en",
-        "publisher": { "@id": "https://hidalab.org/#org" }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://hidalab.org/publications",
-        "url": "https://www.hidalab.org/publications",
-        "name": "Publications | Hi Da Research Lab",
-        "isPartOf": { "@id": "https://hidalab.org/#website" },
-        "description": "Publications from the Hi Da Research Lab on AI, health, social media, and the science of science.",
-        "inLanguage": "en"
-      }
-    ]
-  }
-  </script>
-
-  <!-- Styles: identical nav and tabs design as people.html -->
-  <style>
-    :root {
-      --usc-garnet: #73000a;
-      --usc-light-garnet: #a30015;
-      --usc-gray: #f4f4f4;
-      --tab-bg: #ffffff;
-      --tab-border: #e0e0e0;
-      --tab-active-bg: #73000a;
-      --tab-active-text: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--usc-gray);
-      color: #333;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--usc-garnet);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-    }
-
-    .nav {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-    }
-
-    .nav a.logo {
-      font-weight: 700;
-      color: var(--usc-garnet);
-      font-size: 1.25rem;
-    }
-
-    /* Tabs navbar (same style as people.html) */
-    .tabs-wrapper {
-      background: transparent;
-    }
-
-    .tabs {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 20px 12px 20px;
-    }
-
-    .tabs-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0;
-      padding: 12px;
-      background: var(--tab-bg);
-      border-radius: 999px;
-      border: 1px solid var(--tab-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    }
-
-    .tab-item {
-      flex: 0 0 auto;
-    }
-
-    .tab-link {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border: 1px solid transparent;
-      color: #444;
-      background: transparent;
-      text-decoration: none;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.1s ease;
-    }
-
-    .tab-link:hover {
-      background: #f8f8f8;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .tab-link.active {
-      background: var(--tab-active-bg);
-      color: var(--tab-active-text);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-    }
-
-    .section {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 24px 20px 40px;
-    }
-
-    .section h1 {
-      margin-top: 0;
-      font-size: 2rem;
-      color: #111;
-    }
-
-    .intro-text {
-      max-width: 800px;
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .pub-section {
-      margin-top: 32px;
-    }
-
-    .pub-section h2 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-      color: var(--usc-garnet);
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 6px;
-    }
-
-    .pub-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 12px 0 0;
-    }
-
-    .pub-list li {
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-    }
-
-    .pub-year {
-      font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 4px;
-    }
-
-    footer {
-      margin-top: 40px;
-      padding: 20px 0 30px;
-      background: #fff;
-      border-top: 1px solid #eee;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .footer-nav a {
-      margin: 0 0.25rem;
-    }
-
-    @media (max-width: 600px) {
-      .tabs-list {
-        border-radius: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- HEADER + NAV: identical structure as people.html -->
-  <header>
-    <nav class="nav" aria-label="Brand">
-      <a class="logo" href="/">Hi Da Research Lab</a>
-    </nav>
-  </header>
-
-  <!-- Tabs navigation (same structure as people.html, Publications active) -->
-  <div class="tabs-wrapper" aria-label="Main navigation">
-    <nav class="tabs">
-      <ul class="tabs-list">
-        <li class="tab-item">
-          <a class="tab-link" href="/">Welcome</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="people.html">People</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link active" href="publications.html">Publications</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="projects.html">Projects</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <!-- MAIN CONTENT: template structure for publications -->
-  <main class="section" aria-labelledby="pubs-heading">
-    <h1 id="pubs-heading">Publications</h1>
-    <p class="intro-text">
-      Use this page to list selected publications from Hi Da Research Lab. You can group them by type, year, or project.
-    </p>
-
-
-
-
-
-
-<h2>Publications</h2>
-
-<h3>2026</h3>
-<ul>
+<ol>
   <li>
+    Mohammadi, E., Thelwall, M., Cai, Y., Collier, T., Tahamtan, I., &amp; Eftekhar, A. (2026).
     Is generative AI reshaping academic practices worldwide? A survey of adoption, benefits, and concerns.
-    <em>Information Processing &amp; Management</em>.
-    <a href="https://doi.org/10.1016/j.ipm.2025.104350" target="_blank" rel="noopener">
-      https://doi.org/10.1016/j.ipm.2025.104350
-    </a>
+    <em>Information Processing &amp; Management, 63</em>(1), 104350.
+    <a href="https://doi.org/10.1016/j.ipm.2025.104350">https://doi.org/10.1016/j.ipm.2025.104350</a>
   </li>
-</ul>
 
-<h3>2025</h3>
-<ul>
   <li>
+    Mohammadi, E., Lookingbill, T. R., Eftekhar, A., Cai, Y., Tahamtan, I., &amp; Thelwall, M. (2025).
     Who is a scientist? Gender and racial biases in Google Vision AI.
-    <em>AI and Ethics</em>.
-    <a href="https://doi.org/10.1007/s43681-025-00742-4" target="_blank" rel="noopener">
-      https://doi.org/10.1007/s43681-025-00742-4
-    </a>
+    <em>AI and Ethics, 5</em>(5), 4993–5010.
+    <a href="https://doi.org/10.1007/s43681-025-00742-4">https://doi.org/10.1007/s43681-025-00742-4</a>
   </li>
-</ul>
 
-<h3>2024</h3>
-<ul>
   <li>
+    Hofman, D., Mohammadi, E., Ryan, E., &amp; Thelwall, M. (2024).
     AI for Library and Information Science (AI4LIS): Towards a research agenda.
-    <em>Proceedings of the Association for Information Science and Technology</em>.
-    <a href="https://doi.org/10.1002/pra2.1097" target="_blank" rel="noopener">
-      https://doi.org/10.1002/pra2.1097
-    </a>
+    <em>Proceedings of the Association for Information Science and Technology, 61</em>(1), 767–769.
+    <a href="https://doi.org/10.1002/pra2.1097">https://doi.org/10.1002/pra2.1097</a>
   </li>
+
   <li>
+    Rahman, M. M., Mohammadi, E., &amp; Alhoori, H. (2024).
     Public interest in science or bots? Selective amplification of scientific articles on Twitter.
-    <em>Aslib Journal of Information Management</em>.
-    <a href="https://doi.org/10.1108/ajim-01-2024-0050" target="_blank" rel="noopener">
-      https://doi.org/10.1108/ajim-01-2024-0050
-    </a>
+    <em>Aslib Journal of Information Management</em>. Advance online publication.
+    <a href="https://doi.org/10.1108/AJIM-01-2024-0050">https://doi.org/10.1108/AJIM-01-2024-0050</a>
   </li>
-  <li>
-    Cutting through the noise to motivate people: A comprehensive analysis of COVID-19 vaccination posts on social media.
-    <em>Natural Language Processing Journal</em>.
-    <a href="https://doi.org/10.1016/j.nlp.2024.100085" target="_blank" rel="noopener">
-      https://doi.org/10.1016/j.nlp.2024.100085
-    </a>
-  </li>
-</ul>
 
-<h3>2023</h3>
-<ul>
   <li>
-    Accuracy, user engagement, and themes of eating disorder content in social media short videos.
-    <em>JAMA Network Open</em>.
-    <a href="https://doi.org/10.1001/jamanetworkopen.2023.8897" target="_blank" rel="noopener">
-      https://doi.org/10.1001/jamanetworkopen.2023.8897
-    </a>
+    Rahman, M. M., Mohammadi, E., Wang, X., Ferrara, E., &amp; Alhoori, H. (2024).
+    Cutting through the noise to motivate people: A comprehensive analysis of COVID-19 social media posts de/motivating vaccination.
+    <em>Natural Language Processing Journal, 8</em>, 100085.
+    <a href="https://doi.org/10.1016/j.nlp.2024.100085">https://doi.org/10.1016/j.nlp.2024.100085</a>
   </li>
-  <li>
-    Mapping the structure and evolution of software testing research over the past 50 years.
-    <em>Journal of Systems and Software</em>.
-    <a href="https://doi.org/10.1016/j.jss.2022.111518" target="_blank" rel="noopener">
-      https://doi.org/10.1016/j.jss.2022.111518
-    </a>
-  </li>
-</ul>
 
-<h3>2022</h3>
-<ul>
   <li>
-    The mutual influence of the World Health Organization (WHO) and Twitter users:
-    Multilingual analysis of COVID-19 tweets.
-    <em>Journal of Medical Internet Research</em>.
-    <a href="https://doi.org/10.2196/34321" target="_blank" rel="noopener">
-      https://doi.org/10.2196/34321
-    </a>
+    Salahirad, A., Li, F., Hall, A., Shihab, E., Mohammadi, E., &amp; Gousios, G. (2023).
+    Mapping the structure and evolution of software engineering research over the past three decades.
+    <em>Journal of Systems and Software, 198</em>, 111518.
+    <a href="https://doi.org/10.1016/j.jss.2022.111518">https://doi.org/10.1016/j.jss.2022.111518</a>
   </li>
-  <li>
-    Big data. In <em>Communication Technology Update and Fundamentals</em>, 18th ed.
-    Technology Futures, Inc.
-    <a href="https://tfi-ctu.com/" target="_blank" rel="noopener">
-      Publisher page
-    </a>
-  </li>
-</ul>
 
-<h3>2021</h3>
-<ul>
   <li>
-    Framing of and attention to COVID-19 on Twitter: Thematic analysis of hashtags.
-    <em>Journal of Medical Internet Research</em>.
-    <a href="https://doi.org/10.2196/30800" target="_blank" rel="noopener">
-      https://doi.org/10.2196/30800
-    </a>
+    Mohammadi, E., &amp; Karami, A. (2022).
+    Big data.
+    In A. E. Grant &amp; J. H. Meadows (Eds.),
+    <em>Communication Technology Update and Fundamentals</em> (18th ed.).
+    Routledge.
   </li>
-  <li>
-    Framing of the COVID-19 infodemic: A thematic analysis of misinformation stories.
-    <em>JMIR Infodemiology</em>.
-    <a href="https://doi.org/10.2196/33827" target="_blank" rel="noopener">
-      https://doi.org/10.2196/33827
-    </a>
-  </li>
-  <li>
-    How are encyclopedias cited in academic research? Wikipedia, Britannica, Baidu Baike, and others.
-    <em>El Profesional de la Información</em>.
-    <a href="https://doi.org/10.3145/epi.2021.sep.08" target="_blank" rel="noopener">
-      https://doi.org/10.3145/epi.2021.sep.08
-    </a>
-  </li>
-</ul>
 
-<h3>2020</h3>
-<ul>
   <li>
+    Mohammadi, E., &amp; Karami, A. (2022).
     Exploring research trends in big data across disciplines: A text mining analysis.
-    <em>Journal of Information Science</em>.
-    <a href="https://doi.org/10.1177/0165551520932855" target="_blank" rel="noopener">
-      https://doi.org/10.1177/0165551520932855
-    </a>
+    <em>Journal of Information Science, 48</em>(1), 44–56.
+    <a href="https://doi.org/10.1177/0165551520932855">https://doi.org/10.1177/0165551520932855</a>
   </li>
-  <li>
-    Is authorship sufficient for today’s collaborative research? A call for contributor roles.
-    <em>Accountability in Research</em>.
-    <a href="https://doi.org/10.1080/08989621.2020.1779591" target="_blank" rel="noopener">
-      https://doi.org/10.1080/08989621.2020.1779591
-    </a>
-  </li>
-  <li>
-    Which health and biomedical topics generate the most Facebook interest and the highest
-    scholarly impact?
-    <em>Information Processing &amp; Management</em>.
-    <a href="https://doi.org/10.1016/j.ipm.2020.102230" target="_blank" rel="noopener">
-      https://doi.org/10.1016/j.ipm.2020.102230
-    </a>
-  </li>
-  <li>
-    Wine research and its relationship with wine production: A scientometric analysis.
-    <em>Australian Journal of Grape and Wine Research</em>.
-    <a href="https://doi.org/10.1111/ajgw.12422" target="_blank" rel="noopener">
-      https://doi.org/10.1111/ajgw.12422
-    </a>
-  </li>
-</ul>
 
-<h3>2019</h3>
-<ul>
   <li>
+    Li, Y., Thelwall, M., &amp; Mohammadi, E. (2021).
+    How are encyclopedias cited in academic research?
+    <em>Profesional de la Información, 30</em>(5), e300408.
+    <a href="https://doi.org/10.3145/epi.2021.sep.08">https://doi.org/10.3145/epi.2021.sep.08</a>
+  </li>
+
+  <li>
+    Tahamtan, I., Wong, S. S., Nemati-Anaraki, L., Deinavizadeh, F., Banaei-Moghaddam, A., Nezhad, M. Z., &amp; Mohammadi, E. (2021).
+    Framing of and attention to COVID-19 on Twitter: Thematic analysis of hashtags.
+    <em>Journal of Medical Internet Research, 23</em>(2), e30800.
+    <a href="https://doi.org/10.2196/30800">https://doi.org/10.2196/30800</a>
+  </li>
+
+  <li>
+    Jamali, H. R., Steel, L., &amp; Mohammadi, E. (2020).
+    Wine research and its relationship with wine production.
+    <em>Australian Journal of Grape and Wine Research, 26</em>(1), 80–87.
+    <a href="https://doi.org/10.1111/ajgw.12422">https://doi.org/10.1111/ajgw.12422</a>
+  </li>
+
+  <li>
+    Mohammadi, E., Barahmand, N., &amp; Thelwall, M. (2020).
     Who shares health and medical scholarly articles on Facebook?
-    <em>Learned Publishing</em>.
-    <a href="https://doi.org/10.1002/leap.1271" target="_blank" rel="noopener">
-      https://doi.org/10.1002/leap.1271
-    </a>
+    <em>Learned Publishing, 33</em>(2), 111–118.
+    <a href="https://doi.org/10.1002/leap.1271">https://doi.org/10.1002/leap.1271</a>
   </li>
-  <li>
-    Readership data and research impact.
-    In <em>Altmetrics for Research Evaluation and Scholarly Communication</em>.
-    <a href="https://doi.org/10.1007/978-3-030-02511-3_29" target="_blank" rel="noopener">
-      https://doi.org/10.1007/978-3-030-02511-3_29
-    </a>
-  </li>
-</ul>
 
-<h3>2018</h3>
-<ul>
   <li>
-    Academic information on Twitter: A user survey.
-    <em>PLOS ONE</em>.
-    <a href="https://doi.org/10.1371/journal.pone.0197265" target="_blank" rel="noopener">
-      https://doi.org/10.1371/journal.pone.0197265
-    </a>
+    Mohammadi, E., Gregory, K., Thelwall, M., &amp; Barahmand, N. (2020).
+    Which health and biomedical topics generate the most Facebook interest and the strongest citation relationships?
+    <em>Information Processing &amp; Management, 57</em>(6), 102230.
+    <a href="https://doi.org/10.1016/j.ipm.2020.102230">https://doi.org/10.1016/j.ipm.2020.102230</a>
   </li>
-  <li>
-    “Life never matters in the DEMOCRATS MIND”: Examining strategies of retweeted
-    @realDonaldTrump tweets as information sources.
-    <em>Proceedings of the Association for Information Science and Technology</em>.
-    <a href="https://doi.org/10.1002/pra2.2018.14505501028" target="_blank" rel="noopener">
-      https://doi.org/10.1002/pra2.2018.14505501028
-    </a>
-  </li>
-</ul>
 
-<h3>2017</h3>
-<ul>
   <li>
-    2378: A scientometric analysis of CTSA collaboration and impact.
-    <em>Journal of Clinical and Translational Science</em>.
-    <a href="https://doi.org/10.1017/cts.2017.72" target="_blank" rel="noopener">
-      https://doi.org/10.1017/cts.2017.72
-    </a>
-  </li>
-</ul>
-
-<h3>2016</h3>
-<ul>
-  <li>
-    Can Mendeley bookmarks reflect readership? A survey of user motivations.
-    <em>Journal of the Association for Information Science and Technology</em>.
-    <a href="https://doi.org/10.1002/asi.23477" target="_blank" rel="noopener">
-      https://doi.org/10.1002/asi.23477
-    </a>
-  </li>
-</ul>
-
-<h3>2015</h3>
-<ul>
-  <li>
-    Who reads research articles? An altmetrics analysis of Mendeley user categories.
-    <em>Journal of the Association for Information Science and Technology</em>.
-    <a href="https://doi.org/10.1002/asi.23286" target="_blank" rel="noopener">
-      https://doi.org/10.1002/asi.23286
-    </a>
-  </li>
-</ul>
-
-<h3>2014</h3>
-<ul>
-  <li>
-    Mendeley readership altmetrics for the social sciences and humanities:
-    Research evaluation and knowledge flows.
-    <em>Journal of the Association for Information Science and Technology</em>.
-    <a href="https://doi.org/10.1002/asi.23071" target="_blank" rel="noopener">
-      https://doi.org/10.1002/asi.23071
-    </a>
-  </li>
-</ul>
-
-<h3>2013</h3>
-<ul>
-  <li>
-    Assessing non-standard article impact using F1000 labels.
-    <em>Scientometrics</em>.
-    <a href="https://doi.org/10.1007/s11192-013-0993-9" target="_blank" rel="noopener">
-      https://doi.org/10.1007/s11192-013-0993-9
-    </a>
-  </li>
-</ul>
-
-<h3>2012</h3>
-<ul>
-  <li>
-    Knowledge mapping of the Iranian nanoscience and technology: A text-mining approach.
-    <em>Scientometrics</em>.
-    <a href="https://doi.org/10.1007/s11192-012-0644-6" target="_blank" rel="noopener">
-      https://doi.org/10.1007/s11192-012-0644-6
-    </a>
-  </li>
-</ul>
-
-<h3>Datasets</h3>
-<ul>
-  <li>
-    The Mendeley readership of social science and humanities research.
+    Mohammadi, E., &amp; Thelwall, M. (2019).
+    Assessing the Mendeley readership of social science and humanities research [Data set].
     <em>figshare</em>.
-    <a href="https://doi.org/10.6084/m9.figshare.11297348" target="_blank" rel="noopener">
-      https://doi.org/10.6084/m9.figshare.11297348
-    </a>
+    <a href="https://doi.org/10.6084/m9.figshare.11297348">https://doi.org/10.6084/m9.figshare.11297348</a>
   </li>
-</ul>
 
-<h3>Preprints (archived)</h3>
-<ul>
   <li>
-    The mutual influence of the World Health Organization (WHO) and Twitter use during COVID-19:
-    Thematic and multilingual hashtag analysis (preprint version).
-    <a href="https://doi.org/10.2196/preprints.34321" target="_blank" rel="noopener">
-      https://doi.org/10.2196/preprints.34321
-    </a>
+    Mohammadi, E., &amp; Thelwall, M. (2019).
+    Readership data and research impact.
+    In W. Glänzel, H. F. Moed, U. Schmoch, &amp; M. Thelwall (Eds.),
+    <em>Springer Handbook of Science and Technology Indicators</em> (pp. 761–779).
+    Springer.
+    <a href="https://doi.org/10.1007/978-3-030-02511-3_29">https://doi.org/10.1007/978-3-030-02511-3_29</a>
   </li>
+
   <li>
-    Identifying themes of the COVID-19 infodemic: A thematic analysis of misinformation stories
-    (preprint version).
-    <a href="https://doi.org/10.2196/preprints.33827" target="_blank" rel="noopener">
-      https://doi.org/10.2196/preprints.33827
-    </a>
+    Kitzie, V., Mohammadi, E., &amp; Karami, A. (2018).
+    “Life never matters in the Democrats mind”: Examining strategies of persuasion in social bots directed at the public during the 2016 U.S. presidential campaign.
+    <em>Proceedings of the Association for Information Science and Technology, 55</em>(1), 287–296.
+    <a href="https://doi.org/10.1002/pra2.2018.14505501028">https://doi.org/10.1002/pra2.2018.14505501028</a>
   </li>
-</ul>
 
-       
+  <li>
+    Mohammadi, E., Thelwall, M., Kwasny, M., &amp; Holmes, K. L. (2018).
+    Academic information on Twitter: A user survey.
+    <em>PLOS ONE, 13</em>(5), e0197265.
+    <a href="https://doi.org/10.1371/journal.pone.0197265">https://doi.org/10.1371/journal.pone.0197265</a>
+  </li>
 
-    
+  <li>
+    Holmes, K. L., Mohammadi, E., Gutzman, K. E., Shaw, P. L., &amp; Lloyd-Jones, D. M. (2017).
+    A scientometric analysis of CTSA collaboration and impact.
+    <em>Journal of Clinical and Translational Science, 1</em>(3), 153–161.
+    <a href="https://doi.org/10.1017/cts.2017.72">https://doi.org/10.1017/cts.2017.72</a>
+  </li>
 
-  <footer>
-    <div class="footer-nav">
-      <a href="/">Welcome</a> |
-      <a href="people.html">People</a> |
-      <a href="publications.html">Publications</a> |
-      <a href="projects.html">Projects</a>
-    </div>
-    <p>© <span id="year"></span> Hi Da Lab · Human Insight for Data &amp; AI</p>
-  </footer>
+  <li>
+    Mohammadi, E., Thelwall, M., &amp; Kousha, K. (2016).
+    Can Mendeley bookmarks reflect readership? A survey of user motivations.
+    <em>Journal of the Association for Information Science and Technology, 67</em>(5), 1198–1209.
+    <a href="https://doi.org/10.1002/asi.23477">https://doi.org/10.1002/asi.23477</a>
+  </li>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  <li>
+    Mohammadi, E., Thelwall, M., Haustein, S., &amp; Larivière, V. (2015).
+    Who reads research articles? An altmetrics analysis of Mendeley user categories.
+    <em>Journal of the Association for Information Science and Technology, 66</em>(9), 1832–1846.
+    <a href="https://doi.org/10.1002/asi.23286">https://doi.org/10.1002/asi.23286</a>
+  </li>
+
+  <li>
+    Mohammadi, E., &amp; Thelwall, M. (2014).
+    Mendeley readership altmetrics for the social sciences and humanities: An analysis of 1.4 million user libraries.
+    <em>Journal of the Association for Information Science and Technology, 65</em>(8), 1627–1638.
+    <a href="https://doi.org/10.1002/asi.23071">https://doi.org/10.1002/asi.23071</a>
+  </li>
+
+  <li>
+    Mohammadi, E., Thelwall, M., Haustein, S., &amp; Larivière, V. (2013).
+    Assessing non-standard article impact using F1000 labels.
+    <em>Scientometrics, 97</em>(2), 383–395.
+    <a href="https://doi.org/10.1007/s11192-013-0993-9">https://doi.org/10.1007/s11192-013-0993-9</a>
+  </li>
+
+  <li>
+    Mohammadi, E. (2012).
+    Knowledge mapping of the Iranian nanoscience and technology: A text mining approach.
+    <em>Scientometrics, 92</em>(3), 593–608.
+    <a href="https://doi.org/10.1007/s11192-012-0644-6">https://doi.org/10.1007/s11192-012-0644-6</a>
+  </li>
+</ol>
