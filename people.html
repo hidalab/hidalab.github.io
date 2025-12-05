@@ -24,34 +24,45 @@
   <meta name="twitter:description" content="People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members." />
   <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
 
-  <!-- Consistent schema with Hi Da Lab Entity Hub (Organization / WebSite / ResearchProject / Breadcrumbs / Person) -->
+  <!-- Consistent schema with Hi Da Lab main site and entity hub -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.hidalab.org/#org",
+        "@id": "https://hidalab.org/#org",
         "name": "Hi Da Research Lab",
         "alternateName": "Human Insight for Data and AI",
-        "url": "https://www.hidalab.org/",
-        "logo": "https://www.hidalab.org/assets/logo.png",
+        "url": "https://hidalab.org/",
+        "logo": "https://hidalab.org/assets/logo.png",
+        "image": "https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1",
+        "description": "Hi Da Research Lab at the University of South Carolina explores human-centered AI, health informatics, social media analytics, and the science of science.",
         "sameAs": [
-          "https://www.wikidata.org/wiki/Q57911399"
+          "https://hidalab.org/",
+          "https://www.hidalab.org/",
+          "https://ehsannu.github.io/HiDaLab/",
+          "https://www.wikidata.org/wiki/Q57911399",
+          "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php"
         ],
         "affiliation": {
           "@type": "CollegeOrUniversity",
           "name": "University of South Carolina",
           "url": "https://sc.edu"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://hidalab.org/"
         }
       },
       {
         "@type": "WebSite",
-        "@id": "https://www.hidalab.org/#website",
-        "url": "https://www.hidalab.org/",
+        "@id": "https://hidalab.org/#website",
+        "url": "https://hidalab.org/",
         "name": "Hi Da Research Lab",
         "inLanguage": "en",
-        "publisher": { "@id": "https://www.hidalab.org/#org" },
+        "publisher": { "@id": "https://hidalab.org/#org" },
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://www.hidalab.org/search?q={search_term_string}",
@@ -59,51 +70,49 @@
         }
       },
       {
+        "@type": "WebPage",
+        "@id": "https://hidalab.org/people",
+        "url": "https://www.hidalab.org/people",
+        "name": "People | Hi Da Research Lab",
+        "isPartOf": { "@id": "https://hidalab.org/#website" },
+        "about": [
+          { "@id": "https://hidalab.org/#org" },
+          { "@id": "https://hidalab.org/people#ehsan-mohammadi" }
+        ],
+        "description": "People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members.",
+        "inLanguage": "en",
+        "breadcrumb": { "@id": "https://hidalab.org/#breadcrumb" },
+        "mainEntity": { "@id": "https://hidalab.org/people#ehsan-mohammadi" }
+      },
+      {
         "@type": "ResearchProject",
-        "@id": "https://www.hidalab.org/#project",
+        "@id": "https://hidalab.org/#project",
         "name": "Hi Da Research Lab",
         "alternateName": "Human Insight for Data and AI",
-        "url": "https://www.hidalab.org/",
+        "url": "https://hidalab.org/",
         "description": "Hi Da Lab is a multidisciplinary research lab exploring the intersections of health, AI, social media, and science. We focus on misinformation, responsible innovation, and data-driven impact.",
         "keywords": [
           "AI",
-          "Health Informatics",
-          "Social Media",
-          "Misinformation",
-          "Science of Science",
-          "Information Behavior"
+          "health informatics",
+          "health misinformation",
+          "social media analytics",
+          "science of science",
+          "information behavior",
+          "AI literacy"
         ],
         "member": {
-          "@type": "Person",
-          "name": "Ehsan Mohammadi",
-          "url": "https://www.ehsanmohammadi.com/",
-          "jobTitle": "Director",
-          "affiliation": { "@id": "https://www.hidalab.org/#org" },
-          "sameAs": [
-            "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
-            "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php",
-            "https://www.linkedin.com/in/ehsanmohammadi",
-            "https://orcid.org/0000-0003-3481-6991"
-          ]
+          "@id": "https://hidalab.org/people#ehsan-mohammadi"
         }
       },
       {
-        "@type": "WebPage",
-        "@id": "https://www.hidalab.org/people",
-        "url": "https://www.hidalab.org/people",
-        "name": "People",
-        "isPartOf": { "@id": "https://www.hidalab.org/#website" },
-        "description": "People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members.",
-        "inLanguage": "en"
-      },
-      {
         "@type": "BreadcrumbList",
+        "@id": "https://hidalab.org/#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.hidalab.org/"
+            "item": "https://hidalab.org/"
           },
           {
             "@type": "ListItem",
@@ -115,17 +124,28 @@
       },
       {
         "@type": "Person",
-        "@id": "https://www.hidalab.org/people#ehsan-mohammadi",
+        "@id": "https://hidalab.org/people#ehsan-mohammadi",
         "name": "Ehsan Mohammadi",
+        "givenName": "Ehsan",
+        "familyName": "Mohammadi",
+        "jobTitle": "Director, Hi Da Research Lab; Associate Professor of Information Science",
+        "affiliation": { "@id": "https://hidalab.org/#org" },
+        "worksFor": { "@id": "https://hidalab.org/#org" },
         "url": "https://www.ehsanmohammadi.com/",
-        "jobTitle": "Director, Hi Da Research Lab",
-        "affiliation": { "@id": "https://www.hidalab.org/#org" },
         "sameAs": [
           "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
-          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php",
+          "https://orcid.org/0000-0003-3481-6991",
           "https://www.linkedin.com/in/ehsanmohammadi",
-          "https://orcid.org/0000-0003-3481-6991"
-        ]
+          "https://www.wikidata.org/wiki/Q57911399",
+          "https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php",
+          "https://www.google.com/search?kgmid=/g/11h0lbv6r8&hl=en-US&q=Ehsan+Mohammadi"
+        ],
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "kgmid",
+          "value": "/g/11h0lbv6r8",
+          "url": "https://www.google.com/search?kgmid=/g/11h0lbv6r8&hl=en-US&q=Ehsan+Mohammadi"
+        }
       }
     ]
   }
