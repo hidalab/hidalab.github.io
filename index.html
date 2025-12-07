@@ -11,6 +11,8 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="author" content="Hi Da Research Lab" />
   <meta name="keywords" content="Hi Da Lab, Human Insight for Data and AI, research lab, AI literacy, health misinformation, social media analytics, science of science, information behavior, University of South Carolina" />
+  <!-- Extra keyword variations for different spellings of the lab name -->
+  <meta name="keywords" content="HiDa Lab, HiDa Research Lab, HIDA Lab, HIDA Research Lab, Hi-Da Lab, Hi-Da Research Lab, HiDa AI Lab, HIDA AI Lab" />
 
   <!-- Canonical: hidalab.org is the primary home -->
   <link rel="canonical" href="https://hidalab.org/" />
@@ -25,6 +27,8 @@
   <meta property="og:title" content="Hi Da Research Lab | Human Insight for Data &amp; AI" />
   <meta property="og:description" content="Human-centered research at the intersection of AI, health, and society." />
   <meta property="og:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&amp;raw=1" />
+  <!-- Site name with alternate spellings of the lab for branding / SEO -->
+  <meta property="og:site_name" content="Hi Da Research Lab (also known as HiDa Lab and HIDA Lab)" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://hidalab.org/" />
@@ -333,6 +337,12 @@
       font-size: 0.95rem;
     }
 
+    /* Paragraph to expose alternate spellings of the lab name for SEO */
+    .lab-alt-names {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -494,6 +504,16 @@
         "logo": "https://hidalab.org/assets/logo.png",
         "image": "https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1",
         "description": "Hi Da Research Lab at the University of South Carolina explores human-centered AI, health informatics, social media analytics, and the science of science.",
+        "keywords": [
+          "Hi Da Lab",
+          "HiDa Lab",
+          "HIDA Lab",
+          "Hi Da Research Lab",
+          "HiDa Research Lab",
+          "HIDA Research Lab",
+          "HiDa AI Lab",
+          "HIDA AI Lab"
+        ],
         "sameAs": [
           "https://www.wikidata.org/wiki/Q57911399",
           "https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ",
@@ -515,6 +535,15 @@
         "@id": "https://hidalab.org/#website",
         "url": "https://hidalab.org/",
         "name": "Hi Da Research Lab",
+        "alternateName": [
+          "HiDa Lab",
+          "HiDa Research Lab",
+          "HIDA Lab",
+          "HIDA Research Lab",
+          "Hi Da Lab",
+          "HiDa AI Lab",
+          "HIDA AI Lab"
+        ],
         "inLanguage": "en",
         "publisher": { "@id": "https://hidalab.org/#org" },
         "hasPart": [
@@ -652,6 +681,8 @@
       <div>
         <p>Hi Da Lab is a network of researchers from various academic disciplines who work on interdisciplinary projects. Our mission is to address challenges in today’s information ecosystem where humans and technology intersect. We tackle real-world problems across diverse contexts using novel data sources and innovative techniques.</p>
         <p>Hi Da Lab aims to inspire and support researchers and students from different backgrounds to collaborate and complete innovative projects. Our current focus includes the challenges and opportunities of AI, health and social media, misinformation, and the societal impacts of research.</p>
+        <!-- Explicitly mention alternate spellings of the lab name for SEO -->
+        <p class="lab-alt-names">You may also see our group referred to as <strong>HiDa Lab</strong>, <strong>HIDA Lab</strong>, or the <strong>HiDa Research Lab</strong>; all of these names point to the same Human Insight for Data &amp; AI research lab at the University of South Carolina.</p>
         <p>If you are interested in joining our team, <a href="mailto:ehsan2@sc.edu">send us an email</a>.</p>
       </div>
       <div>
