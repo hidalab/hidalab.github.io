@@ -14,9 +14,9 @@
       --usc-gray: #f4f4f4;
       --usc-light-garnet: #a30015;
 
-      /* Tabs navbar (match People page) */
+      /* Tabs navbar */
       --tab-bg: #ffffff;
-      --tab-border: #e0e0e0;
+      --tab-border: rgba(17, 19, 24, 0.14);
       --tab-active-bg: #73000a;
       --tab-active-text: #ffffff;
     }
@@ -34,33 +34,39 @@
       line-height: 1.6;
     }
 
-    /* Top brand bar (match People page) */
-    header {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-    }
-
-    .nav {
+    /* Nav container matches Publications */
+    .nav-container {
       max-width: 1280px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top brand bar (identical to Publications) */
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(17, 19, 24, 0.10);
+    }
+
+    .brandbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 20px;
+      padding: 14px 0;
     }
 
-    .nav a.logo {
-      font-weight: 700;
-      color: var(--usc-garnet);
+    .brand-link {
+      font-weight: 800;
+      letter-spacing: -0.02em;
       font-size: 1.25rem;
+      color: #73000a;
       text-decoration: none;
     }
 
-    .nav a.logo:hover {
-      text-decoration: underline;
+    .brand-link:hover {
+      text-decoration: none;
     }
 
-    /* Tabs navigation (identical structure/style to People page) */
+    /* Tabs navigation (identical to Publications) */
     .tabs-wrapper {
       background: transparent;
     }
@@ -78,10 +84,11 @@
       gap: 8px;
       margin: 0;
       padding: 12px;
-      background: var(--tab-bg);
+      background: #ffffff;
       border-radius: 999px;
       border: 1px solid var(--tab-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 12px rgba(17, 19, 24, 0.06);
+      align-items: center;
     }
 
     .tab-item {
@@ -107,15 +114,21 @@
 
     .tab-link:hover {
       background: #f8f8f8;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(17, 19, 24, 0.06);
       transform: translateY(-1px);
       text-decoration: none;
     }
 
     .tab-link.active {
-      background: var(--tab-active-bg);
-      color: var(--tab-active-text);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      background: #73000a;
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(17, 19, 24, 0.18);
+    }
+
+    @media (max-width: 600px) {
+      .tabs-list {
+        border-radius: 16px;
+      }
     }
 
     /* Content wrapper */
@@ -239,21 +252,16 @@
       .grid {
         grid-template-columns: 1fr;
       }
-
-      .tabs-list {
-        border-radius: 16px;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="nav" aria-label="Brand">
-      <a class="logo" href="https://www.hidalab.org/">Hi Da Research Lab</a>
-    </nav>
+  <header class="site-header" aria-label="Site header">
+    <div class="brandbar nav-container">
+      <a class="brand-link" href="https://www.hidalab.org/">Hi Da Research Lab</a>
+    </div>
   </header>
 
-  <!-- Tabs navigation (identical structure/style to People page) -->
   <div class="tabs-wrapper" aria-label="Main navigation">
     <nav class="tabs">
       <ul class="tabs-list">
@@ -275,8 +283,10 @@
 
           <!-- Project 1 -->
           <article class="card">
-            <img src="https://media.istockphoto.com/id/1484291102/photo/chatbot-artificial-intelligence-intelligent-robot-technology-ai-aartificial-intelligence.jpg?s=612x612&w=0&k=20&c=ipMF48FXd6PZVeop1nEyx-q3awoEhgmBu6oh4pgbTdw=" alt="AI Literacy in School Libraries project" loading="lazy" />
-            <h3>AI Literacy</h3>
+            <img src="https://media.istockphoto.com/id/1484291102/photo/chatbot-artificial-intelligence-intelligent-robot-technology-ai-aartificial-intelligence.jpg?s=612x612&w=0&k=20&c=ipMF48FXd6PZVeop1nEyx-q3awoEhgmBu6oh4pgbTdw=" alt="FLARE AI project" loading="lazy" />
+            <h3>
+              <a href="https://ailiteracy.github.io/" target="_blank" rel="noopener">FLARE AI</a>
+            </h3>
             <p>This three-year project, funded by the Institute of Museum and Library Services (IMLS) Laura Bush 21st Century Librarian Program, supports AI literacy in school libraries. With $192,843 in funding, it aims to advance innovation, education, and the vital role of libraries in shaping informed communities.</p>
           </article>
 
