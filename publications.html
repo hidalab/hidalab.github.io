@@ -1,212 +1,1517 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
-  <meta charset="utf-8">
-  <title>Publications | Hi Da Research Lab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Publications from Hi Da Research Lab, led by Dr. Ehsan Mohammadi, focusing on AI, health, social media analytics, and the science of science.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- If people.html references a CSS file, copy that same <link> line here. Example: -->
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <title>Research | Dr. Ehsan Mohammadi</title>
+  <meta name="description" content="Research and publications by Dr. Ehsan Mohammadi, Associate Professor at the University of South Carolina." />
+  <link rel="canonical" href="https://www.ehsanmohammadi.com/research.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Research | Dr. Ehsan Mohammadi" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ehsanmohammadi.com/research.html" />
+  <meta property="og:description" content="Research and publications by Dr. Ehsan Mohammadi." />
+  <meta property="og:image" content="/assets/og.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Research | Dr. Ehsan Mohammadi" />
+  <meta name="twitter:description" content="Research and publications by Dr. Ehsan Mohammadi." />
+
+  <link rel="icon" href="/assets/favicon.png" />
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.ehsanmohammadi.com/#website",
+        "url": "https://www.ehsanmohammadi.com/",
+        "name": "Dr. Ehsan Mohammadi",
+        "publisher": { "@id": "https://www.ehsanmohammadi.com/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.ehsanmohammadi.com/#person",
+        "name": "Ehsan Mohammadi",
+        "honorificPrefix": "Dr.",
+        "jobTitle": "Associate Professor",
+        "url": "https://www.ehsanmohammadi.com/",
+        "affiliation": [
+          { "@type": "Organization", "name": "University of South Carolina" },
+          { "@type": "Organization", "name": "College of Information and Communications" },
+          { "@type": "Organization", "name": "School of Information Science" }
+        ],
+        "image": "https://ehsannu.github.io/assets/images/Ehsan%20Mohammadi-Main%20Profile.jpg"
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://www.ehsanmohammadi.com/research.html#page",
+        "url": "https://www.ehsanmohammadi.com/research.html",
+        "name": "Research",
+        "isPartOf": { "@id": "https://www.ehsanmohammadi.com/#website" },
+        "about": { "@id": "https://www.ehsanmohammadi.com/#person" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --maxw: 1200px;
+      --text: #111318;
+      --muted: rgba(17, 19, 24, 0.72);
+      --muted2: rgba(17, 19, 24, 0.58);
+      --border: rgba(17, 19, 24, 0.16);
+      --bg: #ffffff;
+      --accent: #1f4fd6;
+      --link: #2f6f86;
+      --focus: 0 0 0 4px rgba(31, 79, 214, 0.18);
+      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif: "Source Serif 4", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    a:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 8px; }
+
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      padding: 10px 12px;
+      background: #000;
+      color: #fff;
+      border-radius: 10px;
+      z-index: 9999;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .skip:focus { left: 12px; top: 12px; }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 18px; }
+
+    /* Nav container matches Hi Da Lab people page width/padding without changing main content */
+    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+    main { padding: 28px 0 40px 0; }
+
+    .page-title {
+      margin: 0 0 10px 0;
+      font-family: var(--serif);
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .lead {
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-family: var(--serif);
+      max-width: 88ch;
+    }
+
+    /* Publication list */
+    .pub-list { display: grid; gap: 28px; margin-top: 14px; }
+
+    .pub {
+      padding: 22px 0;
+      border-top: 1px solid rgba(17, 19, 24, 0.12);
+    }
+
+    .pub:first-child { border-top: none; padding-top: 6px; }
+
+    .row {
+      display: grid;
+      grid-template-columns: 104px 1fr 300px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .metrics {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding-top: 6px;
+      min-width: 104px;
+    }
+
+    /* Stable badge slots (prevents third-party init errors) */
+    .badge-slot {
+      position: relative;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      border: 1px solid rgba(17,19,24,0.12);
+      box-shadow: 0 18px 26px rgba(17,19,24,0.14);
+      overflow: hidden;
+      transform: translateZ(0);
+      isolation: isolate;
+    }
+
+    .badge-slot--alt { width: 64px; height: 64px; border-radius: 999px; }
+
+    /* Hexagon badge slot (Dimensions style in your screenshot) */
+    .badge-slot--dim {
+      width: 92px;
+      height: 92px;
+      border-radius: 0;
+      clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    }
+
+    .altmetric-host, .altmetric-embed,
+    .dim-host, .__dimensions_badge_embed__ {
+      width: 100%;
+      height: 100%;
+      display: block;
+      line-height: 0;
+    }
+
+    /* Fallback labels stay visible when scripts fail */
+    .badge-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(17,19,24,0.62);
+      background: #fff;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    .badge-fallback a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(17,19,24,0.22);
+      padding-bottom: 1px;
+    }
+
+    .badge-fallback a:hover {
+      text-decoration: none;
+      border-bottom-color: rgba(17,19,24,0.45);
+    }
+
+    .hidden { display: none !important; }
+
+    /* Title block */
+    .title {
+      margin: 0;
+      font-size: clamp(22px, 2.1vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.22;
+    }
+
+    .title a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    .title a:hover { text-decoration-thickness: 2px; }
+
+    .meta {
+      margin: 10px 0 0 0;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(17, 19, 24, 0.82);
+    }
+
+    .desc {
+      margin: 14px 0 0 0;
+      font-size: 15.5px;
+      color: rgba(17, 19, 24, 0.88);
+      max-width: 82ch;
+    }
+
+    /* Right image */
+    .thumb {
+      width: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .thumb img {
+      width: 320px;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      background: #f2f3f5;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .row { grid-template-columns: 104px 1fr 260px; }
+      .thumb img { width: 260px; height: 150px; }
+    }
+
+    @media (max-width: 860px) {
+      .row { grid-template-columns: 104px 1fr; }
+      .metrics { min-width: 104px; }
+      .thumb {
+        display: block;
+        grid-column: 1 / -1;
+        margin-top: 14px;
+        justify-content: flex-start;
+      }
+      .thumb img {
+        width: 100%;
+        max-width: 560px;
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .row { grid-template-columns: 1fr; }
+      .metrics { flex-direction: row; justify-content: flex-start; }
+      .title { font-size: 22px; }
+      .meta { font-size: 14px; }
+      .desc { font-size: 15px; }
+    }
+
+    /* Small doc icon before each title */
+    .docicon {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      margin-right: 8px;
+      transform: translateY(3px);
+      opacity: 0.65;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 18px 0 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 12.5px;
+    }
+
+    .footnote {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      padding: 0 10px;
+    }
+    /* Top brand bar (matches Hi Da Lab people page) */
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(17, 19, 24, 0.10);
+    }
+
+    .brandbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand-link {
+      font-family: var(--sans);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 1.25rem;
+      color: #73000a;
+      text-decoration: none;
+    }
+
+    .brand-link:hover {
+      text-decoration: none;
+    }
+
+    /* Tabs navigation (pill style to match Hi Da Lab people page) */
+    .tabs-wrapper {
+      background: transparent;
+    }
+
+    .tabs {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 12px 20px;
+    }
+
+    .tabs-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 19, 24, 0.14);
+      box-shadow: 0 4px 12px rgba(17, 19, 24, 0.06);
+      align-items: center;
+    }
+
+    .tab-item {
+      flex: 0 0 auto;
+    }
+
+    .tab-link {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      color: #444;
+      background: transparent;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.1s ease;
+    }
+
+    .tab-link:hover {
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px rgba(17, 19, 24, 0.06);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .tab-link.active {
+      background: #73000a;
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(17, 19, 24, 0.18);
+    }
+
+    @media (max-width: 600px) {
+      .tabs-list {
+        border-radius: 16px;
+      }
+    }
+
+
+    ::selection { background: rgba(31, 79, 214, 0.16); }
+  </style>
 </head>
+
 <body>
+  <a class="skip" href="#main">Skip to main content</a>
 
-  <!-- Top section identical in structure to hidalab.org/people.html -->
-  <header>
-    <h1><a href="/">Hi Da Research Lab</a></h1>
-    <p>Human Insight for Data &amp; AI</p>
-
-    <nav>
-      <ul>
-        <li><a href="/">Welcome</a></li>
-        <li><a href="/people.html">People</a></li>
-        <li><a href="/publications.html">Publications</a></li>
-        <li><a href="/projects.html">Projects</a></li>
-      </ul>
-    </nav>
+  <header class="site-header" aria-label="Site header">
+    <div class="brandbar nav-container">
+      <a class="brand-link" href="/">Hi Da Research Lab</a>
+    </div>
   </header>
 
-  <main>
-    <h2>Publications</h2>
+  <!-- Tabs navigation (same structure as home) -->
+  <div class="tabs-wrapper" aria-label="Main navigation">
+    <nav class="tabs">
+      <ul class="tabs-list">
+        <li class="tab-item">
+          <a class="tab-link" href="/">Welcome</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="/people">People</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link active" href="publications.html">Publications</a>
+        </li>
+        <li class="tab-item">
+          <a class="tab-link" href="projects.html">Projects</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-    <ol>
-      <li>
-        Mohammadi, E., Thelwall, M., Cai, Y., Collier, T., Tahamtan, I., &amp; Eftekhar, A. (2026).
-        Is generative AI reshaping academic practices worldwide? A survey of adoption, benefits, and concerns.
-        <em>Information Processing &amp; Management, 63</em>(1), 104350.
-        <a href="https://doi.org/10.1016/j.ipm.2025.104350">https://doi.org/10.1016/j.ipm.2025.104350</a>
-      </li>
+  <main id="main">
+    <div class="container">
+      <h1 class="page-title">Publications</h1>
+      <p class="lead">Selected peer-reviewed publications and research outputs. Altmetric and citation badges appear when JavaScript is enabled and identifiers are available.</p>
 
-      <li>
-        Mohammadi, E., Lookingbill, T. R., Eftekhar, A., Cai, Y., Tahamtan, I., &amp; Thelwall, M. (2025).
-        Who is a scientist? Gender and racial biases in Google Vision AI.
-        <em>AI and Ethics, 5</em>(5), 4993–5010.
-        <a href="https://doi.org/10.1007/s43681-025-00742-4">https://doi.org/10.1007/s43681-025-00742-4</a>
-      </li>
+      <section class="pub-list" aria-label="Publication list">
 
-      <li>
-        Hofman, D., Mohammadi, E., Ryan, E., &amp; Thelwall, M. (2024).
-        AI for Library and Information Science (AI4LIS): Towards a research agenda.
-        <em>Proceedings of the Association for Information Science and Technology, 61</em>(1), 767–769.
-        <a href="https://doi.org/10.1002/pra2.1097">https://doi.org/10.1002/pra2.1097</a>
-      </li>
+        <!-- 2026 -->
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1016/j.ipm.2025.104350"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1016/j.ipm.2025.104350" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Rahman, M. M., Mohammadi, E., &amp; Alhoori, H. (2024).
-        Public interest in science or bots? Selective amplification of scientific articles on Twitter.
-        <em>Aslib Journal of Information Management</em>. Advance online publication.
-        <a href="https://doi.org/10.1108/AJIM-01-2024-0050">https://doi.org/10.1108/AJIM-01-2024-0050</a>
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1016/j.ipm.2025.104350" target="_blank" rel="noopener">Is generative AI reshaping academic practices worldwide? A survey of adoption, benefits, and concerns</a>
+              </h2>
+              <p class="meta">Information Processing &amp; Management | January 2026</p>
+              <p class="desc">Generative AI is reshaping higher education, offering new possibilities for teaching and research. At the same time, its adoption raises ongoing concerns about ethics and academic integrity.</p>
+            </div>
 
-      <li>
-        Rahman, M. M., Mohammadi, E., Wang, X., Ferrara, E., &amp; Alhoori, H. (2024).
-        Cutting through the noise to motivate people: A comprehensive analysis of COVID-19 social media posts de/motivating vaccination.
-        <em>Natural Language Processing Journal, 8</em>, 100085.
-        <a href="https://doi.org/10.1016/j.nlp.2024.100085">https://doi.org/10.1016/j.nlp.2024.100085</a>
-      </li>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/genai-survey.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
-      <li>
-        Salahirad, A., Li, F., Hall, A., Shihab, E., Mohammadi, E., &amp; Gousios, G. (2023).
-        Mapping the structure and evolution of software engineering research over the past three decades.
-        <em>Journal of Systems and Software, 198</em>, 111518.
-        <a href="https://doi.org/10.1016/j.jss.2022.111518">https://doi.org/10.1016/j.jss.2022.111518</a>
-      </li>
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1007/s43681-025-00742-4"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1007/s43681-025-00742-4" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Mohammadi, E., &amp; Karami, A. (2022).
-        Big data.
-        In A. E. Grant &amp; J. H. Meadows (Eds.),
-        <em>Communication Technology Update and Fundamentals</em> (18th ed.).
-        Routledge.
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1007/s43681-025-00742-4" target="_blank" rel="noopener">Who is a scientist? Gender and racial biases of visual representations in Google Vision AI</a>
+              </h2>
+              <p class="meta">AI &amp; Society | January 2026</p>
+              <p class="desc">This study examines how AI-based vision systems may reproduce or amplify social biases in visual representations of scientists.</p>
+            </div>
 
-      <li>
-        Mohammadi, E., &amp; Karami, A. (2022).
-        Exploring research trends in big data across disciplines: A text mining analysis.
-        <em>Journal of Information Science, 48</em>(1), 44–56.
-        <a href="https://doi.org/10.1177/0165551520932855">https://doi.org/10.1177/0165551520932855</a>
-      </li>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/vision-ai-bias.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
-      <li>
-        Li, Y., Thelwall, M., &amp; Mohammadi, E. (2021).
-        How are encyclopedias cited in academic research?
-        <em>Profesional de la Información, 30</em>(5), e300408.
-        <a href="https://doi.org/10.3145/epi.2021.sep.08">https://doi.org/10.3145/epi.2021.sep.08</a>
-      </li>
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1002/pra2.1097"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1002/pra2.1097" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Tahamtan, I., Wong, S. S., Nemati-Anaraki, L., Deinavizadeh, F., Banaei-Moghaddam, A., Nezhad, M. Z., &amp; Mohammadi, E. (2021).
-        Framing of and attention to COVID-19 on Twitter: Thematic analysis of hashtags.
-        <em>Journal of Medical Internet Research, 23</em>(2), e30800.
-        <a href="https://doi.org/10.2196/30800">https://doi.org/10.2196/30800</a>
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1002/pra2.1097" target="_blank" rel="noopener">AI for Library and Information Science (AI4LIS) Towards a Research Agenda</a>
+              </h2>
+              <p class="meta">Proceedings of the Association for Information Science and Technology | November 2025</p>
+              <p class="desc">This paper outlines a research agenda for integrating AI methods and human-centered perspectives in library and information science.</p>
+            </div>
 
-      <li>
-        Jamali, H. R., Steel, L., &amp; Mohammadi, E. (2020).
-        Wine research and its relationship with wine production.
-        <em>Australian Journal of Grape and Wine Research, 26</em>(1), 80–87.
-        <a href="https://doi.org/10.1111/ajgw.12422">https://doi.org/10.1111/ajgw.12422</a>
-      </li>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/ai4lis.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
-      <li>
-        Mohammadi, E., Barahmand, N., &amp; Thelwall, M. (2020).
-        Who shares health and medical scholarly articles on Facebook?
-        <em>Learned Publishing, 33</em>(2), 111–118.
-        <a href="https://doi.org/10.1002/leap.1271">https://doi.org/10.1002/leap.1271</a>
-      </li>
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1016/j.nlp.2024.100085"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1016/j.nlp.2024.100085" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Mohammadi, E., Gregory, K., Thelwall, M., &amp; Barahmand, N. (2020).
-        Which health and biomedical topics generate the most Facebook interest and the strongest citation relationships?
-        <em>Information Processing &amp; Management, 57</em>(6), 102230.
-        <a href="https://doi.org/10.1016/j.ipm.2020.102230">https://doi.org/10.1016/j.ipm.2020.102230</a>
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1016/j.nlp.2024.100085" target="_blank" rel="noopener">Cutting through the noise to motivate people COVID-19 social media posts demotivating vaccination</a>
+              </h2>
+              <p class="meta">Natural Language Processing Journal | August 2024</p>
+              <p class="desc">This study analyzes social media content related to COVID-19 vaccination, focusing on linguistic patterns that influence motivation and hesitancy.</p>
+            </div>
 
-      <li>
-        Mohammadi, E., &amp; Thelwall, M. (2019).
-        Assessing the Mendeley readership of social science and humanities research [Data set].
-        <em>figshare</em>.
-        <a href="https://doi.org/10.6084/m9.figshare.11297348">https://doi.org/10.6084/m9.figshare.11297348</a>
-      </li>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/vaccine-nlp.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
-      <li>
-        Mohammadi, E., &amp; Thelwall, M. (2019).
-        Readership data and research impact.
-        In W. Glänzel, H. F. Moed, U. Schmoch, &amp; M. Thelwall (Eds.),
-        <em>Springer Handbook of Science and Technology Indicators</em> (pp. 761–779).
-        Springer.
-        <a href="https://doi.org/10.1007/978-3-030-02511-3_29">https://doi.org/10.1007/978-3-030-02511-3_29</a>
-      </li>
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1108/AJIM-01-2024-0050"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1108/AJIM-01-2024-0050" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Kitzie, V., Mohammadi, E., &amp; Karami, A. (2018).
-        “Life never matters in the Democrats mind”: Examining strategies of persuasion in social bots directed at the public during the 2016 U.S. presidential campaign.
-        <em>Proceedings of the Association for Information Science and Technology, 55</em>(1), 287–296.
-        <a href="https://doi.org/10.1002/pra2.2018.14505501028">https://doi.org/10.1002/pra2.2018.14505501028</a>
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1108/AJIM-01-2024-0050" target="_blank" rel="noopener">Public interest in science or bots Selective amplification of scientific articles on Twitter</a>
+              </h2>
+              <p class="meta">Aslib Journal of Information Management | March 2024</p>
+              <p class="desc">This study investigates selective amplification of scientific articles on Twitter and examines signals consistent with automated activity.</p>
+            </div>
 
-      <li>
-        Mohammadi, E., Thelwall, M., Kwasny, M., &amp; Holmes, K. L. (2018).
-        Academic information on Twitter: A user survey.
-        <em>PLOS ONE, 13</em>(5), e0197265.
-        <a href="https://doi.org/10.1371/journal.pone.0197265">https://doi.org/10.1371/journal.pone.0197265</a>
-      </li>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/science-twitter-bots.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
-      <li>
-        Holmes, K. L., Mohammadi, E., Gutzman, K. E., Shaw, P. L., &amp; Lloyd-Jones, D. M. (2017).
-        A scientometric analysis of CTSA collaboration and impact.
-        <em>Journal of Clinical and Translational Science, 1</em>(3), 153–161.
-        <a href="https://doi.org/10.1017/cts.2017.72">https://doi.org/10.1017/cts.2017.72</a>
-      </li>
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1001/jamanetworkopen.2023.8897"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1001/jamanetworkopen.2023.8897" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Mohammadi, E., Thelwall, M., &amp; Kousha, K. (2016).
-        Can Mendeley bookmarks reflect readership? A survey of user motivations.
-        <em>Journal of the Association for Information Science and Technology, 67</em>(5), 1198–1209.
-        <a href="https://doi.org/10.1002/asi.23477">https://doi.org/10.1002/asi.23477</a>
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1001/jamanetworkopen.2023.8897" target="_blank" rel="noopener">Assessment of accuracy, user engagement, and themes of eating disorder content in short videos</a>
+              </h2>
+              <p class="meta">JAMA Network Open | June 2023</p>
+              <p class="desc">This study evaluates the accuracy, themes, and engagement patterns of eating disorder related content in short-form video platforms.</p>
+            </div>
 
-      <li>
-        Mohammadi, E., Thelwall, M., Haustein, S., &amp; Larivière, V. (2015).
-        Who reads research articles? An altmetrics analysis of Mendeley user categories.
-        <em>Journal of the Association for Information Science and Technology, 66</em>(9), 1832–1846.
-        <a href="https://doi.org/10.1002/asi.23286">https://doi.org/10.1002/asi.23286</a>
-      </li>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/eating-disorder-short-videos.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
 
-      <li>
-        Mohammadi, E., &amp; Thelwall, M. (2014).
-        Mendeley readership altmetrics for the social sciences and humanities: An analysis of 1.4 million user libraries.
-        <em>Journal of the Association for Information Science and Technology, 65</em>(8), 1627–1638.
-        <a href="https://doi.org/10.1002/asi.23071">https://doi.org/10.1002/asi.23071</a>
-      </li>
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1016/j.jss.2022.111518"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1016/j.jss.2022.111518" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
 
-      <li>
-        Mohammadi, E., Thelwall, M., Haustein, S., &amp; Larivière, V. (2013).
-        Assessing non-standard article impact using F1000 labels.
-        <em>Scientometrics, 97</em>(2), 383–395.
-        <a href="https://doi.org/10.1007/s11192-013-0993-9">https://doi.org/10.1007/s11192-013-0993-9</a>
-      </li>
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1016/j.jss.2022.111518" target="_blank" rel="noopener">Mapping the structure and evolution of software testing research over the past three decades An extensive systematic mapping study</a>
+              </h2>
+              <p class="meta">Journal of Systems and Software | January 2023</p>
+              <p class="desc">A large-scale mapping study that synthesizes software testing research trends, topics, and collaboration patterns over three decades.</p>
+            </div>
 
-      <li>
-        Mohammadi, E. (2012).
-        Knowledge mapping of the Iranian nanoscience and technology: A text mining approach.
-        <em>Scientometrics, 92</em>(3), 593–608.
-        <a href="https://doi.org/10.1007/s11192-012-0644-6">https://doi.org/10.1007/s11192-012-0644-6</a>
-      </li>
-    </ol>
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/software-testing-mapping.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1007/978-3-030-02511-3_29"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1007/978-3-030-02511-3_29" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1007/978-3-030-02511-3_29" target="_blank" rel="noopener">Readership data and research impact</a>
+              </h2>
+              <p class="meta">Book chapter | September 2019</p>
+              <p class="desc">A chapter discussing readership signals and their role in understanding research impact beyond citations.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/readership-impact.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.2196/34321"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.2196/34321" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.2196/34321" target="_blank" rel="noopener">The mutual influence of the World Health Organization and Twitter users during COVID-19 Network agenda-setting analysis</a>
+              </h2>
+              <p class="meta">Journal of Medical Internet Research | April 2022</p>
+              <p class="desc">A network agenda-setting analysis of the mutual relationship between WHO communications and Twitter users during COVID-19.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/who-twitter-network.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1177/0165551520932855"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1177/0165551520932855" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1177/0165551520932855" target="_blank" rel="noopener">Exploring research trends in big data across disciplines A text mining analysis</a>
+              </h2>
+              <p class="meta">Journal of Information Science | October 2022</p>
+              <p class="desc">A text mining study that maps how big data research has evolved across multiple disciplines.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/big-data-trends.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1080/10826084.2021.2019777"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1080/10826084.2021.2019777" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1080/10826084.2021.2019777" target="_blank" rel="noopener">Social media discussions on the FDA modified risk tobacco product authorization of IQOS</a>
+              </h2>
+              <p class="meta">Substance Use &amp; Misuse | December 2021</p>
+              <p class="desc">An analysis of social media discourse following FDA authorization related to IQOS and modified risk claims.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/iqos-social-media.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.2196/33827"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.2196/33827" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.2196/33827" target="_blank" rel="noopener">Identifying frames and measuring public attention to infodemic on Twitter using big data analytics</a>
+              </h2>
+              <p class="meta">JMIR Infodemiology | January 2021</p>
+              <p class="desc">A framing analysis of COVID-19 related hashtags and public attention patterns using large-scale Twitter data.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/infodemic-frames.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.2196/30800"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.2196/30800" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.2196/30800" target="_blank" rel="noopener">Framing of and attention to COVID-19 on Twitter Thematic analysis of hashtags</a>
+              </h2>
+              <p class="meta">Journal of Medical Internet Research | September 2021</p>
+              <p class="desc">A thematic analysis of COVID-19 hashtags to understand framing and attention dynamics on Twitter.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/covid-hashtags.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1016/j.ipm.2020.102230"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1016/j.ipm.2020.102230" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1016/j.ipm.2020.102230" target="_blank" rel="noopener">Which health and biomedical topics generate the most Facebook interest and the strongest citation relationships</a>
+              </h2>
+              <p class="meta">Information Processing &amp; Management | November 2020</p>
+              <p class="desc">An analysis linking Facebook engagement patterns with citation relationships across health and biomedical topics.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/facebook-health-topics.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1111/ajgw.12422"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1111/ajgw.12422" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1111/ajgw.12422" target="_blank" rel="noopener">Wine research in Web of Science and Google Scholar A bibliometric assessment</a>
+              </h2>
+              <p class="meta">Australian Journal of Grape and Wine Research | December 2020</p>
+              <p class="desc">A bibliometric comparison of wine research coverage and citation patterns across major scholarly databases.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/wine-bibliometrics.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1002/leap.1271"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1002/leap.1271" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1002/leap.1271" target="_blank" rel="noopener">Who shares health and medical scholarly information on Facebook</a>
+              </h2>
+              <p class="meta">Learned Publishing | October 2020</p>
+              <p class="desc">An analysis of who shares scholarly health and medical information on Facebook and how sharing varies across communities.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/facebook-scholarly-sharing.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1371/journal.pone.0197265"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1371/journal.pone.0197265" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1371/journal.pone.0197265" target="_blank" rel="noopener">Academic information on Twitter A user survey</a>
+              </h2>
+              <p class="meta">PLOS ONE | May 2018</p>
+              <p class="desc">A survey-based study of how scholars use Twitter for academic information sharing and discovery.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/academic-twitter-survey.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1002/pra2.2018.14505501028"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1002/pra2.2018.14505501028" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1002/pra2.2018.14505501028" target="_blank" rel="noopener">Life never matters in the Democrats mind Analysing social bots on Twitter during the Parkland massacre</a>
+              </h2>
+              <p class="meta">Proceedings of the Association for Information Science and Technology | October 2018</p>
+              <p class="desc">An analysis of social bots and political framing on Twitter during the Parkland shooting discourse.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/parkland-bots.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1017/cts.2017.72"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1017/cts.2017.72" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1017/cts.2017.72" target="_blank" rel="noopener">A scientometric analysis of the collaboration between biomedical research institutions and hospitals</a>
+              </h2>
+              <p class="meta">Journal of Clinical and Translational Science | November 2017</p>
+              <p class="desc">A scientometric study of collaboration patterns between biomedical research institutions and hospitals.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/ctsa-collaboration.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1002/asi.23477"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1002/asi.23477" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1002/asi.23477" target="_blank" rel="noopener">Can Mendeley bookmarks reflect readership A survey of user motivations</a>
+              </h2>
+              <p class="meta">Journal of the Association for Information Science and Technology | May 2016</p>
+              <p class="desc">A survey-based analysis of why researchers save articles in Mendeley and what readership counts may represent.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/mendeley-bookmarks.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1108/NLW-09-2015-0064"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1108/NLW-09-2015-0064" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1108/NLW-09-2015-0064" target="_blank" rel="noopener">Relationship between citation counts and Mendeley readership metrics in various subject fields</a>
+              </h2>
+              <p class="meta">New Library World | March 2016</p>
+              <p class="desc">An analysis of the relationship between citation counts and Mendeley readership across subject areas.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/citations-mendeley.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1002/asi.23286"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1002/asi.23286" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1002/asi.23286" target="_blank" rel="noopener">Who reads research articles An altmetrics analysis of Mendeley user categories</a>
+              </h2>
+              <p class="meta">Journal of the Association for Information Science and Technology | September 2015</p>
+              <p class="desc">An altmetrics analysis using Mendeley readership categories to understand who reads research articles.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/who-reads-mendeley.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1002/asi.23071"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1002/asi.23071" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1002/asi.23071" target="_blank" rel="noopener">Mendeley readership altmetrics for the social sciences and humanities Research evaluation and knowledge flows</a>
+              </h2>
+              <p class="meta">Journal of the Association for Information Science and Technology | December 2013</p>
+              <p class="desc">A study of Mendeley readership as an altmetrics signal for social sciences and humanities and its implications for evaluation.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/mendeley-ssh.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1007/s11192-013-0993-9"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1007/s11192-013-0993-9" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1007/s11192-013-0993-9" target="_blank" rel="noopener">Assessing non-standard article impact using F1000 labels</a>
+              </h2>
+              <p class="meta">Scientometrics | November 2013</p>
+              <p class="desc">An evaluation of F1000 labels as a complementary signal for assessing research impact beyond citations.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/f1000-labels.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <article class="pub" aria-label="Publication">
+          <div class="row">
+            <div class="metrics" aria-label="Metrics">
+              <div class="badge-slot badge-slot--alt" aria-label="Altmetric badge">
+                <div class="altmetric-host altmetric-embed" data-badge-type="donut" data-badge-popover="left" data-link-target="_blank" data-doi="10.1007/s11192-012-0644-6"></div>
+                <div class="badge-fallback">Altmetric</div>
+              </div>
+              <div class="badge-slot badge-slot--dim" aria-label="Citations badge">
+                <span class="dim-host" data-doi="10.1007/s11192-012-0644-6" data-style="small_circle" data-legend="hover-right"></span>
+                <div class="badge-fallback">Citations</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="title">
+                <span class="docicon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2h7l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V8h4.5L13 3.5z"/>
+                    <path d="M8 12h8v1.8H8V12zm0 4h8v1.8H8V16z"/>
+                  </svg>
+                </span>
+                <a href="https://doi.org/10.1007/s11192-012-0644-6" target="_blank" rel="noopener">Knowledge mapping of the Iranian nanoscience and technology A text mining approach</a>
+              </h2>
+              <p class="meta">Scientometrics | February 2012</p>
+              <p class="desc">A text mining approach to mapping and visualizing Iranian nanoscience and technology research outputs.</p>
+            </div>
+
+            <div class="thumb" aria-hidden="true">
+              <img src="/assets/images/publications/iran-nano-mapping.jpg" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+</section>
+
+      <footer>
+        <div class="footnote">© <span id="year"></span> Dr. Ehsan Mohammadi</div>
+      </footer>
+    </div>
   </main>
 
-  <footer>
-    <p>Hi Da Research Lab · Human Insight for Data &amp; AI</p>
-    <p>School of Information Science, University of South Carolina</p>
-    <p>
-      <a href="/">Welcome</a> |
-      <a href="/people.html">People</a> |
-      <a href="/publications.html">Publications</a> |
-      <a href="/projects.html">Projects</a>
-    </p>
-    <p>© Hi Da Lab</p>
-  </footer>
+  <noscript>
+    <div style="max-width:1200px;margin:12px auto 0;padding:0 18px;color:rgba(17,19,24,.72);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;">
+      This page can show Altmetric and citation badges when JavaScript is enabled.
+    </div>
+  </noscript>
 
+  <script>
+    (function () {
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+
+    function loadScriptOnce(src, attrPairs) {
+      return new Promise(function (resolve, reject) {
+        if (document.querySelector('script[src="' + src + '"], script[data-src="' + src + '"]')) {
+          resolve();
+          return;
+        }
+        var s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        s.setAttribute('data-src', src);
+        if (Array.isArray(attrPairs)) {
+          attrPairs.forEach(function (p) { s.setAttribute(p[0], p[1]); });
+        }
+        s.onload = function () { resolve(); };
+        s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        document.body.appendChild(s);
+      });
+    }
+
+    function loadAltmetricBestEffort() {
+      var cf = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
+      var alt = 'https://embed.altmetric.com/assets/embed.js';
+      return loadScriptOnce(cf, [['data-altmetric', 'embed']]).catch(function () {
+        return loadScriptOnce(alt, [['data-altmetric', 'embed']]);
+      });
+    }
+
+    function loadDimensionsBestEffort() {
+      return loadScriptOnce('https://badge.dimensions.ai/badge.js', [['charset', 'utf-8']]);
+    }
+
+    function initAltmetricHosts() {}
+
+    function initDimensionsHosts() {
+      document.querySelectorAll('.dim-host').forEach(function (el) {
+        el.classList.add('__dimensions_badge_embed__');
+      });
+    }
+
+    function hideFallbacksIfRendered() {
+      document.querySelectorAll('.badge-slot').forEach(function (slot) {
+        var fb = slot.querySelector('.badge-fallback');
+        if (!fb) return;
+        var rendered = slot.querySelector('a, svg, iframe, img, canvas');
+        if (rendered) fb.classList.add('hidden');
+      });
+    }
+
+    function setAltmetricFallbackLinks() {
+      document.querySelectorAll('.badge-slot--alt').forEach(function (slot) {
+        var fb = slot.querySelector('.badge-fallback');
+        var host = slot.querySelector('.altmetric-embed');
+        if (!fb || !host) return;
+        var doi = (host.getAttribute('data-doi') || '').trim();
+        if (!doi) return;
+
+        if (fb.querySelector('a')) return;
+
+        var a = document.createElement('a');
+        a.className = 'altmetric-link';
+        a.href = 'https://www.altmetric.com/details/doi/' + encodeURIComponent(doi);
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = 'Altmetric';
+
+        fb.textContent = '';
+        fb.appendChild(a);
+      });
+    }
+
+    function runSmokeTests() {
+      try {
+        var slots = document.querySelectorAll('.badge-slot');
+        console.assert(slots.length > 0, 'No badge slots found');
+        slots.forEach(function (s) {
+          console.assert(s.clientWidth > 0 && s.clientHeight > 0, 'Badge slot has zero size');
+        });
+      } catch (e) {}
+    }
+
+    var STOCK_THUMB_MAP = {
+      "10.1016/j.ipm.2025.104350": { q: "generative ai, higher education, survey", sig: 11 },
+      "10.1007/s43681-025-00742-4": { q: "computer vision, ai, ethics", sig: 12 },
+      "10.1002/pra2.1097": { q: "library, information science, ai", sig: 13 },
+      "10.1016/j.nlp.2024.100085": { q: "social media, language, covid", sig: 14 },
+      "10.1108/ajim-01-2024-0050": { q: "twitter, bots, science", sig: 15 },
+      "10.1001/jamanetworkopen.2023.8897": { q: "health, video, wellbeing", sig: 16 },
+      "10.1016/j.jss.2022.111518": { q: "software testing, code, engineering", sig: 17 },
+      "10.1007/978-3-030-02511-3_29": { q: "research metrics, analytics, data", sig: 18 },
+      "10.2196/34321": { q: "who, public health, network", sig: 19 },
+      "10.1177/0165551520932855": { q: "big data, visualization, research", sig: 20 },
+      "10.1080/10826084.2021.2019777": { q: "tobacco, health policy, media", sig: 21 },
+      "10.2196/33827": { q: "infodemic, misinformation, twitter", sig: 22 },
+      "10.2196/30800": { q: "covid, hashtags, communication", sig: 23 },
+      "10.1016/j.ipm.2020.102230": { q: "facebook, health, analytics", sig: 24 },
+      "10.1111/ajgw.12422": { q: "wine, vineyards, research", sig: 25 },
+      "10.1002/leap.1271": { q: "facebook, sharing, medical research", sig: 26 },
+      "10.1371/journal.pone.0197265": { q: "twitter, academia, survey", sig: 27 },
+      "10.1002/pra2.2018.14505501028": { q: "social bots, analysis, data", sig: 28 },
+      "10.1017/cts.2017.72": { q: "hospital, biomedical research, collaboration", sig: 29 },
+      "10.1002/asi.23477": { q: "mendeley, reference manager, library", sig: 30 },
+      "10.1108/nlw-09-2015-0064": { q: "citations, metrics, research", sig: 31 },
+      "10.1002/asi.23286": { q: "reading, research, mendeley", sig: 32 },
+      "10.1002/asi.23071": { q: "humanities, social science, reading", sig: 33 },
+      "10.1007/s11192-013-0993-9": { q: "research evaluation, peer review, science", sig: 34 },
+      "10.1007/s11192-012-0644-6": { q: "nanotechnology, lab, science", sig: 35 }
+    };
+
+    function buildStockThumbUrl(query, sig) {
+      var terms = (query || "research, paper").trim();
+      var encoded = encodeURIComponent(terms).replace(/%2C/g, ",");
+      return "https://source.unsplash.com/340x170/?" + encoded + "&sig=" + (sig || 1);
+    }
+
+    function hashString(str) {
+      var h = 0;
+      for (var i = 0; i < str.length; i++) {
+        h = ((h << 5) - h) + str.charCodeAt(i);
+        h |= 0;
+      }
+      return Math.abs(h);
+    }
+
+    function deriveQueryFromTitle(title) {
+      var t = (title || "").toLowerCase();
+      t = t.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+      if (!t) return "research, paper";
+
+      var stop = {
+        "the":1,"and":1,"or":1,"a":1,"an":1,"of":1,"to":1,"in":1,"on":1,"for":1,"with":1,"from":1,"by":1,
+        "using":1,"via":1,"during":1,"over":1,"between":1,"towards":1,"toward":1,"analysis":1,"assessing":1,
+        "study":1,"research":1,"data":1,"big":1
+      };
+
+      var words = t.split(" ").filter(function(w){ return w.length > 2 && !stop[w]; });
+      var unique = [];
+      words.forEach(function(w){ if (unique.indexOf(w) === -1) unique.push(w); });
+      return unique.slice(0, 3).join(", ") || "research, paper";
+    }
+
+    function getDoiForPub(pubEl) {
+      var doi = "";
+      var el = pubEl.querySelector(".altmetric-host[data-doi], .dim-host[data-doi]");
+      if (el) doi = (el.getAttribute("data-doi") || "").trim();
+      if (!doi) {
+        var a = pubEl.querySelector('h2.title a[href*="doi.org/"]');
+        if (a) {
+          var href = a.getAttribute("href") || "";
+          var idx = href.toLowerCase().indexOf("doi.org/");
+          if (idx >= 0) doi = href.slice(idx + 8).trim();
+        }
+      }
+      return doi.toLowerCase();
+    }
+
+    function applyStockThumbnails() {
+      document.querySelectorAll(".pub").forEach(function (pubEl) {
+        var img = pubEl.querySelector(".thumb img");
+        if (!img) return;
+
+        if (img.getAttribute("data-use-local") === "1") return;
+
+        var doi = getDoiForPub(pubEl);
+        var titleLink = pubEl.querySelector("h2.title a");
+        var title = titleLink ? (titleLink.textContent || "") : "";
+
+        var hit = doi && STOCK_THUMB_MAP[doi];
+        var query = hit && hit.q ? hit.q : deriveQueryFromTitle(title);
+        var sig = hit && hit.sig ? hit.sig : (hashString(doi || title) % 5000);
+
+        img.style.display = "";
+
+        img.onerror = function () {
+          img.style.display = "none";
+        };
+
+        img.src = buildStockThumbUrl(query, sig);
+        img.alt = "";
+        img.setAttribute("aria-hidden", "true");
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      applyStockThumbnails();
+      setAltmetricFallbackLinks();
+    });
+
+    window.addEventListener('load', function () {
+      runSmokeTests();
+
+      initAltmetricHosts();
+      initDimensionsHosts();
+
+      Promise.all([
+        loadAltmetricBestEffort(),
+        loadDimensionsBestEffort()
+      ])
+        .then(function () {
+          try {
+            if (typeof window._altmetric_embed_init === 'function') window._altmetric_embed_init();
+          } catch (e) {}
+
+          setTimeout(function () {
+            hideFallbacksIfRendered();
+            setAltmetricFallbackLinks();
+          }, 900);
+        })
+        .catch(function () {});
+    });
+  </script>
 </body>
 </html>
