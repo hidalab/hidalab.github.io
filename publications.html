@@ -140,6 +140,15 @@
       gap: 10px;
     }
 
+    /* Match Projects page spacing between logo and tagline */
+    .nav-left > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0;              /* remove extra vertical spacing */
+      line-height: 1.1;    /* tighter stack like Projects */
+    }
+
+
     .nav-logo-circle {
       width: 36px;
       height: 36px;
@@ -170,7 +179,9 @@
       font-size: 0.85rem;
       color: #666;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin-top: 0;       /* IMPORTANT: remove default spacing */
     }
+
 
     .tabs-wrapper { background: transparent; }
 
