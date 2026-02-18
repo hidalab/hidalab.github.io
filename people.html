@@ -288,7 +288,11 @@
     .tab-link.active:hover { background: var(--tab-active-bg); }
 
     /* Page shell + sections (match welcome page) */
-    .shell-section { background: var(--shell-bg); }
+    .shell-section {
+      background: var(--shell-bg);
+      padding: 1px 0 30px; /* prevents margin behavior + creates the same shell band */
+    }
+
 
     .section {
       max-width: 1100px;
