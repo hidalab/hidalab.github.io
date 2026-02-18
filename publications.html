@@ -115,8 +115,119 @@
 
     .container { max-width: var(--maxw); margin: 0 auto; padding: 0 18px; }
 
-    /* Nav container matches Hi Da Lab people page width/padding without changing main content */
-    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+    /* ===== Header + Tabs updated to match Welcome page ===== */
+    header {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffccd5 0, #73000a 45%, #a30015 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      user-select: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .nav a.logo {
+      font-weight: 700;
+      color: #73000a;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-decoration: none;
+    }
+    .nav a.logo:hover { text-decoration: none; }
+
+    .nav-tagline {
+      font-size: 0.85rem;
+      color: #666;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .tabs-wrapper { background: transparent; }
+
+    .tabs {
+      max-width: 1200px;
+      margin: 0 auto 6px auto;
+      padding: 0 20px 10px 20px;
+    }
+
+    .tabs-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 8px;
+      background: #ffffff;
+      border-radius: 999px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+      align-items: center;
+    }
+
+    .tab-item { flex: 0 0 auto; }
+
+    .tab-link {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      color: #444;
+      background: transparent;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .tab-link:hover {
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .tab-link.active {
+      background: #73000a;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+    }
+    .tab-link.active:hover { background: #73000a; }
+
+    @media (max-width: 640px) {
+      .tabs-list { border-radius: 16px; }
+    }
+    /* ===== End Welcome header/tabs ===== */
 
     main { padding: 28px 0 40px 0; }
 
@@ -206,6 +317,7 @@
       pointer-events: none;
       user-select: none;
       z-index: 1;
+      font-family: var(--sans);
     }
 
     .badge-fallback a {
@@ -310,113 +422,34 @@
       opacity: 0.65;
     }
 
+    /* ===== Footer updated to match Welcome page ===== */
     footer {
-      margin-top: 40px;
-      padding: 18px 0 28px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-family: var(--sans);
-      font-size: 12.5px;
+      margin-top: 24px;
+      padding: 18px 0 26px;
+      background: #fff;
+      border-top: 1px solid #eee;
     }
 
-    .footnote {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      padding: 0 10px;
-    }
-    /* Top brand bar (matches Hi Da Lab people page) */
-    .site-header {
-      background: #ffffff;
-      border-bottom: 1px solid rgba(17, 19, 24, 0.10);
-    }
-
-    .brandbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-    }
-
-    .brand-link {
-      font-family: var(--sans);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      font-size: 1.25rem;
-      color: #73000a;
-      text-decoration: none;
-    }
-
-    .brand-link:hover {
-      text-decoration: none;
-    }
-
-    /* Tabs navigation (pill style to match Hi Da Lab people page) */
-    .tabs-wrapper {
-      background: transparent;
-    }
-
-    .tabs {
-      max-width: 1280px;
+    .footer-inner {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px 12px 20px;
-    }
-
-    .tabs-list {
-      list-style: none;
+      padding: 0 20px;
+      font-size: 0.85rem;
+      color: #555;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 0;
-      padding: 12px;
-      background: #ffffff;
-      border-radius: 999px;
-      border: 1px solid rgba(17, 19, 24, 0.14);
-      box-shadow: 0 4px 12px rgba(17, 19, 24, 0.06);
+      justify-content: space-between;
+      gap: 10px;
       align-items: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    .tab-item {
-      flex: 0 0 auto;
-    }
+    .footer-nav a { margin: 0 0.25rem; }
 
-    .tab-link {
-      display: inline-block;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-family: var(--sans);
-      font-size: 0.95rem;
-      font-weight: 500;
-      border: 1px solid transparent;
-      color: #444;
-      background: transparent;
-      text-decoration: none;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.1s ease;
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
-
-    .tab-link:hover {
-      background: #f8f8f8;
-      box-shadow: 0 2px 8px rgba(17, 19, 24, 0.06);
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .tab-link.active {
-      background: #73000a;
-      color: #ffffff;
-      box-shadow: 0 3px 10px rgba(17, 19, 24, 0.18);
-    }
-
-    @media (max-width: 600px) {
-      .tabs-list {
-        border-radius: 16px;
-      }
-    }
-
+    /* ===== End Welcome footer ===== */
 
     ::selection { background: rgba(31, 79, 214, 0.16); }
   </style>
@@ -425,31 +458,29 @@
 <body>
   <a class="skip" href="#main">Skip to main content</a>
 
-  <header class="site-header" aria-label="Site header">
-    <div class="brandbar nav-container">
-      <a class="brand-link" href="/">Hi Da Research Lab</a>
+  <!-- Updated header + tabs to match Welcome page -->
+  <header>
+    <nav class="nav" aria-label="Brand">
+      <div class="nav-left">
+        <div class="nav-logo-circle">Hi</div>
+        <div>
+          <a class="logo" href="/">Hi Da Research Lab</a>
+          <div class="nav-tagline">Human Insight for Data &amp; AI</div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="tabs-wrapper" aria-label="Main navigation">
+      <nav class="tabs">
+        <ul class="tabs-list">
+          <li class="tab-item"><a class="tab-link" href="/">Welcome</a></li>
+          <li class="tab-item"><a class="tab-link" href="people.html">People</a></li>
+          <li class="tab-item"><a class="tab-link active" href="publications.html">Publications</a></li>
+          <li class="tab-item"><a class="tab-link" href="projects.html">Projects</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-
-  <!-- Tabs navigation (same structure as home) -->
-  <div class="tabs-wrapper" aria-label="Main navigation">
-    <nav class="tabs">
-      <ul class="tabs-list">
-        <li class="tab-item">
-          <a class="tab-link" href="/">Welcome</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="/people">People</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link active" href="publications.html">Publications</a>
-        </li>
-        <li class="tab-item">
-          <a class="tab-link" href="projects.html">Projects</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
 
   <main id="main">
     <div class="container">
@@ -1283,10 +1314,27 @@
             </div>
           </div>
         </article>
-</section>
 
+      </section>
+
+      <!-- Updated footer to match Welcome page -->
       <footer>
-        <div class="footnote">© <span id="year"></span> Dr. Ehsan Mohammadi</div>
+        <div class="footer-inner">
+          <div>
+            <strong>Hi Da Research Lab</strong> · Human Insight for Data &amp; AI<br />
+            School of Information Science, University of South Carolina
+          </div>
+          <div>
+            <span class="footer-nav">
+              <a href="/">Welcome</a> |
+              <a href="people.html">People</a> |
+              <a href="publications.html">Publications</a> |
+              <a href="projects.html">Projects</a>
+            </span>
+            <br />
+            © <span id="year"></span> Hi Da Lab
+          </div>
+        </div>
       </footer>
     </div>
   </main>
