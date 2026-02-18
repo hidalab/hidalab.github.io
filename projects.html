@@ -143,6 +143,23 @@
       transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
     }
 
+    /* Force header tabs to NOT inherit the global blue link color */
+    .tabs .tab-link,
+    .tabs .tab-link:visited {
+      color: #444 !important;
+      text-decoration: none;
+    }
+
+    .tabs .tab-link.active,
+    .tabs .tab-link.active:visited {
+      color: #fff !important;
+    }
+
+    .tabs .tab-link:hover {
+      text-decoration: none;
+    }
+
+
     .tab-link:hover {
       background: #f8f8f8;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
