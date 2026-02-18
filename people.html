@@ -15,6 +15,10 @@
   <!-- Canonical to main domain for SEO -->
   <link rel="canonical" href="https://hidalab.org/people" />
 
+  <!-- Performance hints (match welcome page) -->
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+
   <!-- Open Graph / Twitter for rich results -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hidalab.org/people" />
@@ -26,6 +30,15 @@
   <meta name="twitter:title" content="People | Hi Da Research Lab" />
   <meta name="twitter:description" content="People in the Hi Da Research Lab including the director, collaborators, PhD students, and former members." />
   <meta name="twitter:image" content="https://www.dropbox.com/scl/fi/tz53bwvl9d2tng1t5wnrx/Davis.png?rlkey=hwnj6t0e2z8pr9xi7jdw5s6gr&raw=1" />
+
+  <!-- Google Tag Manager (match welcome page) -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T338LLNV');
+  </script>
 
   <!-- Consistent schema with Hi Da Lab main site and entity hub -->
   <script type="application/ld+json">
@@ -137,12 +150,13 @@
   }
   </script>
 
-  <!-- Basic styling to match main site -->
+  <!-- Styles (match welcome page look/feel) -->
   <style>
     :root {
       --usc-garnet: #73000a;
       --usc-light-garnet: #a30015;
       --usc-gray: #f4f4f4;
+      --shell-bg: #faf7f8;
       --tab-bg: #ffffff;
       --tab-border: #e0e0e0;
       --tab-active-bg: #73000a;
@@ -153,39 +167,82 @@
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--usc-gray);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f8e9ec 0, #f4f4f4 40%, #f4f4f4 100%);
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    a { color: var(--usc-garnet); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--usc-garnet);
+      text-decoration: none;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
 
-    header { background: #fff; border-bottom: 1px solid #eee; }
+    header {
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
 
     .nav {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 20px;
+      padding: 10px 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffccd5 0, var(--usc-garnet) 45%, var(--usc-light-garnet) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+      user-select: none;
     }
 
     .nav a.logo {
       font-weight: 700;
       color: var(--usc-garnet);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
     }
 
-    /* Tabs navbar (same style as home) */
+    .nav-tagline {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Tabs navbar */
     .tabs-wrapper { background: transparent; }
 
     .tabs {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 20px 12px 20px;
+      max-width: 1200px;
+      margin: 0 auto 6px auto;
+      padding: 0 20px 10px 20px;
     }
 
     .tabs-list {
@@ -194,11 +251,11 @@
       flex-wrap: wrap;
       gap: 8px;
       margin: 0;
-      padding: 12px;
+      padding: 8px;
       background: var(--tab-bg);
       border-radius: 999px;
       border: 1px solid var(--tab-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
     }
 
     .tab-item { flex: 0 0 auto; }
@@ -218,7 +275,7 @@
 
     .tab-link:hover {
       background: #f8f8f8;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       transform: translateY(-1px);
       text-decoration: none;
     }
@@ -226,38 +283,48 @@
     .tab-link.active {
       background: var(--tab-active-bg);
       color: var(--tab-active-text);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
     }
+    .tab-link.active:hover { background: var(--tab-active-bg); }
+
+    /* Page shell + sections (match welcome page) */
+    .shell-section { background: var(--shell-bg); }
 
     .section {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 20px 20px 40px;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 28px 26px 30px;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
 
     .section h2 {
       margin-top: 0;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 1px solid #e4d4d7;
       padding-bottom: 8px;
       color: var(--usc-garnet);
+      font-size: 1.3rem;
     }
 
+    /* People cards (kept structure, styled to match welcome page cards) */
     .people-grid {
-      margin-top: 32px;
+      margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
 
     .person-card {
       background: #fff;
-      border-radius: 12px;
-      padding: 18px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0e2e5;
       display: grid;
       grid-template-columns: 110px 1fr;
       gap: 16px;
-      align-items: flex-start;
+      align-items: start;
     }
 
     .person-photo-wrap { width: 100%; max-width: 110px; }
@@ -265,8 +332,12 @@
     .person-photo-wrap img {
       width: 100%;
       height: auto;
-      border-radius: 50%;
+      border-radius: 999px;
       object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+      border: 1px solid rgba(115, 0, 10, 0.12);
+      display: block;
+      background: #fff;
     }
 
     .person-name {
@@ -283,12 +354,18 @@
       color: #555;
     }
 
-    .person-text { font-size: 0.95rem; }
+    .person-text { font-size: 0.95rem; color: #444; margin: 0; }
 
-    .former-section { margin-top: 40px; }
+    .person-links {
+      margin: 10px 0 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .former-section { margin-top: 24px; }
 
     .former-grid {
-      margin-top: 20px;
+      margin-top: 22px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
@@ -296,395 +373,428 @@
 
     .former-card {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0e2e5;
       display: grid;
       grid-template-columns: 90px 1fr;
       gap: 14px;
-      align-items: flex-start;
+      align-items: start;
     }
 
+    .former-photo { width: 100%; max-width: 90px; }
     .former-photo img {
       width: 100%;
       height: auto;
-      border-radius: 50%;
+      border-radius: 999px;
       object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+      border: 1px solid rgba(115, 0, 10, 0.12);
+      display: block;
+      background: #fff;
     }
 
     .former-name {
       margin: 0;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--usc-garnet);
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
 
-    .former-text { font-size: 0.9rem; }
+    .former-text { font-size: 0.9rem; color: #444; margin: 6px 0 0; }
 
+    /* Footer (match welcome page) */
     footer {
-      margin-top: 40px;
-      padding: 20px 0 30px;
+      margin-top: 24px;
+      padding: 18px 0 26px;
       background: #fff;
       border-top: 1px solid #eee;
-      text-align: center;
-      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      font-size: 0.85rem;
       color: #555;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
     }
 
     .footer-nav a { margin: 0 0.25rem; }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .people-grid, .former-grid { grid-template-columns: 1fr; }
-      .person-card { grid-template-columns: 80px 1fr; }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .tabs-list { border-radius: 16px; }
 
-      .person-card { grid-template-columns: 1fr; text-align: left; }
+      .person-card { grid-template-columns: 1fr; }
       .person-photo-wrap { max-width: 120px; margin: 0 auto; }
 
-      .former-card { grid-template-columns: 1fr; text-align: left; }
+      .former-card { grid-template-columns: 1fr; }
       .former-photo { max-width: 100px; margin: 0 auto; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
+
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T338LLNV"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
   <header>
     <nav class="nav" aria-label="Brand">
-      <a class="logo" href="/">Hi Da Research Lab</a>
+      <div class="nav-left">
+        <div class="nav-logo-circle">Hi</div>
+        <div>
+          <a class="logo" href="/">Hi Da Research Lab</a>
+          <div class="nav-tagline">Human Insight for Data &amp; AI</div>
+        </div>
+      </div>
     </nav>
+
+    <!-- Tabs navigation -->
+    <div class="tabs-wrapper" aria-label="Main navigation">
+      <nav class="tabs">
+        <ul class="tabs-list">
+          <li class="tab-item"><a class="tab-link" href="/">Welcome</a></li>
+          <li class="tab-item"><a class="tab-link active" href="people.html">People</a></li>
+          <li class="tab-item"><a class="tab-link" href="publications.html">Publications</a></li>
+          <li class="tab-item"><a class="tab-link" href="projects.html">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Tabs navigation (same structure as home) -->
-  <div class="tabs-wrapper" aria-label="Main navigation">
-    <nav class="tabs">
-      <ul class="tabs-list">
-        <li class="tab-item"><a class="tab-link" href="/">Welcome</a></li>
-        <li class="tab-item"><a class="tab-link active" href="/people">People</a></li>
-        <li class="tab-item"><a class="tab-link" href="/publications">Publications</a></li>
-        <li class="tab-item"><a class="tab-link" href="/projects">Projects</a></li>
-      </ul>
-    </nav>
-  </div>
+  <main class="shell-section">
+    <section class="section" aria-labelledby="people-heading">
+      <h2 id="people-heading">Hi Da Lab Team</h2>
 
-  <main class="section" aria-labelledby="people-heading">
-    <h2 id="people-heading">Hi Da Lab Team</h2>
+      <div class="people-grid">
+        <!-- Ehsan Mohammadi -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">
+              <img src="assets/images/people/Ehsan%20Mohammadi.png" alt="Dr. Ehsan Mohammadi, Director of Hi Da Lab" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">Dr. Ehsan Mohammadi</a></h3>
+            <p class="person-role">Director, Hi Da Research Lab</p>
+            <p class="person-text">
+              Ehsan applies data science and web analytics to social science questions. His research spans scholarly communication, health information, misinformation and disinformation, and how people search for and use information in digital environments.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#ehsan-mohammadi">
+            <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php">
+            <link itemprop="sameAs" href="https://orcid.org/0000-0003-3481-6991">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603n">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/ehsan-mohammadi-57506b32/">
+            <link itemprop="sameAs" href="https://www.researchgate.net/profile/Ehsan-Mohammadi-8">
+            <p class="person-links" aria-label="Ehsan Mohammadi profiles">
+              <a href="https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://orcid.org/0000-0003-3481-6991" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/ehsan-mohammadi-57506b32/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.researchgate.net/profile/Ehsan-Mohammadi-8" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            </p>
+          </div>
+        </article>
 
-    <div class="people-grid">
-      <!-- Ehsan Mohammadi -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">
-            <img src="assets/images/people/Ehsan%20Mohammadi.png" alt="Dr. Ehsan Mohammadi, Director of Hi Da Lab" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://www.ehsanmohammadi.com/" target="_blank" rel="noopener">Dr. Ehsan Mohammadi</a></h3>
-          <p class="person-role">Director, Hi Da Research Lab</p>
-          <p class="person-text">
-            Ehsan applies data science and web analytics to social science questions. His research spans scholarly communication, health information, misinformation and disinformation, and how people search for and use information in digital environments.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#ehsan-mohammadi">
-          <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php">
-          <link itemprop="sameAs" href="https://orcid.org/0000-0003-3481-6991">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603n">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/ehsan-mohammadi-57506b32/">
-          <link itemprop="sameAs" href="https://www.researchgate.net/profile/Ehsan-Mohammadi-8">
-          <p class="person-links" aria-label="Ehsan Mohammadi profiles">
-            <a href="https://sc.edu/study/colleges_schools/cic/faculty-staff/mohammadi_ehsan.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://orcid.org/0000-0003-3481-6991" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?hl=en&user=ddrRUEMAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/ehsan-mohammadi-57506b32/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.researchgate.net/profile/Ehsan-Mohammadi-8" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-          </p>
-        </div>
-      </article>
+        <!-- Professor Mike Thelwall -->
+        <article id="mike-thelwall" class="person-card" itemscope itemtype="https://schema.org/Person">
+          <div class="person-photo-wrap">
+            <a href="#mike-thelwall" itemprop="url" aria-label="Professor Mike Thelwall section on this page" title="Professor Mike Thelwall">
+              <img src="assets/images/people/Mike%20Thelwall.jpg" alt="Photo of Professor Mike Thelwall" loading="lazy" decoding="async" itemprop="image" width="320" height="320">
+            </a>
+          </div>
+          <div class="person-details">
+            <h3 class="person-name" itemprop="name">Mike Thelwall</h3>
+            <p class="person-role">
+              <span itemprop="jobTitle">Professor of Data Science</span>,
+              <span itemprop="affiliation" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name">School of Information, Journalism and Communication</span>
+                <meta itemprop="parentOrganization" content="The University of Sheffield">
+              </span>
+            </p>
+            <p class="person-text" itemprop="description">
+              Mike Thelwall is a researcher in scientometrics and metascience, with additional work on social media research.
+              He applies quantitative methods and AI to evaluate research processes and impacts, including indicators and responsible research metrics.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#mike-thelwall">
+            <link itemprop="sameAs" href="https://sheffield.ac.uk/ijc/people/mike-thelwall">
+            <link itemprop="sameAs" href="https://orcid.org/0000-0001-6065-205X">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?user=8jCKL1sAAAAJ&amp;hl=en">
+            <link itemprop="sameAs" href="https://uk.linkedin.com/in/mikethelwall">
+            <link itemprop="sameAs" href="https://www.researchgate.net/profile/Mike-Thelwall">
+            <link itemprop="sameAs" href="https://dblp.org/pid/t/MikeThelwall">
+            <link itemprop="sameAs" href="https://www.oii.ox.ac.uk/people/profiles/mike-thelwall/">
+            <p class="person-links" aria-label="Professor Mike Thelwall profiles">
+              <a href="https://sheffield.ac.uk/ijc/people/mike-thelwall" target="_blank" rel="noopener noreferrer">University of Sheffield Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://orcid.org/0000-0001-6065-205X" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?user=8jCKL1sAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://uk.linkedin.com/in/mikethelwall" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.researchgate.net/profile/Mike-Thelwall" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://dblp.org/pid/t/MikeThelwall" target="_blank" rel="noopener noreferrer">DBLP</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.oii.ox.ac.uk/people/profiles/mike-thelwall/" target="_blank" rel="noopener noreferrer">Oxford Internet Institute</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Professor Mike Thelwall -->
-      <article id="mike-thelwall" class="person-card" itemscope itemtype="https://schema.org/Person">
-        <div class="person-photo-wrap">
-          <a href="#mike-thelwall" itemprop="url" aria-label="Professor Mike Thelwall section on this page" title="Professor Mike Thelwall">
-            <img src="assets/images/people/Mike%20Thelwall.jpg" alt="Photo of Professor Mike Thelwall" loading="lazy" decoding="async" itemprop="image" width="320" height="320">
-          </a>
-        </div>
-        <div class="person-details">
-          <h3 class="person-name" itemprop="name">Mike Thelwall</h3>
-          <p class="person-role">
-            <span itemprop="jobTitle">Professor of Data Science</span>,
-            <span itemprop="affiliation" itemscope itemtype="https://schema.org/Organization">
-              <span itemprop="name">School of Information, Journalism and Communication</span>
-              <meta itemprop="parentOrganization" content="The University of Sheffield">
-            </span>
-          </p>
-          <p class="person-text" itemprop="description">
-            Mike Thelwall is a researcher in scientometrics and metascience, with additional work on social media research.
-            He applies quantitative methods and AI to evaluate research processes and impacts, including indicators and responsible research metrics.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#mike-thelwall">
-          <link itemprop="sameAs" href="https://sheffield.ac.uk/ijc/people/mike-thelwall">
-          <link itemprop="sameAs" href="https://orcid.org/0000-0001-6065-205X">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?user=8jCKL1sAAAAJ&amp;hl=en">
-          <link itemprop="sameAs" href="https://uk.linkedin.com/in/mikethelwall">
-          <link itemprop="sameAs" href="https://www.researchgate.net/profile/Mike-Thelwall">
-          <link itemprop="sameAs" href="https://dblp.org/pid/t/MikeThelwall">
-          <link itemprop="sameAs" href="https://www.oii.ox.ac.uk/people/profiles/mike-thelwall/">
-          <p class="person-links" aria-label="Professor Mike Thelwall profiles">
-            <a href="https://sheffield.ac.uk/ijc/people/mike-thelwall" target="_blank" rel="noopener noreferrer">University of Sheffield Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://orcid.org/0000-0001-6065-205X" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?user=8jCKL1sAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://uk.linkedin.com/in/mikethelwall" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.researchgate.net/profile/Mike-Thelwall" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://dblp.org/pid/t/MikeThelwall" target="_blank" rel="noopener noreferrer">DBLP</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.oii.ox.ac.uk/people/profiles/mike-thelwall/" target="_blank" rel="noopener noreferrer">Oxford Internet Institute</a>
-          </p>
-        </div>
-      </article>
+        <!-- Ting Fung Ma -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://sites.google.com/view/tfma/home" target="_blank" rel="noopener">
+              <img src="assets/images/people/Dr.%20Ting%20Fung%20Ma.jpg" alt="Dr. Ting Fung Ma" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://sites.google.com/view/tfma/home" target="_blank" rel="noopener">Dr. Ting Fung Ma</a></h3>
+            <p class="person-text">
+              Ting Fung is an Assistant Professor in the Department of Statistics at the University of South Carolina. He develops scalable statistical methods for complex data, including spatial and spatio temporal data, and collaborates on multidisciplinary projects that involve large and dependent datasets.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#ting-fung">
+            <link itemprop="sameAs" href="https://sites.google.com/view/tfma/home">
+            <link itemprop="sameAs" href="https://orcid.org/0000-0001-6028-5640">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?user=hSKXniEAAAAJ&hl=en&inst=3593773564587969603">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/tfma/">
+            <link itemprop="sameAs" href="https://www.researchgate.net/profile/Ting-Fung-Ma">
+            <p class="person-links" aria-label="Ting Fung Ma profiles">
+              <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/tingfung_ma.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://orcid.org/0000-0001-6028-5640" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?user=hSKXniEAAAAJ&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/tfma" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.researchgate.net/profile/Ting-Fung-Ma" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Ting Fung Ma -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://sites.google.com/view/tfma/home" target="_blank" rel="noopener">
-            <img src="assets/images/people/Dr.%20Ting%20Fung%20Ma.jpg" alt="Dr. Ting Fung Ma" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://sites.google.com/view/tfma/home" target="_blank" rel="noopener">Dr. Ting Fung Ma</a></h3>
-          <p class="person-text">
-            Ting Fung is an Assistant Professor in the Department of Statistics at the University of South Carolina. He develops scalable statistical methods for complex data, including spatial and spatio temporal data, and collaborates on multidisciplinary projects that involve large and dependent datasets.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#ting-fung">
-          <link itemprop="sameAs" href="https://sites.google.com/view/tfma/home">
-          <link itemprop="sameAs" href="https://orcid.org/0000-0001-6028-5640">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?user=hSKXniEAAAAJ&hl=en&inst=3593773564587969603">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/tfma/">
-          <link itemprop="sameAs" href="https://www.researchgate.net/profile/Ting-Fung-Ma">
-          <p class="person-links" aria-label="Ting Fung Ma profiles">
-            <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/tingfung_ma.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://orcid.org/0000-0001-6028-5640" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?user=hSKXniEAAAAJ&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/tfma" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.researchgate.net/profile/Ting-Fung-Ma" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-          </p>
-        </div>
-      </article>
+        <!-- Iman Tahamtan -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://sites.google.com/view/iman-tahamtan" target="_blank" rel="noopener">
+              <img src="assets/images/people/Iman%20Tahamtan.jpg" alt="Dr. Iman Tahamtan" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://sites.google.com/view/iman-tahamtan" target="_blank" rel="noopener">Dr. Iman Tahamtan</a></h3>
+            <p class="person-text">
+              Iman holds a PhD in Communication and Information from the University of Tennessee, Knoxville and is a UX lecturer at UTK. His research explores research impact, human computer interaction, social media, and digital health.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#iman-tahamtan">
+            <link itemprop="sameAs" href="https://orcid.org/0000-0001-7750-0183">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?hl=en&user=358vRWkAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/iman-tahamtan/">
+            <link itemprop="sameAs" href="https://www.researchgate.net/profile/Iman-Tahamtan">
+            <p class="person-links" aria-label="Iman Tahamtan profiles">
+              <a href="https://orcid.org/0000-0001-7750-0183" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?hl=en&user=358vRWkAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/iman-tahamtan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.researchgate.net/profile/Iman-Tahamtan" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Iman Tahamtan -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://sites.google.com/view/iman-tahamtan" target="_blank" rel="noopener">
-            <img src="assets/images/people/Iman%20Tahamtan.jpg" alt="Dr. Iman Tahamtan" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://sites.google.com/view/iman-tahamtan" target="_blank" rel="noopener">Dr. Iman Tahamtan</a></h3>
-          <p class="person-text">
-            Iman holds a PhD in Communication and Information from the University of Tennessee, Knoxville and is a UX lecturer at UTK. His research explores research impact, human computer interaction, social media, and digital health.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#iman-tahamtan">
-          <link itemprop="sameAs" href="https://orcid.org/0000-0001-7750-0183">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?hl=en&user=358vRWkAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/iman-tahamtan/">
-          <link itemprop="sameAs" href="https://www.researchgate.net/profile/Iman-Tahamtan">
-          <p class="person-links" aria-label="Iman Tahamtan profiles">
-            <a href="https://orcid.org/0000-0001-7750-0183" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?hl=en&user=358vRWkAAAAJ&view_op=list_works&sortby=pubdate&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/iman-tahamtan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.researchgate.net/profile/Iman-Tahamtan" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-          </p>
-        </div>
-      </article>
+        <!-- Valerie Vera -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php" target="_blank" rel="noopener">
+              <img src="assets/images/people/Valerie%20Vera.jpg" alt="Valerie Vera" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php" target="_blank" rel="noopener">Valerie Vera</a></h3>
+            <p class="person-role">PhD Student, School of Information Science</p>
+            <p class="person-text">
+              Valerie is a PhD student in the School of Information Science at the University of South Carolina. She studies how social and structural factors shape interactions with mental health information and how people navigate these factors through emerging information and communication technologies.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#valerie-vera">
+            <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php">
+            <link itemprop="sameAs" href="https://orcid.org/0000-0003-1453-2633">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?user=hSKXniEAAAAJ&hl=en&inst=3593773564587969603">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/valerie-lookingbill/">
+            <p class="person-links" aria-label="Valeria Vera profiles">
+              <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://orcid.org/0000-0003-1453-2633" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?user=nL_OtTAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/valerie-lookingbill/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Valerie Vera -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php" target="_blank" rel="noopener">
-            <img src="assets/images/people/Valerie%20Vera.jpg" alt="Valerie Vera" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php" target="_blank" rel="noopener">Valerie Vera</a></h3>
-          <p class="person-role">PhD Student, School of Information Science</p>
-          <p class="person-text">
-            Valerie is a PhD student in the School of Information Science at the University of South Carolina. She studies how social and structural factors shape interactions with mental health information and how people navigate these factors through emerging information and communication technologies.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#valerie-vera">
-          <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php">
-          <link itemprop="sameAs" href="https://orcid.org/0000-0003-1453-2633">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?user=hSKXniEAAAAJ&hl=en&inst=3593773564587969603">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/valerie-lookingbill/">
-          <p class="person-links" aria-label="Valeria Vera profiles">
-            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/vera_valerie.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://orcid.org/0000-0003-1453-2633" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?user=nL_OtTAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/valerie-lookingbill/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </p>
-        </div>
-      </article>
+        <!-- Yizhou (Jake) Cai -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php" target="_blank" rel="noopener">
+              <img src="assets/images/people/Yizhou%20Cai%20(Jake).jpg" alt="Yizhou (Jake) Cai" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php" target="_blank" rel="noopener">Yizhou Cai (Jake)</a></h3>
+            <p class="person-role">PhD Candidate, Statistics</p>
+            <p class="person-text">
+              Jake is a PhD candidate in the Department of Statistics at the University of South Carolina. He has experience applying machine learning to financial problems and is interested in advanced statistical applications across information science, finance, economics, and computer science.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#yizhou-cai">
+            <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?user=kejCEFcAAAAJ&hl=en&inst=3593773564587969603">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/yizhou-cai-328b96228/">
+            <p class="person-links" aria-label="Yizhou Cai profiles">
+              <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?user=kejCEFcAAAAJ&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/yizhou-cai-328b96228/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Yizhou (Jake) Cai -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php" target="_blank" rel="noopener">
-            <img src="assets/images/people/Yizhou%20Cai%20(Jake).jpg" alt="Yizhou (Jake) Cai" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php" target="_blank" rel="noopener">Yizhou Cai (Jake)</a></h3>
-          <p class="person-role">PhD Candidate, Statistics</p>
-          <p class="person-text">
-            Jake is a PhD candidate in the Department of Statistics at the University of South Carolina. He has experience applying machine learning to financial problems and is interested in advanced statistical applications across information science, finance, economics, and computer science.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#yizhou-cai">
-          <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?user=kejCEFcAAAAJ&hl=en&inst=3593773564587969603">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/yizhou-cai-328b96228/">
-          <p class="person-links" aria-label="Yizhou Cai profiles">
-            <a href="https://sc.edu/study/colleges_schools/artsandsciences/statistics/our_people/directory/student_cai_yizhou.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?user=kejCEFcAAAAJ&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/yizhou-cai-328b96228/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </p>
-        </div>
-      </article>
+        <!-- Amirreza Kalantari -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php" target="_blank" rel="noopener">
+              <img src="assets/images/people/Amirreza%20Kalantari.jpg" alt="Amirreza Kalantari" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php" target="_blank" rel="noopener">Amirreza Kalantari</a></h3>
+            <p class="person-role">PhD Student, School of Information Science</p>
+            <p class="person-text">
+              Amirreza joined the School of Information Science at the University of South Carolina in August 2024. His research interests include human centered AI, information behavior, and computational methods for studying digital information spaces.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#amirreza-kalantari">
+            <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?user=R_0BX-gAAAAJ&hl=en&inst=3593773564587969603">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/amirreza-kalantari/">
+            <link itemprop="sameAs" href="https://www.researchgate.net/profile/Amirreza-Kalantari-2">
+            <p class="person-links" aria-label="Amirreza Kalantari profiles">
+              <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?user=R_0BX-gAAAAJ&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/amirreza-kalantari/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.researchgate.net/profile/Amirreza-Kalantari-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Amirreza Kalantari -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php" target="_blank" rel="noopener">
-            <img src="assets/images/people/Amirreza%20Kalantari.jpg" alt="Amirreza Kalantari" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php" target="_blank" rel="noopener">Amirreza Kalantari</a></h3>
-          <p class="person-role">PhD Student, School of Information Science</p>
-          <p class="person-text">
-            Amirreza joined the School of Information Science at the University of South Carolina in August 2024. His research interests include human centered AI, information behavior, and computational methods for studying digital information spaces.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#amirreza-kalantari">
-          <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?user=R_0BX-gAAAAJ&hl=en&inst=3593773564587969603">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/amirreza-kalantari/">
-          <link itemprop="sameAs" href="https://www.researchgate.net/profile/Amirreza-Kalantari-2">
-          <p class="person-links" aria-label="Amirreza Kalantari profiles">
-            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/kalantari_amirreza.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?user=R_0BX-gAAAAJ&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/amirreza-kalantari/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.researchgate.net/profile/Amirreza-Kalantari-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-          </p>
-        </div>
-      </article>
+        <!-- Quynh Nguyen -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php" target="_blank" rel="noopener">
+              <img src="assets/images/people/Quynh%20Nguyen.jpg" alt="Quynh Nguyen" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php" target="_blank" rel="noopener">Quynh Nguyen</a></h3>
+            <p class="person-role">PhD Student, School of Information Science</p>
+            <p class="person-text">
+              Quynh is a PhD student at the University of South Carolina who is interested in how data and technology can address contemporary information challenges. She is excited to work on interdisciplinary projects that connect people, data, and technological systems.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#quynh-nguyen">
+            <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php">
+            <p class="person-links" aria-label="Quynh Nguyen profiles">
+              <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Quynh Nguyen -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php" target="_blank" rel="noopener">
-            <img src="assets/images/people/Quynh%20Nguyen.jpg" alt="Quynh Nguyen" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php" target="_blank" rel="noopener">Quynh Nguyen</a></h3>
-          <p class="person-role">PhD Student, School of Information Science</p>
-          <p class="person-text">
-            Quynh is a PhD student at the University of South Carolina who is interested in how data and technology can address contemporary information challenges. She is excited to work on interdisciplinary projects that connect people, data, and technological systems.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#quynh-nguyen">
-          <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php">
-          <p class="person-links" aria-label="Quynh Nguyen profiles">
-            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/nguyen_quynh.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-          </p>
-        </div>
-      </article>
+        <!-- Samaneh Borji -->
+        <article id="samaneh-borji" class="person-card" itemscope itemtype="https://schema.org/Person">
+          <div class="person-photo-wrap">
+            <a href="#samaneh-borji" itemprop="url" aria-label="Samaneh Borji section on this page" title="Samaneh Borji">
+              <img src="assets/images/people/Samaneh%20Borji.jpg" alt="Photo of Samaneh Borji" loading="lazy" decoding="async" itemprop="image" width="320" height="320">
+            </a>
+          </div>
+          <div class="person-details">
+            <h3 class="person-name" itemprop="name">Samaneh Borji</h3>
+            <p class="person-role">
+              <span itemprop="jobTitle">PhD Student</span>,
+              <span itemprop="affiliation" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name">School of Information Science</span>
+                <meta itemprop="parentOrganization" content="University of South Carolina">
+              </span>
+            </p>
+            <p class="person-text" itemprop="description">
+              Samaneh has a background in computer science, teaching, communication, and research.
+              She builds bridges between computer science and information science, with a focus on
+              AI literacy, information literacy, and helping people navigate mass information and avoid misleading content.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#samaneh-borji">
+            <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/borji_samaneh.php">
+            <link itemprop="sameAs" href="https://orcid.org/0000-0002-8316-9367">
+            <link itemprop="sameAs" href="https://scholar.google.com/citations?user=NIOTLl4AAAAJ&amp;hl=en">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/samaneh-borji/">
+            <link itemprop="sameAs" href="https://www.researchgate.net/profile/Samaneh-Borji">
+            <p class="person-links" aria-label="Samaneh Borji profiles">
+              <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/borji_samaneh.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://orcid.org/0000-0002-8316-9367" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://scholar.google.com/citations?user=NIOTLl4AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.linkedin.com/in/samaneh-borji/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <span aria-hidden="true"> · </span>
+              <a href="https://www.researchgate.net/profile/Samaneh-Borji" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+            </p>
+          </div>
+        </article>
 
-      <!-- Samaneh Borji -->
-      <article id="samaneh-borji" class="person-card" itemscope itemtype="https://schema.org/Person">
-        <div class="person-photo-wrap">
-          <a href="#samaneh-borji" itemprop="url" aria-label="Samaneh Borji section on this page" title="Samaneh Borji">
-            <img src="assets/images/people/Samaneh%20Borji.jpg" alt="Photo of Samaneh Borji" loading="lazy" decoding="async" itemprop="image" width="320" height="320">
-          </a>
-        </div>
-        <div class="person-details">
-          <h3 class="person-name" itemprop="name">Samaneh Borji</h3>
-          <p class="person-role">
-            <span itemprop="jobTitle">PhD Student</span>,
-            <span itemprop="affiliation" itemscope itemtype="https://schema.org/Organization">
-              <span itemprop="name">School of Information Science</span>
-              <meta itemprop="parentOrganization" content="University of South Carolina">
-            </span>
-          </p>
-          <p class="person-text" itemprop="description">
-            Samaneh has a background in computer science, teaching, communication, and research.
-            She builds bridges between computer science and information science, with a focus on
-            AI literacy, information literacy, and helping people navigate mass information and avoid misleading content.
-          </p>
-          <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#samaneh-borji">
-          <link itemprop="sameAs" href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/borji_samaneh.php">
-          <link itemprop="sameAs" href="https://orcid.org/0000-0002-8316-9367">
-          <link itemprop="sameAs" href="https://scholar.google.com/citations?user=NIOTLl4AAAAJ&amp;hl=en">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/samaneh-borji/">
-          <link itemprop="sameAs" href="https://www.researchgate.net/profile/Samaneh-Borji">
-          <p class="person-links" aria-label="Samaneh Borji profiles">
-            <a href="https://sc.edu/study/colleges_schools/cic/academic_programs/phd/library_and_information_science_phd/phd_students/borji_samaneh.php" target="_blank" rel="noopener noreferrer">USC Profile</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://orcid.org/0000-0002-8316-9367" target="_blank" rel="noopener noreferrer">ORCID</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://scholar.google.com/citations?user=NIOTLl4AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.linkedin.com/in/samaneh-borji/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <span aria-hidden="true"> · </span>
-            <a href="https://www.researchgate.net/profile/Samaneh-Borji" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-          </p>
-        </div>
-      </article>
-
-      <!-- Taylor Collier -->
-      <article class="person-card">
-        <div class="person-photo-wrap">
-          <a href="https://www.linkedin.com/in/tcollier-librarian2023" target="_blank" rel="noopener">
-            <img src="assets/images/people/Taylor%20Collier.jpg" alt="Taylor Collier" loading="lazy" decoding="async">
-          </a>
-        </div>
-        <div>
-          <h3 class="person-name"><a href="https://www.linkedin.com/in/tcollier-librarian2023" target="_blank" rel="noopener">Taylor Collier</a></h3>
-          <p class="person-role">AI Librarian, College of Charleston</p>
-          <p class="person-text">
-            Taylor is an AI librarian at the College of Charleston. She is interested in the use of artificial intelligence in libraries and information science and how AI tools can support information services and user communities.
-          </p>
-           <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#taylor-collier">
-          <link itemprop="sameAs" href="https://www.linkedin.com/in/tcollier-librarian2023">
-          <p class="person-links" aria-label="Taylor Collier profiles">
-            <a href="https://www.linkedin.com/in/tcollier-librarian2023" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </p>
-        </div>
-      </article>
-    </div>
+        <!-- Taylor Collier -->
+        <article class="person-card">
+          <div class="person-photo-wrap">
+            <a href="https://www.linkedin.com/in/tcollier-librarian2023" target="_blank" rel="noopener">
+              <img src="assets/images/people/Taylor%20Collier.jpg" alt="Taylor Collier" loading="lazy" decoding="async">
+            </a>
+          </div>
+          <div>
+            <h3 class="person-name"><a href="https://www.linkedin.com/in/tcollier-librarian2023" target="_blank" rel="noopener">Taylor Collier</a></h3>
+            <p class="person-role">AI Librarian, College of Charleston</p>
+            <p class="person-text">
+              Taylor is an AI librarian at the College of Charleston. She is interested in the use of artificial intelligence in libraries and information science and how AI tools can support information services and user communities.
+            </p>
+            <meta itemprop="mainEntityOfPage" content="https://hidalab.org/people#taylor-collier">
+            <link itemprop="sameAs" href="https://www.linkedin.com/in/tcollier-librarian2023">
+            <p class="person-links" aria-label="Taylor Collier profiles">
+              <a href="https://www.linkedin.com/in/tcollier-librarian2023" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- Former members -->
-    <section class="former-section" aria-labelledby="former-heading">
+    <section class="section former-section" aria-labelledby="former-heading">
       <h2 id="former-heading">Former Members</h2>
 
       <div class="former-grid">
@@ -708,19 +818,19 @@
             <p class="person-links" aria-label="Alireza Salahirad profiles">
               <a href="https://orcid.org/0000-0002-8922-6123" target="_blank" rel="noopener noreferrer">ORCID</a>
               <span aria-hidden="true"> · </span>
-               <a href="https://scholar.google.com/citations?user=Bmii5aVOW2AC&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a href="https://scholar.google.com/citations?user=Bmii5aVOW2AC&hl=en&inst=3593773564587969603" target="_blank" rel="noopener noreferrer">Google Scholar</a>
               <span aria-hidden="true"> · </span>
               <a href="https://www.linkedin.com/in/alireza-srad/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <span aria-hidden="true"> · </span>
               <a href="https://www.researchgate.net/profile/Alireza-Salahirad-2" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-          </p>
+            </p>
           </div>
         </article>
 
         <!-- Dalton Bickford -->
         <article class="former-card">
           <div class="former-photo">
-              <img src="assets/images/people/Dalton%20Bickford.jpg" alt="Dalton Bickford" loading="lazy" decoding="async">
+            <img src="assets/images/people/Dalton%20Bickford.jpg" alt="Dalton Bickford" loading="lazy" decoding="async">
           </div>
           <div>
             <h3 class="former-name">Dalton Bickford</h3>
@@ -744,7 +854,7 @@
             <link itemprop="sameAs" href="https://www.linkedin.com/in/constance-caddell-35012340/">
             <p class="person-links" aria-label="Constance Caddell profiles">
               <a href="https://www.linkedin.com/in/constance-caddell-35012340/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </p>
+            </p>
           </div>
         </article>
       </div>
@@ -752,15 +862,26 @@
   </main>
 
   <footer>
-    <div class="footer-nav" aria-label="Footer navigation">
-      <a href="/">Welcome</a>
-      <span aria-hidden="true"> | </span>
-      <a href="/people">People</a>
-      <span aria-hidden="true"> | </span>
-      <a href="/publications">Publications</a>
-      <span aria-hidden="true"> | </span>
-      <a href="/projects">Projects</a>
+    <div class="footer-inner">
+      <div>
+        <strong>Hi Da Research Lab</strong> · Human Insight for Data &amp; AI<br />
+        School of Information Science, University of South Carolina
+      </div>
+      <div>
+        <span class="footer-nav">
+          <a href="/">Welcome</a> |
+          <a href="people.html">People</a> |
+          <a href="publications.html">Publications</a> |
+          <a href="projects.html">Projects</a>
+        </span>
+        <br />
+        © <span id="year"></span> Hi Da Lab
+      </div>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
