@@ -274,6 +274,17 @@
     .card p a,
     .card p a:visited { color: var(--content-link); }
 
+    /* Override: allow specific inline links to match garnet */
+    .card p a.card-accent-link,
+    .card p a.card-accent-link:visited {
+      color: var(--usc-garnet) !important;
+      font-weight: 600;
+    }
+    
+    .card p a.card-accent-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
     /* ===== Footer (match Welcome colors) ===== */
     footer {
       margin-top: 24px;
@@ -402,7 +413,9 @@
           <article class="card">
             <img src="https://static.www.tencent.com/uploads/2024/12/16/6d1d8017360143a5ee73cb52de93b57d.jpg" alt="Battle for Better Health project" loading="lazy" />
             <h3>Battle for Better Health</h3>
-            <p>Using health literacy frameworks and AI to address obesity in South Carolina, this project develops interventions that improve health behaviors and access to reliable health information. Funded by the <a href="https://www.nnlm.gov/" target="_blank" rel="noopener">National Library of Medicine Region 2</a>.</p>
+            <p>Using health literacy frameworks and AI to address obesity in South Carolina, this project develops interventions that improve health behaviors and access to reliable health information. Funded by the 
+              <a class="card-accent-link" href="https://www.nnlm.gov/" target="_blank" rel="noopener">National Library of Medicine Region 2</a>
+            </p>
           </article>
 
           <!-- Project 6 -->
@@ -414,7 +427,7 @@
               </a>
             </h3>
             <p>This evaluation project measures the effectiveness and broader impacts of NSF’s EPSCoR and NIH’s IDeA programs nationally, assessing how these funding mechanisms influence research capacity, equity, scientific output, and long-term institutional growth.</p>
-            <p>The article is featured in <a href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener">Science</a>.</p>
+            <p>The article is featured in <a class="card-accent-link" href="https://www.science.org/content/article/large-study-scientists-who-move-their-labs-reveals-how-location-drives-productivity" target="_blank" rel="noopener">Science</a>.</p>
           </article>
 
           <!-- Project 7 -->
