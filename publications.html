@@ -199,10 +199,10 @@
     /* The text stack wrapper (logo text + tagline) */
     .nav-left > div {
       display: flex !important;
-      flex-direction: column;     /* stack logo + tagline */
-      align-items: flex-start;    /* left align text */
-      gap: 2px;                   /* controls spacing between the two lines */
-      padding-top: 2px;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 6px !important;             /* <-- increase/decrease this */
+      padding-top: 2px !important;
       line-height: 1.1;
     }
 
@@ -213,14 +213,17 @@
       height: 36px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 0, #ffccd5 0, var(--usc-garnet) 45%, var(--usc-light-garnet) 100%);
-      display: flex;
+      display: grid !important;
+      place-items: center !important;
+      line-height: 1 !important;       /* prevents baseline drift */
+      padding: 0 !important;
       align-items: center;
       justify-content: center;
       font-size: 0.9rem;
       font-weight: 700;
       color: #fff;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
       user-select: none;
     }
 
@@ -246,9 +249,9 @@
       color: #666;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       display: block;
-      margin: 0;                 /* important: kill default margins */
-      padding: 0;
-      line-height: 1.15;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1.15 !important;
     }
 
     .tabs-wrapper { background: transparent; }
