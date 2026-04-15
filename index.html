@@ -437,7 +437,7 @@
       display: inline;
       cursor: pointer;
       color: var(--usc-garnet);
-      font-weight: 600;          /* remove if you want it less strong */
+      font-weight: 600;
       list-style: none;
     }
     
@@ -499,6 +499,11 @@
     .news-body p:last-child{ margin-bottom: 0; }
     /* ===== End added news styling ===== */
 
+    /* Keeps anchored News heading visible below sticky header */
+    #news {
+      scroll-margin-top: 120px;
+    }
+
     footer {
       margin-top: 24px;
       padding: 18px 0 26px;
@@ -524,7 +529,7 @@
     }
 
     .footer-nav a {
-      color: #73000a;          /* same maroon as Welcome header */
+      color: #73000a;
       text-decoration: none;
       font-weight: 600;
     }
@@ -535,7 +540,7 @@
     }
 
     .footer-nav a:visited {
-      color: #73000a;          /* prevent purple visited links */
+      color: #73000a;
     }
 
     @media (max-width: 1024px) {
@@ -733,6 +738,9 @@
             <a class="tab-link active" href="/">Welcome</a>
           </li>
           <li class="tab-item">
+            <a class="tab-link" href="/#news">News</a>
+          </li>
+          <li class="tab-item">
             <a class="tab-link" href="people.html">People</a>
           </li>
           <li class="tab-item">
@@ -925,6 +933,7 @@
       <div>
         <span class="footer-nav">
           <a href="/">Welcome</a> |
+          <a href="/#news">News</a> |
           <a href="people.html">People</a> |
           <a href="publications.html">Publications</a> |
           <a href="projects.html">Projects</a>
