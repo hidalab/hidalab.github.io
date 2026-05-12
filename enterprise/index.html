@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part II · AI at Work — Four Live Demos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EC;
+    --ink: #1F1B16;
+    --ink-soft: #5C5247;
+    --rule: #D9D0C2;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 72px 32px 80px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; }
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 28px;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 4px;
+    width: 100%;
+    background: var(--card-accent);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    border-color: var(--card-accent);
+  }
+  .card.c1 { --card-accent: #B85042; }
+  .card.c2 { --card-accent: #028090; }
+  .card.c3 { --card-accent: #2F3C7E; }
+  .card.c4 { --card-accent: #990011; }
+
+  .card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--card-accent);
+    margin-bottom: 14px;
+  }
+  .card h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .card .tool {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .card .tool strong { color: var(--card-accent); font-weight: 600; }
+  .card p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .card .go {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--card-accent);
+  }
+  .card .go::after {
+    content: '→';
+    transition: transform 0.2s ease;
+  }
+  .card:hover .go::after { transform: translateX(4px); }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  footer em { font-family: 'Fraunces', serif; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Part II · Hands-on demos</div>
+  <h1>Enough talking about AI.<br><em>Let's watch four of them work.</em></h1>
+  <p class="lede">Four short demos, one per business area. Each one shows what an AI tool actually does on a real task — and where it would fail if you weren't paying attention. Click any card to begin.</p>
+
+  <div class="grid">
+    <a href="demo-1-accounting-claude.html" class="card c1">
+      <div class="num">01 · ACCOUNTING</div>
+      <h2>Checking a vendor's bill</h2>
+      <div class="tool">Tool: <strong>Claude</strong></div>
+      <p>Hundreds of bills come in every week. An employee checks each one against the purchase order. Most are fine. A few aren't. Six minutes per bill becomes fifteen seconds.</p>
+      <span class="go">Run the demo</span>
+    </a>
+
+    <a href="demo-2-hr-chatgpt.html" class="card c2">
+      <div class="num">02 · HUMAN RESOURCES</div>
+      <h2>Answering the same five questions, again</h2>
+      <div class="tool">Tool: <strong>ChatGPT</strong></div>
+      <p>HR gets 120 questions a week. Most are repeats already answered in the handbook. ChatGPT cites a source for each answer and routes sensitive cases to a real person.</p>
+      <span class="go">Run the demo</span>
+    </a>
+
+    <a href="demo-3-marketing-gemini.html" class="card c3">
+      <div class="num">03 · MARKETING</div>
+      <h2>Why did this ad actually work?</h2>
+      <div class="tool">Tool: <strong>Gemini</strong></div>
+      <p>Performance numbers tell you which version won. They don't tell you why. And sometimes the winner on the dashboard is the loser on the customer.</p>
+      <span class="go">Run the demo</span>
+    </a>
+
+    <a href="demo-4-operations-deepseek.html" class="card c4">
+      <div class="num">04 · OPERATIONS</div>
+      <h2>A coffee shop with reviews in five languages</h2>
+      <div class="tool">Tool: <strong>DeepSeek</strong></div>
+      <p>One owner can't read them all. Translators are expensive. She doesn't want to send customer data to a cloud service. DeepSeek runs locally on her laptop, for free.</p>
+      <span class="go">Run the demo</span>
+    </a>
+  </div>
+
+  <footer>
+    <em>From the teaching demonstration "How to use AI at work?" — a comparison of ChatGPT, Gemini, Claude, and DeepSeek for business work.</em><br>
+    Ehsan Mohammadi · University of South Carolina · Hi-Da Research Lab
+  </footer>
+</div>
+</body>
+</html>
