@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 3 — Marketing · Gemini reads the ads, not just the numbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EC;
+    --ink: #1F1B16;
+    --ink-soft: #5C5247;
+    --accent: #2F3C7E;
+    --accent-soft: #D4D9E8;
+    --accent-deep: #1A1F4C;
+    --warn: #C77B30;
+    --good: #5C7B4A;
+    --rule: #D9D0C2;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 48px 32px 80px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .question {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    border-radius: 0 6px 6px 0;
+  }
+  .question .small { color: var(--ink-soft); font-size: 14px; margin-bottom: 8px; }
+  .question .big { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; }
+  .question .big em { color: var(--accent); font-style: italic; }
+
+  .ads-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 900px) { .ads-grid { grid-template-columns: 1fr; } }
+
+  .ad {
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    transition: transform 0.3s ease;
+  }
+  .ad:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .ad-creative {
+    aspect-ratio: 4/3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .ad-a .ad-creative {
+    background: linear-gradient(135deg, #E5DDD0 0%, #C9BFB0 100%);
+    color: #5C5247;
+  }
+  .ad-b .ad-creative {
+    background: linear-gradient(135deg, #FF6B35 0%, #C7361B 100%);
+    color: white;
+  }
+  .ad-c .ad-creative {
+    background: linear-gradient(135deg, #2F3C7E 0%, #1A1F4C 100%);
+    color: #F0EBE0;
+  }
+  .ad-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+  .ad-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    text-align: center;
+    padding: 24px;
+    letter-spacing: -0.01em;
+  }
+  .ad-a .ad-headline { font-size: 20px; font-style: italic; }
+  .ad-b .ad-headline { font-size: 36px; line-height: 1; }
+  .ad-b .ad-headline span { display: block; font-size: 14px; font-weight: 400; margin-top: 8px; letter-spacing: 0.05em; }
+  .ad-c .ad-headline { font-size: 22px; }
+  .ad-c .ad-headline span { display: block; font-size: 13px; font-weight: 400; margin-top: 12px; color: #C9BFB0; }
+
+  .ad-stats {
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .ad-stat .v {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .ad-stat .l {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .ad-stat.winner .v { color: var(--good); }
+  .ad-stat.winner .v::after { content: ' ✓'; }
+
+  .run-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 16px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    margin-bottom: 32px;
+  }
+  .run-btn:hover { background: var(--accent); transform: translateY(-1px); }
+  .run-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .run-btn .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.4; }
+  }
+
+  .gemini-output {
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+  }
+  .gemini-output.visible { opacity: 1; transform: translateY(0); }
+  .gemini-header {
+    background: var(--accent-deep);
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .gemini-logo {
+    width: 26px; height: 26px;
+    background: linear-gradient(135deg, #4F86F7 0%, #9B72CB 50%, #D96570 100%);
+    border-radius: 50%;
+  }
+  .gemini-name { font-weight: 600; }
+  .gemini-status {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #9BD5DA;
+    letter-spacing: 0.08em;
+  }
+  .gemini-body { padding: 32px; }
+
+  .section { margin-bottom: 28px; }
+  .section:last-child { margin-bottom: 0; }
+  .section h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .section h3 em { font-style: italic; color: var(--accent); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+  }
+  @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-card {
+    background: var(--paper);
+    padding: 16px 18px;
+    border-radius: 4px;
+    border-top: 3px solid var(--accent);
+  }
+  .why-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .why-card h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .why-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+  .twist {
+    background: linear-gradient(135deg, #FBEEEA 0%, #FFF8F0 100%);
+    border-left: 3px solid var(--warn);
+    padding: 24px 28px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 12px;
+  }
+  .twist .icon {
+    display: inline-block;
+    background: var(--warn);
+    color: white;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .twist .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--warn);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .twist h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .twist p { color: var(--ink-soft); }
+  .twist .data-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(199, 123, 48, 0.3);
+  }
+  @media (max-width: 600px) { .twist .data-row { grid-template-columns: 1fr; } }
+  .data-row .item .label2 {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .data-row .item .val {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .data-row .item .delta {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .data-row .item.good .val { color: var(--good); }
+  .data-row .item.bad .val { color: var(--warn); }
+
+  .verdict {
+    background: var(--accent-deep);
+    color: white;
+    padding: 28px 32px;
+    border-radius: 6px;
+    margin-top: 12px;
+  }
+  .verdict .eyebrow2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #9BD5DA;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+  .verdict h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .verdict h3 em { font-style: italic; color: #9BD5DA; }
+  .verdict p { color: #C8D2E8; max-width: 700px; }
+
+  .takeaway {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+  }
+  .takeaway .eyebrow { color: #C8D2E8; }
+  .takeaway h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .takeaway p { color: #C9BCAE; max-width: 700px; }
+
+  .nav {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .nav a:hover { text-decoration: underline; }
+  .reset {
+    background: none;
+    border: 1px solid var(--rule);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink-soft);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .reset:hover { border-color: var(--ink); color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Part II · Demo 3 of 4 · Marketing</div>
+  <h1>Three ads ran. Gemini looks at the <em>pictures, not just the chart.</em></h1>
+  <p class="lede">Performance numbers tell you which version won. They do not tell you why. And sometimes the version that won the click loses the customer a week later.</p>
+
+  <div class="question">
+    <div class="small">The dashboard says:</div>
+    <div class="big">Ad B got the cheapest clicks. Run more of B. <em>Right?</em></div>
+  </div>
+
+  <div class="ads-grid">
+    <div class="ad ad-a">
+      <div class="ad-creative">
+        <div class="ad-label">VARIANT A</div>
+        <div class="ad-headline">"Maybe it's time you tried something new."</div>
+      </div>
+      <div class="ad-stats">
+        <div class="ad-stat"><div class="v">2.1%</div><div class="l">Click rate</div></div>
+        <div class="ad-stat"><div class="v">$4.80</div><div class="l">Cost per click</div></div>
+      </div>
+    </div>
+    <div class="ad ad-b">
+      <div class="ad-creative">
+        <div class="ad-label">VARIANT B</div>
+        <div class="ad-headline">50% OFF<span>ENDS TONIGHT</span></div>
+      </div>
+      <div class="ad-stats">
+        <div class="ad-stat winner"><div class="v">4.7%</div><div class="l">Click rate</div></div>
+        <div class="ad-stat winner"><div class="v">$2.10</div><div class="l">Cost per click</div></div>
+      </div>
+    </div>
+    <div class="ad ad-c">
+      <div class="ad-creative">
+        <div class="ad-label">VARIANT C</div>
+        <div class="ad-headline">Built to last ten years.<span>Coffee, anytime.</span></div>
+      </div>
+      <div class="ad-stats">
+        <div class="ad-stat"><div class="v">2.8%</div><div class="l">Click rate</div></div>
+        <div class="ad-stat"><div class="v">$3.40</div><div class="l">Cost per click</div></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="run-btn" id="runBtn"><span class="dot"></span>Ask Gemini why</button>
+
+  <div class="gemini-output" id="output">
+    <div class="gemini-header">
+      <div class="gemini-logo"></div>
+      <div class="gemini-name">Gemini · creative + performance analysis</div>
+      <div class="gemini-status" id="status">ANALYZING…</div>
+    </div>
+    <div class="gemini-body">
+      <div class="section">
+        <h3>Why Variant B won the click.</h3>
+        <p style="color: var(--ink-soft);">Looking at the creative side by side, three differences stand out:</p>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="num">01 · Contrast</div>
+            <h4>Strongest color contrast</h4>
+            <p>The red-orange gradient against white text has the highest luminance gap. Eyes lock on first in the feed.</p>
+          </div>
+          <div class="why-card">
+            <div class="num">02 · Words</div>
+            <h4>Concrete in three words</h4>
+            <p>"50% OFF" lands instantly. A and C ask the reader to interpret the message before deciding to click.</p>
+          </div>
+          <div class="why-card">
+            <div class="num">03 · Urgency</div>
+            <h4>"Ends tonight" creates a clock</h4>
+            <p>Time pressure converts interest into action. A and C have no urgency signal at all.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>But here's what the chart hides.</h3>
+        <div class="twist">
+          <div class="label"><span class="icon">!</span>Look at week 2</div>
+          <h4>B's customers don't stick around.</h4>
+          <p>Cheap clicks are easy. Customers who stay are not. When we trace the same users to their 14-day retention numbers, the story flips.</p>
+          <div class="data-row">
+            <div class="item bad">
+              <div class="label2">Variant B</div>
+              <div class="val">18%</div>
+              <div class="delta">retained at 14 days</div>
+            </div>
+            <div class="item">
+              <div class="label2">Variant A</div>
+              <div class="val">31%</div>
+              <div class="delta">retained at 14 days</div>
+            </div>
+            <div class="item good">
+              <div class="label2">Variant C</div>
+              <div class="val">47%</div>
+              <div class="delta">retained at 14 days</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="verdict">
+          <div class="eyebrow2">VERDICT</div>
+          <h3>B wins on the dashboard. <em>C wins on the customer.</em></h3>
+          <p>The 50%-off ad pulled in deal-hunters who churned the moment the promotion ended. The "built to last ten years" ad attracted people who actually wanted a durable coffee machine, and they're still buying refills.</p>
+          <p style="margin-top: 12px;">Don't kill C because of the click-through rate. Move more budget to C, and reserve B for clearance moments only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 32px;">
+    <button class="reset" id="resetBtn" style="display:none;">↺ Run again</button>
+  </div>
+
+  <div class="takeaway">
+    <div class="eyebrow">Why this works</div>
+    <h3>Reading creative + numbers together is exactly what AI is good at.</h3>
+    <p>Numbers alone said "B won." Looking at the image, the copy, and the downstream retention together gives a different answer. Marketing teams used to need a creative director, a data analyst, and a few days to do this. Gemini does it in a paragraph — and the team's job is to decide whether to trust it.</p>
+  </div>
+
+  <div class="nav">
+    <a href="demo-2-hr-chatgpt.html">← Demo 2: ChatGPT in HR</a>
+    <a href="demo-4-operations-deepseek.html">Next: DeepSeek in Operations →</a>
+  </div>
+</div>
+
+<script>
+  const runBtn = document.getElementById('runBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const output = document.getElementById('output');
+  const status = document.getElementById('status');
+
+  runBtn.addEventListener('click', () => {
+    runBtn.disabled = true;
+    output.classList.add('visible');
+    status.textContent = 'ANALYZING…';
+    output.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      status.textContent = 'COMPLETE ✓';
+      runBtn.style.display = 'none';
+      resetBtn.style.display = 'inline-block';
+    }, 1800);
+  });
+
+  resetBtn.addEventListener('click', () => {
+    output.classList.remove('visible');
+    runBtn.disabled = false;
+    runBtn.style.display = 'inline-flex';
+    resetBtn.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

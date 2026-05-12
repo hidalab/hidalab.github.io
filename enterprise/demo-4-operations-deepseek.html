@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 4 — Operations · DeepSeek reads reviews in 5 languages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EC;
+    --ink: #1F1B16;
+    --ink-soft: #5C5247;
+    --accent: #990011;
+    --accent-soft: #F3D5D8;
+    --accent-deep: #5C000A;
+    --warn: #C77B30;
+    --good: #5C7B4A;
+    --rule: #D9D0C2;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .setup {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    border-radius: 0 6px 6px 0;
+  }
+  .setup .small { color: var(--ink-soft); font-size: 14px; margin-bottom: 6px; }
+  .setup .who {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .setup .constraints {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .constraint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .constraint .x {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .lang-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .lang-pill {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lang-pill .flag { font-size: 16px; }
+  .lang-pill .count {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .review {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 20px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .review:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .review .lang {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+  .review .stars { color: var(--warn); font-size: 14px; margin-bottom: 8px; }
+  .review .text {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .review .text.zh { font-family: 'Noto Sans SC', sans-serif; }
+  .review .author { font-size: 12px; color: var(--ink-soft); }
+
+  /* Highlight categories after analysis */
+  .review .hl {
+    background: transparent;
+    padding: 1px 3px;
+    border-radius: 2px;
+    transition: background 0.4s ease;
+  }
+  .analyzed .review .hl-pos { background: #DCE9D3; }
+  .analyzed .review .hl-wait { background: #F8E1C7; }
+  .analyzed .review .hl-wifi { background: #F3D5D8; }
+  .analyzed .review .hl-pos { box-shadow: inset 0 -2px 0 var(--good); }
+  .analyzed .review .hl-wait { box-shadow: inset 0 -2px 0 var(--warn); }
+  .analyzed .review .hl-wifi { box-shadow: inset 0 -2px 0 var(--accent); }
+
+  .run-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 16px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    margin-bottom: 32px;
+  }
+  .run-btn:hover { background: var(--accent); transform: translateY(-1px); }
+  .run-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .run-btn .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.4; }
+  }
+
+  .output {
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+  }
+  .output.visible { opacity: 1; transform: translateY(0); }
+  .output-header {
+    background: var(--accent-deep);
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .output-logo {
+    width: 26px; height: 26px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-family: 'Fraunces', serif;
+  }
+  .output-name { font-weight: 600; }
+  .output-meta {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-soft);
+    letter-spacing: 0.08em;
+  }
+  .output-body { padding: 32px; }
+  .running-on {
+    background: var(--paper);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .running-on .icon {
+    width: 22px; height: 22px;
+    background: var(--good);
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .running-on strong { color: var(--ink); }
+
+  .patterns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 800px) { .patterns { grid-template-columns: 1fr; } }
+  .pattern {
+    background: var(--paper);
+    border-radius: 6px;
+    padding: 20px;
+    border-top: 4px solid;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.5s ease;
+  }
+  .pattern.visible { opacity: 1; transform: translateY(0); }
+  .pattern.positive { border-color: var(--good); }
+  .pattern.wait { border-color: var(--warn); }
+  .pattern.wifi { border-color: var(--accent); }
+  .pattern .icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .pattern.positive .icon { background: var(--good); }
+  .pattern.wait .icon { background: var(--warn); }
+  .pattern.wifi .icon { background: var(--accent); }
+  .pattern h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .pattern .count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .pattern .quote {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.5;
+    padding-left: 12px;
+    border-left: 2px solid var(--rule);
+  }
+  .pattern .langs {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .recommend {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 24px 28px;
+    border-radius: 6px;
+    margin-top: 24px;
+  }
+  .recommend h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    color: white;
+  }
+  .recommend ol { margin-left: 20px; }
+  .recommend li {
+    color: #C9BCAE;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .recommend li strong { color: white; font-weight: 600; }
+
+  .tradeoff {
+    margin-top: 20px;
+    background: #FBEEEA;
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .tradeoff strong { color: var(--accent); }
+
+  .takeaway {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+  }
+  .takeaway .eyebrow { color: #F3D5D8; }
+  .takeaway h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .takeaway p { color: #C9BCAE; max-width: 700px; }
+
+  .nav {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .nav a:hover { text-decoration: underline; }
+  .reset {
+    background: none;
+    border: 1px solid var(--rule);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink-soft);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .reset:hover { border-color: var(--ink); color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Part II · Demo 4 of 4 · Operations</div>
+  <h1>A coffee shop. Reviews in <em>five languages.</em> One owner.</h1>
+  <p class="lede">She can't read them all. Translators are expensive. She doesn't want to send customer feedback to a big tech company. Her budget for AI tools is roughly zero. DeepSeek runs on her own laptop, for free.</p>
+
+  <div class="setup">
+    <div class="small">Meet the owner.</div>
+    <div class="who">Linh runs a 14-seat coffee shop in midtown. She is not a software person.</div>
+    <div class="constraints">
+      <div class="constraint"><span class="x">✗</span> No translator budget</div>
+      <div class="constraint"><span class="x">✗</span> Won't send reviews to a cloud service</div>
+      <div class="constraint"><span class="x">✗</span> Can't read all five languages</div>
+      <div class="constraint"><span style="color: var(--good); font-weight: 700;">✓</span> Has a laptop</div>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <div class="lang-pill"><span class="flag">🇺🇸</span>English <span class="count">5</span></div>
+    <div class="lang-pill"><span class="flag">🇪🇸</span>Español <span class="count">3</span></div>
+    <div class="lang-pill"><span class="flag">🇨🇳</span>中文 <span class="count">3</span></div>
+    <div class="lang-pill"><span class="flag">🇫🇷</span>Français <span class="count">2</span></div>
+    <div class="lang-pill"><span class="flag">🇻🇳</span>Tiếng Việt <span class="count">2</span></div>
+  </div>
+
+  <div class="reviews-grid" id="reviewsGrid">
+    <div class="review">
+      <div class="lang">EN</div>
+      <div class="stars">★★★★★</div>
+      <div class="text">The <span class="hl hl-pos">espresso here is unreal</span>. Best in the neighborhood by a mile. <span class="hl hl-wait">Wait was kind of long</span> but worth it.</div>
+      <div class="author">— Marcus T.</div>
+    </div>
+    <div class="review">
+      <div class="lang">EN</div>
+      <div class="stars">★★★☆☆</div>
+      <div class="text"><span class="hl hl-pos">Coffee is fantastic.</span> But I tried to work from the back patio and <span class="hl hl-wifi">the WiFi just doesn't reach back there</span>. Had to move inside.</div>
+      <div class="author">— Anna R.</div>
+    </div>
+    <div class="review">
+      <div class="lang">ES</div>
+      <div class="stars">★★★★★</div>
+      <div class="text">El <span class="hl hl-pos">mejor espresso del barrio</span>, sin duda. El ambiente es perfecto para leer.</div>
+      <div class="author">— Carmen L.</div>
+    </div>
+    <div class="review">
+      <div class="lang">ZH</div>
+      <div class="stars">★★★★☆</div>
+      <div class="text zh"><span class="hl hl-pos">浓缩咖啡非常好喝</span>,环境也很舒适。就是<span class="hl hl-wait">下午的等待时间太长了</span>。</div>
+      <div class="author">— 王小姐</div>
+    </div>
+    <div class="review">
+      <div class="lang">FR</div>
+      <div class="stars">★★★★☆</div>
+      <div class="text"><span class="hl hl-pos">Un excellent espresso</span>, vraiment. Mais <span class="hl hl-wifi">le WiFi sur la terrasse arrière ne marche pas</span>, c'est dommage.</div>
+      <div class="author">— Jean-Pierre M.</div>
+    </div>
+    <div class="review">
+      <div class="lang">VI</div>
+      <div class="stars">★★★★★</div>
+      <div class="text"><span class="hl hl-pos">Cà phê espresso ngon nhất khu vực này</span>. Tôi đến mỗi tuần.</div>
+      <div class="author">— Hùng N.</div>
+    </div>
+    <div class="review">
+      <div class="lang">EN</div>
+      <div class="stars">★★☆☆☆</div>
+      <div class="text">Coffee is great but <span class="hl hl-wait">15 minutes for a drink at lunchtime</span> is too long. I'll go elsewhere on weekdays.</div>
+      <div class="author">— Derek S.</div>
+    </div>
+    <div class="review">
+      <div class="lang">ES</div>
+      <div class="stars">★★★☆☆</div>
+      <div class="text">Café muy bueno, pero <span class="hl hl-wait">la espera es larga al mediodía</span>. Tampoco <span class="hl hl-wifi">funciona el WiFi atrás</span>.</div>
+      <div class="author">— Roberto P.</div>
+    </div>
+    <div class="review">
+      <div class="lang">ZH</div>
+      <div class="stars">★★★★★</div>
+      <div class="text zh"><span class="hl hl-pos">咖啡品质非常好</span>,服务员也很友好。值得推荐。</div>
+      <div class="author">— 李先生</div>
+    </div>
+    <div class="review">
+      <div class="lang">EN</div>
+      <div class="stars">★★★★★</div>
+      <div class="text"><span class="hl hl-pos">Their espresso is genuinely excellent</span>. I've stopped going anywhere else.</div>
+      <div class="author">— Priya K.</div>
+    </div>
+    <div class="review">
+      <div class="lang">FR</div>
+      <div class="stars">★★★☆☆</div>
+      <div class="text"><span class="hl hl-pos">Très bon espresso</span> mais <span class="hl hl-wait">l'attente à midi est interminable</span>.</div>
+      <div class="author">— Sophie D.</div>
+    </div>
+    <div class="review">
+      <div class="lang">VI</div>
+      <div class="stars">★★★★☆</div>
+      <div class="text">Cà phê tuyệt vời nhưng <span class="hl hl-wifi">WiFi ở sân sau không có sóng</span>.</div>
+      <div class="author">— Mai L.</div>
+    </div>
+    <div class="review">
+      <div class="lang">EN</div>
+      <div class="stars">★★★★★</div>
+      <div class="text"><span class="hl hl-pos">Espresso = phenomenal.</span> Pastries are decent. <span class="hl hl-wifi">WiFi cuts out on the patio</span> though, FYI.</div>
+      <div class="author">— Jordan W.</div>
+    </div>
+    <div class="review">
+      <div class="lang">ES</div>
+      <div class="stars">★★★★★</div>
+      <div class="text"><span class="hl hl-pos">El espresso es increíble</span>. Mi café favorito.</div>
+      <div class="author">— Ana M.</div>
+    </div>
+    <div class="review">
+      <div class="lang">ZH</div>
+      <div class="stars">★★★☆☆</div>
+      <div class="text zh">咖啡好喝,但<span class="hl hl-wait">中午等候时间太久</span>。</div>
+      <div class="author">— 陈先生</div>
+    </div>
+  </div>
+
+  <button class="run-btn" id="runBtn"><span class="dot"></span>Run DeepSeek locally</button>
+
+  <div class="output" id="output">
+    <div class="output-header">
+      <div class="output-logo">D</div>
+      <div class="output-name">DeepSeek · multilingual review analysis</div>
+      <div class="output-meta" id="status">PROCESSING…</div>
+    </div>
+    <div class="output-body">
+      <div class="running-on">
+        <span class="icon">↗</span>
+        <span><strong>Running on Linh's MacBook.</strong> No review data leaves the building. Cost so far: $0.</span>
+      </div>
+
+      <h3 style="font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 16px; letter-spacing: -0.01em;">Three patterns across all 15 reviews.</h3>
+
+      <div class="patterns">
+        <div class="pattern positive" data-delay="200">
+          <div class="icon">♥</div>
+          <h4>Customers love the espresso</h4>
+          <div class="count">11 of 15 reviews · all 5 languages</div>
+          <div class="quote">"unreal" · "el mejor del barrio" · "ngon nhất" · "非常好喝" · "phenomenal"</div>
+          <div class="langs">EN · ES · ZH · FR · VI</div>
+        </div>
+        <div class="pattern wait" data-delay="600">
+          <div class="icon">⏱</div>
+          <h4>Wait times are too long</h4>
+          <div class="count">6 of 15 reviews · peak at lunch</div>
+          <div class="quote">"15 minutes for a drink at lunchtime" · "la espera es larga al mediodía" · "下午等待时间太长"</div>
+          <div class="langs">EN · ES · ZH · FR</div>
+        </div>
+        <div class="pattern wifi" data-delay="1000">
+          <div class="icon">⌖</div>
+          <h4>WiFi dead zone on the back patio</h4>
+          <div class="count">5 of 15 reviews · specifically the patio</div>
+          <div class="quote">"WiFi just doesn't reach back there" · "le WiFi sur la terrasse arrière ne marche pas" · "WiFi ở sân sau không có sóng"</div>
+          <div class="langs">EN · ES · FR · VI</div>
+        </div>
+      </div>
+
+      <div class="recommend">
+        <h4>What Linh should do this week</h4>
+        <ol>
+          <li><strong>Keep doing the espresso.</strong> It's the moat. Reviewers in five different languages independently call it the best in the area.</li>
+          <li><strong>Staff one extra barista from 11:30am–1:30pm.</strong> The wait-time complaints cluster specifically at lunch, not all day. A small, targeted fix.</li>
+          <li><strong>Add a $40 WiFi range extender on the back patio.</strong> Five customers mentioned it in fifteen reviews. The cheapest fix on this list.</li>
+        </ol>
+      </div>
+
+      <div class="tradeoff">
+        <strong>One trade-off worth knowing.</strong> DeepSeek is Chinese-made. For some US businesses that raises real questions about geopolitics and supply chain that are worth taking seriously — even when, like here, the model runs entirely on Linh's own laptop and no data leaves the building.
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 32px;">
+    <button class="reset" id="resetBtn" style="display:none;">↺ Run again</button>
+  </div>
+
+  <div class="takeaway">
+    <div class="eyebrow">Why this works</div>
+    <h3>Reading and clustering text in multiple languages is inside the frontier — and self-hosted AI changes the economics.</h3>
+    <p>Six months ago, a small business owner with this problem had three options: pay a translator, ignore the non-English reviews, or send customer data to a third party. DeepSeek being open-weights and runnable on a laptop adds a fourth option: do it yourself, for free, without anyone else seeing the data. That's not a small change for small businesses.</p>
+  </div>
+
+  <div class="nav">
+    <a href="demo-3-marketing-gemini.html">← Demo 3: Gemini in Marketing</a>
+    <span style="font-style: italic; font-family: 'Fraunces', serif;">End of Part II.</span>
+  </div>
+</div>
+
+<script>
+  const runBtn = document.getElementById('runBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const output = document.getElementById('output');
+  const status = document.getElementById('status');
+  const grid = document.getElementById('reviewsGrid');
+  const patterns = document.querySelectorAll('.pattern');
+
+  runBtn.addEventListener('click', () => {
+    runBtn.disabled = true;
+    output.classList.add('visible');
+    grid.classList.add('analyzed');
+    status.textContent = 'PROCESSING…';
+
+    patterns.forEach(p => {
+      const delay = parseInt(p.dataset.delay);
+      setTimeout(() => p.classList.add('visible'), delay);
+    });
+
+    setTimeout(() => {
+      status.textContent = 'COMPLETE ✓';
+      runBtn.style.display = 'none';
+      resetBtn.style.display = 'inline-block';
+    }, 1600);
+  });
+
+  resetBtn.addEventListener('click', () => {
+    output.classList.remove('visible');
+    grid.classList.remove('analyzed');
+    patterns.forEach(p => p.classList.remove('visible'));
+    runBtn.disabled = false;
+    runBtn.style.display = 'inline-flex';
+    resetBtn.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 1 — Accounting · Claude checks a vendor's bill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EC;
+    --ink: #1F1B16;
+    --ink-soft: #5C5247;
+    --accent: #B85042;
+    --accent-soft: #E8D3CD;
+    --warn: #C77B30;
+    --good: #5C7B4A;
+    --rule: #D9D0C2;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin-bottom: 40px;
+  }
+  .situation {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    border-radius: 0 6px 6px 0;
+  }
+  .situation strong { font-weight: 600; }
+  .situation .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+  }
+  @media (max-width: 600px) { .situation .stats { grid-template-columns: 1fr; } }
+  .stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    display: block;
+  }
+  .stat .label { font-size: 13px; color: var(--ink-soft); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+  .doc {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  .doc h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .doc .meta {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .doc table { width: 100%; border-collapse: collapse; }
+  .doc th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 600;
+  }
+  .doc td {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .doc tr:last-child td { border-bottom: none; }
+  .doc .total {
+    text-align: right;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid var(--ink);
+    font-weight: 600;
+  }
+  td.flag-row { background: #FBEEEA; position: relative; }
+  td.flag-row::before {
+    content: '!';
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  .run-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 16px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    margin-bottom: 32px;
+  }
+  .run-btn:hover { background: var(--accent); transform: translateY(-1px); }
+  .run-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .run-btn .dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.4; }
+  }
+
+  .analysis {
+    background: var(--card);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+  }
+  .analysis.visible { opacity: 1; transform: translateY(0); }
+  .analysis-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .analysis-header .logo {
+    width: 24px; height: 24px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    color: white;
+    font-size: 14px;
+  }
+  .analysis-header .name { font-weight: 600; font-size: 14px; }
+  .analysis-header .status {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #8FBE8A;
+    letter-spacing: 0.1em;
+  }
+  .analysis-body { padding: 28px 32px; }
+  .finding {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.4s ease;
+  }
+  .finding.visible { opacity: 1; transform: translateX(0); }
+  .finding:last-child { border-bottom: none; }
+  .finding-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+  }
+  .finding-icon.warn { background: var(--accent); }
+  .finding-icon.flag { background: var(--warn); }
+  .finding-icon.ok { background: var(--good); }
+  .finding-content h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .finding-content p { color: var(--ink-soft); font-size: 14px; }
+  .finding-content .quote {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--paper);
+    padding: 8px 12px;
+    border-radius: 3px;
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .recommendation {
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-top: 24px;
+  }
+  .recommendation h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .recommendation .actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  @media (max-width: 600px) { .recommendation .actions { grid-template-columns: 1fr; } }
+  .action {
+    background: var(--card);
+    padding: 14px 16px;
+    border-radius: 4px;
+    border-top: 3px solid;
+  }
+  .action.pay { border-color: var(--good); }
+  .action.question { border-color: var(--warn); }
+  .action.dispute { border-color: var(--accent); }
+  .action .label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .action .amount {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .action .why { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+  .confidence {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .confidence-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .confidence-fill {
+    height: 100%;
+    background: var(--good);
+    width: 0%;
+    transition: width 1.2s ease;
+  }
+  .confidence .pct {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .confidence .note { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+  .takeaway {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+  }
+  .takeaway .eyebrow { color: #E8B5AA; }
+  .takeaway h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .takeaway p { color: #C9BCAE; max-width: 700px; }
+
+  .nav {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .nav a:hover { text-decoration: underline; }
+  .reset {
+    background: none;
+    border: 1px solid var(--rule);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--ink-soft);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .reset:hover { border-color: var(--ink); color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Part II · Demo 1 of 4 · Accounting</div>
+  <h1>Claude checks <em>a vendor's bill.</em></h1>
+  <p class="lede">Hundreds of bills arrive each week. An employee checks each one by hand against the original purchase order. Most are fine. A few aren't. Watch Claude do it in fifteen seconds.</p>
+
+  <div class="situation">
+    <strong>The situation.</strong> About six minutes per bill, by hand. Roughly three in every hundred have mistakes that get missed entirely.
+    <div class="stats">
+      <div class="stat"><span class="num">~6 min</span><span class="label">per bill, manual review</span></div>
+      <div class="stat"><span class="num">3%</span><span class="label">errors slip through</span></div>
+      <div class="stat"><span class="num">120+</span><span class="label">bills per week</span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="doc">
+      <h3>Purchase Order</h3>
+      <div class="meta">PO #4471 · Vendor: Acme Office Supply · Issued Mar 14, 2026</div>
+      <table>
+        <thead><tr><th>Item</th><th style="text-align:right">Qty</th><th style="text-align:right">Price</th></tr></thead>
+        <tbody>
+          <tr><td>Letter paper (case)</td><td style="text-align:right">10</td><td style="text-align:right">$42.00</td></tr>
+          <tr><td>Black toner cartridge</td><td style="text-align:right">4</td><td style="text-align:right">$89.00</td></tr>
+          <tr><td>Standing desk mat</td><td style="text-align:right">2</td><td style="text-align:right">$55.00</td></tr>
+          <tr><td>Shipping (ground)</td><td style="text-align:right">1</td><td style="text-align:right">$24.00</td></tr>
+        </tbody>
+      </table>
+      <div class="total">Authorized total: $920.00</div>
+    </div>
+
+    <div class="doc">
+      <h3>Vendor Invoice</h3>
+      <div class="meta">INV #A-9928 · Acme Office Supply · Received Mar 20, 2026</div>
+      <table>
+        <thead><tr><th>Item</th><th style="text-align:right">Qty</th><th style="text-align:right">Price</th></tr></thead>
+        <tbody>
+          <tr><td>Letter paper (case)</td><td style="text-align:right">10</td><td style="text-align:right">$42.00</td></tr>
+          <tr><td class="flag-row">Black toner cartridge</td><td style="text-align:right" class="flag-row">4</td><td style="text-align:right" class="flag-row">$112.00</td></tr>
+          <tr><td>Standing desk mat</td><td style="text-align:right">2</td><td style="text-align:right">$55.00</td></tr>
+          <tr><td>Shipping (expedited)</td><td style="text-align:right">1</td><td style="text-align:right">$24.00</td></tr>
+          <tr><td class="flag-row">Cable management kit</td><td style="text-align:right" class="flag-row">3</td><td style="text-align:right" class="flag-row">$28.00</td></tr>
+          <tr><td>Restocking fee</td><td style="text-align:right">1</td><td style="text-align:right">$15.00</td></tr>
+        </tbody>
+      </table>
+      <div class="total">Invoiced total: $1,127.00</div>
+    </div>
+  </div>
+
+  <button class="run-btn" id="runBtn"><span class="dot"></span>Run Claude check</button>
+
+  <div class="analysis" id="analysis">
+    <div class="analysis-header">
+      <div class="logo">C</div>
+      <div class="name">Claude · invoice reconciliation</div>
+      <div class="status" id="status">ANALYZING…</div>
+    </div>
+    <div class="analysis-body">
+      <div class="finding" data-delay="200">
+        <div class="finding-icon ok">✓</div>
+        <div class="finding-content">
+          <h4>Letter paper, desk mats — match exactly</h4>
+          <p>Quantities and unit prices on PO #4471 align with invoice INV #A-9928. No action needed.</p>
+        </div>
+      </div>
+      <div class="finding" data-delay="700">
+        <div class="finding-icon warn">!</div>
+        <div class="finding-content">
+          <h4>Toner cartridge priced 26% above PO</h4>
+          <p>PO authorized $89.00 per unit. Invoice charges $112.00 per unit. Total overcharge across 4 units: <strong>$92.00.</strong></p>
+          <span class="quote">$112.00 × 4 = $448.00  ·  authorized: $89.00 × 4 = $356.00</span>
+        </div>
+      </div>
+      <div class="finding" data-delay="1200">
+        <div class="finding-icon warn">⚑</div>
+        <div class="finding-content">
+          <h4>Cable management kit was not on the PO</h4>
+          <p>Three units of a "Cable management kit" appear on the invoice but are absent from PO #4471. No purchase authorization on file. Total: <strong>$84.00.</strong></p>
+        </div>
+      </div>
+      <div class="finding" data-delay="1700">
+        <div class="finding-icon flag">?</div>
+        <div class="finding-content">
+          <h4>Shipping method downgraded, restocking fee added</h4>
+          <p>PO specified ground shipping at $24.00. Invoice lists "expedited" shipping at the same price — likely fine, but unusual. A $15.00 restocking fee also appears without a return on record. Worth a quick email.</p>
+        </div>
+      </div>
+
+      <div class="recommendation">
+        <h4>Recommended actions</h4>
+        <p style="color: var(--ink-soft); font-size: 14px;">Three buckets. Pay what's verified. Question what's odd. Dispute what wasn't authorized.</p>
+        <div class="actions">
+          <div class="action pay">
+            <div class="label">Pay</div>
+            <div class="amount">$916.00</div>
+            <div class="why">Paper, mats, shipping, authorized toner price.</div>
+          </div>
+          <div class="action question">
+            <div class="label">Question</div>
+            <div class="amount">$15.00</div>
+            <div class="why">Restocking fee with no return on file.</div>
+          </div>
+          <div class="action dispute">
+            <div class="label">Dispute</div>
+            <div class="amount">$176.00</div>
+            <div class="why">Toner overcharge + unauthorized cables.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="confidence">
+        <div>
+          <div class="pct"><span id="pctNum">0</span>%</div>
+          <div class="note">Claude's confidence in this analysis</div>
+        </div>
+        <div class="confidence-bar"><div class="confidence-fill" id="confFill"></div></div>
+        <div style="font-size: 12px; color: var(--ink-soft); max-width: 240px;">High confidence on overcharge and unauthorized item. Lower on shipping classification — vendor terminology varies.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 32px;">
+    <button class="reset" id="resetBtn" style="display:none;">↺ Run again</button>
+  </div>
+
+  <div class="takeaway">
+    <div class="eyebrow">Why this works</div>
+    <h3>Reading a bill against a PO is inside the jagged frontier.</h3>
+    <p>This is exactly the kind of structured, text-heavy comparison AI handles well. The employee's six-minute scan becomes fifteen seconds of triage. They still review what Claude flagged — but they're no longer typing through the 97 invoices that were already correct.</p>
+  </div>
+
+  <div class="nav">
+    <span>Demo 1 of 4</span>
+    <a href="demo-2-hr-chatgpt.html">Next: ChatGPT in HR →</a>
+  </div>
+</div>
+
+<script>
+  const runBtn = document.getElementById('runBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const analysis = document.getElementById('analysis');
+  const status = document.getElementById('status');
+  const findings = document.querySelectorAll('.finding');
+  const confFill = document.getElementById('confFill');
+  const pctNum = document.getElementById('pctNum');
+
+  function reset() {
+    analysis.classList.remove('visible');
+    findings.forEach(f => f.classList.remove('visible'));
+    confFill.style.width = '0%';
+    pctNum.textContent = '0';
+    runBtn.disabled = false;
+    runBtn.style.display = 'inline-flex';
+    resetBtn.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  runBtn.addEventListener('click', () => {
+    runBtn.disabled = true;
+    analysis.classList.add('visible');
+    status.textContent = 'ANALYZING…';
+
+    findings.forEach(f => {
+      const delay = parseInt(f.dataset.delay);
+      setTimeout(() => f.classList.add('visible'), delay);
+    });
+
+    setTimeout(() => {
+      status.textContent = 'COMPLETE ✓';
+      confFill.style.width = '88%';
+      let n = 0;
+      const tick = setInterval(() => {
+        n += 4;
+        if (n >= 88) { n = 88; clearInterval(tick); }
+        pctNum.textContent = n;
+      }, 40);
+      runBtn.style.display = 'none';
+      resetBtn.style.display = 'inline-block';
+    }, 2400);
+  });
+
+  resetBtn.addEventListener('click', reset);
+</script>
+</body>
+</html>

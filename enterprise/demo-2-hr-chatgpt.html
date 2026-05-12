@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 2 — HR · ChatGPT answers policy questions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F3EC;
+    --ink: #1F1B16;
+    --ink-soft: #5C5247;
+    --accent: #028090;
+    --accent-soft: #C7E3E5;
+    --accent-deep: #014952;
+    --warn: #B85042;
+    --rule: #D9D0C2;
+    --card: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .context-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 768px) { .context-grid { grid-template-columns: 1fr; } }
+  .context {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: 0 6px 6px 0;
+  }
+  .context h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .context p { color: var(--ink-soft); font-size: 15px; }
+  .volume {
+    background: var(--accent-deep);
+    color: white;
+    padding: 24px;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .volume .num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1;
+    display: block;
+    color: white;
+  }
+  .volume .label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    margin-top: 8px;
+    display: block;
+  }
+  .volume .breakdown {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 12px;
+    color: var(--accent-soft);
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .chat-section {
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    border: 1px solid var(--rule);
+  }
+  .chat-header {
+    background: var(--accent-deep);
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .chat-logo {
+    width: 26px; height: 26px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .chat-title { font-weight: 600; font-size: 14px; }
+  .chat-sub {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-soft);
+    letter-spacing: 0.08em;
+  }
+
+  .prompts {
+    padding: 20px 24px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .prompts-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .prompt-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 10px 16px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink);
+    transition: all 0.2s ease;
+  }
+  .chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .chip.sensitive { border-style: dashed; border-color: var(--warn); }
+  .chip.sensitive:hover { background: #FBEEEA; color: var(--warn); }
+
+  .conversation {
+    padding: 24px;
+    min-height: 200px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .conversation:empty::before {
+    content: 'Pick a question above to see how ChatGPT responds.';
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    display: block;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .msg {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeUp 0.4s ease forwards;
+  }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  .msg-user {
+    background: var(--paper);
+    padding: 14px 18px;
+    border-radius: 18px 18px 4px 18px;
+    margin-left: 60px;
+    font-size: 15px;
+  }
+  .msg-user .label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .msg-bot {
+    margin-right: 40px;
+  }
+  .msg-bot-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .msg-bot-logo {
+    width: 22px; height: 22px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+  }
+  .msg-bot-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .msg-bot-body {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 18px 22px;
+    border-radius: 4px 18px 18px 18px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .msg-bot-body p { margin-bottom: 10px; }
+  .msg-bot-body p:last-child { margin-bottom: 0; }
+  .msg-bot-body ul { margin: 10px 0 10px 20px; }
+  .msg-bot-body li { margin-bottom: 4px; }
+  .citation {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 0 2px;
+    vertical-align: 0.5px;
+  }
+  .refusal-box {
+    background: #FBEEEA;
+    border-left: 3px solid var(--warn);
+    padding: 14px 18px;
+    border-radius: 0 4px 4px 0;
+    margin: 12px 0;
+  }
+  .refusal-box .icon {
+    font-weight: 700;
+    color: var(--warn);
+    margin-right: 6px;
+  }
+  .escalate {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: var(--paper);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .escalate strong { color: var(--ink); }
+
+  .typing {
+    display: flex;
+    gap: 4px;
+    padding: 18px 22px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 4px 18px 18px 18px;
+    width: fit-content;
+  }
+  .typing span {
+    width: 6px; height: 6px;
+    background: var(--ink-soft);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  .typing span:nth-child(2) { animation-delay: 0.15s; }
+  .typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--card);
+    border-top: 3px solid var(--accent);
+    padding: 18px 20px;
+    border-radius: 0 0 4px 4px;
+  }
+  .stat-card .num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent-deep);
+  }
+  .stat-card .label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .takeaway {
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 6px;
+  }
+  .takeaway .eyebrow { color: #9BD5DA; }
+  .takeaway h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .takeaway p { color: #C9BCAE; max-width: 700px; }
+
+  .nav {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .nav a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Part II · Demo 2 of 4 · Human Resources</div>
+  <h1>ChatGPT handles <em>the questions HR already answered last week.</em></h1>
+  <p class="lede">HR fields about 120 questions a week. Most are repeats: vacation, expenses, parental leave, remote work. The answers are sitting in the handbook. But finding them takes time, and responses lag a day or two.</p>
+
+  <div class="context-grid">
+    <div class="context">
+      <h3>The job: triage, not replace</h3>
+      <p>ChatGPT reads the company's actual policies. It cites a source for every answer. When a question is sensitive, it refuses and routes the employee to a real person. Every conversation is logged so HR can spot weak policies.</p>
+    </div>
+    <div class="volume">
+      <span class="num">120</span>
+      <span class="label">questions per week</span>
+      <div class="breakdown">
+        <div>~85% routine policy lookups</div>
+        <div>~10% needs interpretation</div>
+        <div>~5% sensitive — human only</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-section">
+    <div class="chat-header">
+      <div class="chat-logo">G</div>
+      <div class="chat-title">ChatGPT · HR assistant</div>
+      <div class="chat-sub">CONNECTED TO HANDBOOK v.2026.1</div>
+    </div>
+    <div class="prompts">
+      <div class="prompts-label">Try a question an employee might ask</div>
+      <div class="prompt-chips" id="chips">
+        <button class="chip" data-q="vacation">How many vacation days do I get?</button>
+        <button class="chip" data-q="expenses">Can I expense lunch with a client?</button>
+        <button class="chip" data-q="parental">How does parental leave work?</button>
+        <button class="chip" data-q="remote">What's the remote work policy?</button>
+        <button class="chip sensitive" data-q="harassment">I think my manager is harassing me.</button>
+      </div>
+    </div>
+    <div class="conversation" id="conversation"></div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">< 5s</div>
+      <div class="label">Response time, instead of 1–2 days</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">100%</div>
+      <div class="label">Answers cite the handbook by section</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">5%</div>
+      <div class="label">Routed straight to a real HR person</div>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="eyebrow">Why this works</div>
+    <h3>The hardest questions get more attention, not less.</h3>
+    <p>The 95 routine questions don't disappear — they get answered in seconds with a citation. HR's afternoon is free to actually focus on the 5 that need a human: harassment, family disputes, accommodation cases. That's the trade. AI handles the lookup; people handle the judgment.</p>
+  </div>
+
+  <div class="nav">
+    <a href="demo-1-accounting-claude.html">← Demo 1: Claude in Accounting</a>
+    <a href="demo-3-marketing-gemini.html">Next: Gemini in Marketing →</a>
+  </div>
+</div>
+
+<script>
+  const responses = {
+    vacation: {
+      q: "How many vacation days do I get?",
+      body: `<p>You receive <strong>15 paid vacation days per year</strong> as a full-time employee, accruing at 1.25 days per month worked. <span class="citation">Handbook §4.2</span></p>
+      <p>A few specifics worth knowing:</p>
+      <ul>
+        <li>Days accrue monthly — you don't get all 15 on day one.</li>
+        <li>You can carry up to <strong>5 unused days</strong> into the next calendar year. <span class="citation">§4.2.3</span></li>
+        <li>After 5 years of service, your annual allotment rises to 20 days. <span class="citation">§4.2.5</span></li>
+        <li>Submit requests through Workday at least 2 weeks in advance for stretches over 3 days.</li>
+      </ul>
+      <p>You can see your current balance on the Workday home page under "Time Off."</p>`,
+      sensitive: false
+    },
+    expenses: {
+      q: "Can I expense lunch with a client?",
+      body: `<p>Yes — client meals are reimbursable when there's a clear business purpose. <span class="citation">Handbook §7.1</span></p>
+      <ul>
+        <li>Limit is <strong>$75 per person</strong> for lunch, <strong>$125 per person</strong> for dinner. <span class="citation">§7.1.2</span></li>
+        <li>Itemized receipt required — credit card slip alone isn't enough.</li>
+        <li>Note the client's name and what you discussed in the expense report.</li>
+        <li>Alcohol is reimbursable at dinner only, not lunch. <span class="citation">§7.1.4</span></li>
+      </ul>
+      <p>Submit through Concur within 30 days of the meal.</p>`,
+      sensitive: false
+    },
+    parental: {
+      q: "How does parental leave work?",
+      body: `<p>You're entitled to <strong>12 weeks of paid parental leave</strong> within the first year of a child's birth, adoption, or foster placement. <span class="citation">Handbook §5.4</span></p>
+      <ul>
+        <li>Applies to all parents — birth, non-birth, adoptive, foster.</li>
+        <li>Available after <strong>6 months of employment.</strong> <span class="citation">§5.4.1</span></li>
+        <li>You can take it in one block or split it across two periods within the first year. <span class="citation">§5.4.3</span></li>
+        <li>Paid at 100% of base salary; coordinates with state PFL where applicable.</li>
+      </ul>
+      <p>Notify HR at least 30 days before the planned start date (or as soon as practical for unexpected timing).</p>`,
+      sensitive: false
+    },
+    remote: {
+      q: "What's the remote work policy?",
+      body: `<p>Most non-customer-facing roles are eligible for <strong>hybrid work — 3 days in office, 2 days remote</strong> per week. <span class="citation">Handbook §3.6</span></p>
+      <ul>
+        <li>Tuesday, Wednesday, and one other day are core in-office days for most teams. <span class="citation">§3.6.2</span></li>
+        <li>Fully remote arrangements require manager approval plus VP sign-off. <span class="citation">§3.6.4</span></li>
+        <li>Equipment stipend of $500 for home office setup, one-time. <span class="citation">§3.6.5</span></li>
+        <li>You must be reachable during core hours (10am–3pm local).</li>
+      </ul>
+      <p>Talk to your manager first if you want to adjust your in-office days.</p>`,
+      sensitive: false
+    },
+    harassment: {
+      q: "I think my manager is harassing me.",
+      body: `<div class="refusal-box"><span class="icon">⚠</span><strong>This isn't a question I should answer.</strong> What you're describing needs a person who can listen, ask follow-up questions, document properly, and protect you — none of which I should do.</div>
+      <p>Here's what I can tell you:</p>
+      <ul>
+        <li>The company has a <strong>confidential reporting process</strong> for exactly this. You can use it without going through your manager.</li>
+        <li>Retaliation against anyone who reports in good faith is itself a policy violation. <span class="citation">Handbook §9.1</span></li>
+        <li>You can also report anonymously through the ethics hotline.</li>
+      </ul>
+      <div class="escalate">
+        <strong>Routing you to a person right now.</strong><br>
+        Sarah Chen, HR Business Partner · sarah.chen@company.com · ext. 4421<br>
+        Or anonymous hotline: 1-800-XXX-XXXX (24 hours)
+      </div>
+      <p style="margin-top:14px; font-size:13px; color: var(--ink-soft);"><em>This conversation has been flagged for HR review so they're aware you reached out, but the specific contents stay with you and the person you choose to talk to.</em></p>`,
+      sensitive: true
+    }
+  };
+
+  const chips = document.querySelectorAll('.chip');
+  const conversation = document.getElementById('conversation');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const key = chip.dataset.q;
+      const data = responses[key];
+      askQuestion(data);
+    });
+  });
+
+  function askQuestion(data) {
+    // User message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg';
+    userMsg.innerHTML = `<div class="msg-user"><div class="label">Employee</div>${data.q}</div>`;
+    conversation.appendChild(userMsg);
+    conversation.scrollTop = conversation.scrollHeight;
+
+    // Typing indicator
+    setTimeout(() => {
+      const typing = document.createElement('div');
+      typing.className = 'msg';
+      typing.innerHTML = `
+        <div class="msg-bot">
+          <div class="msg-bot-header">
+            <div class="msg-bot-logo">G</div>
+            <div class="msg-bot-name">ChatGPT</div>
+          </div>
+          <div class="typing"><span></span><span></span><span></span></div>
+        </div>`;
+      conversation.appendChild(typing);
+      conversation.scrollTop = conversation.scrollHeight;
+
+      // Replace with actual response
+      setTimeout(() => {
+        typing.innerHTML = `
+          <div class="msg-bot">
+            <div class="msg-bot-header">
+              <div class="msg-bot-logo">G</div>
+              <div class="msg-bot-name">ChatGPT</div>
+            </div>
+            <div class="msg-bot-body">${data.body}</div>
+          </div>`;
+        conversation.scrollTop = conversation.scrollHeight;
+      }, data.sensitive ? 1400 : 900);
+    }, 350);
+  }
+</script>
+</body>
+</html>
