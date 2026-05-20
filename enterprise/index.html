@@ -47,8 +47,27 @@
     font-size: 20px;
     color: var(--ink-soft);
     max-width: 720px;
-    margin-bottom: 56px;
+    margin-bottom: 32px;
   }
+  .slides-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 10px 16px;
+    border: 1px solid var(--ink);
+    border-radius: 4px;
+    margin-bottom: 56px;
+    transition: all 0.2s ease;
+  }
+  .slides-link:hover { background: var(--ink); color: var(--paper); }
+  .slides-link::after { content: '↗'; font-size: 14px; }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -142,6 +161,8 @@
   <h1>Enough talking about AI.<br><em>Let's watch four of them work.</em></h1>
   <p class="lede">Four short demos, one per business area. Each one shows what an AI tool actually does on a real task — and where it would fail if you weren't paying attention. Click any card to begin.</p>
 
+  <a href="https://docs.google.com/presentation/d/1FisVq0uEaUjb1-p6yZBRQqk1KoiC9F3t/edit?usp=sharing&ouid=104168199483389244281&rtpof=true&sd=true" class="slides-link" target="_blank" rel="noopener">View the hands-on session slides</a>
+
   <div class="grid">
     <a href="demo-1-accounting-claude.html" class="card c1">
       <div class="num">01 · ACCOUNTING</div>
@@ -170,15 +191,4 @@
     <a href="demo-4-operations-deepseek.html" class="card c4">
       <div class="num">04 · OPERATIONS</div>
       <h2>A coffee shop with reviews in five languages</h2>
-      <div class="tool">Tool: <strong>DeepSeek</strong></div>
-      <p>One owner can't read them all. Translators are expensive. She doesn't want to send customer data to a cloud service. DeepSeek runs locally on her laptop, for free.</p>
-      <span class="go">Run the demo</span>
-    </a>
-  </div>
-
-  <footer>
-    <em>
-  </footer>
-</div>
-</body>
-</html>
+      <div class="tool">Tool
