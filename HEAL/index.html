@@ -1,5 +1,263 @@
-   <!DOCTYPE html>
-   <html>
-   <head><title>HEAL</title></head>
-   <body><h1>HEAL — coming soon</h1></body>
-   </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HEAL</title>
+<meta name="description" content="HEAL (Health Enquiry &amp; AI Literacy) studies how people search for, evaluate, and use generative AI for health information, critically and ethically, across a lifetime.">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F4F6F4;
+    --surface: #FFFFFF;
+    --ink: #142A2A;
+    --ink-soft: #55686A;
+    --ink-faint: #8B9B9C;
+    --teal: #1F6F63;
+    --teal-deep: #123F38;
+    --amber: #C97A22;
+    --amber-soft: #F3E3CC;
+    --line: #DCE4E1;
+    --display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:var(--teal-deep);}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+  img,svg{max-width:100%;display:block;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--amber);color:#fff;text-decoration:none;
+    font-weight:700;font-size:0.9rem;padding:13px 28px;border-radius:999px;
+    transition:transform .15s ease, box-shadow .15s ease;border:none;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 12px 22px -10px rgba(201,122,34,0.55);}
+  .btn.outline{background:transparent;border:1.5px solid rgba(255,255,255,0.7);color:#fff;}
+  .btn.outline:hover{background:rgba(255,255,255,0.1);}
+  .btn.teal{background:var(--teal-deep);}
+  .section-label{
+    font-family:var(--display);font-weight:700;font-size:0.76rem;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:14px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);}
+  nav.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.55rem;color:var(--teal-deep);display:flex;align-items:baseline;gap:12px;}
+  .brand span{color:var(--amber);}
+  .brand-full{
+    font-family:var(--display);font-weight:700;font-size:0.98rem;color:var(--teal-deep);
+    letter-spacing:0.005em;white-space:nowrap;border-left:2px solid var(--amber);padding-left:12px;
+  }
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:0.88rem;}
+  .nav-links a:hover{color:var(--teal-deep);}
+
+  /* ---------- FULL-BLEED HERO ---------- */
+  .hero{
+    position:relative;min-height:640px;display:flex;align-items:center;justify-content:center;
+    text-align:center;overflow:hidden;
+    background-image:
+      linear-gradient(165deg, rgba(14,35,33,0.88) 0%, rgba(20,62,56,0.82) 55%, rgba(27,81,72,0.72) 100%),
+      url('c66c6e7a90f85d1fa1d489b78b718b5d.jpg');
+    background-size:cover;
+    background-position:center 30%;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size:28px 28px;opacity:0.4;pointer-events:none;
+  }
+  .photo-credit{
+    position:absolute;z-index:3;right:20px;bottom:14px;
+    font-size:0.7rem;color:rgba(255,255,255,0.6);
+  }
+  .photo-credit a{color:rgba(255,255,255,0.6);}
+  .hero-content{position:relative;z-index:2;max-width:760px;padding:0 28px;}
+  .hero h1{
+    font-family:var(--display);font-weight:700;color:#fff;
+    font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.1;letter-spacing:-0.01em;margin:0 0 22px;
+  }
+  .hero p{color:rgba(255,255,255,0.82);font-size:1.12rem;max-width:52ch;margin:0 auto 36px;}
+  .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  /* ---------- ABOUT (split) ---------- */
+  .about{padding:100px 0;}
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;}
+  .about-visual{
+    background:var(--surface);border:1px solid var(--line);border-radius:20px;
+    padding:30px;box-shadow:0 24px 50px -30px rgba(20,42,42,0.25);position:relative;
+  }
+  .about-visual::before{
+    content:"AI response, under review";position:absolute;top:-13px;left:24px;
+    background:var(--teal-deep);color:#fff;font-weight:700;font-size:0.64rem;
+    letter-spacing:0.02em;padding:5px 12px;border-radius:999px;
+  }
+  .about-visual .q{font-size:0.7rem;font-weight:700;color:var(--ink-faint);text-transform:uppercase;margin:6px 0 12px;}
+  .about-visual .body-text{font-size:0.94rem;line-height:1.75;}
+  .flag{background:linear-gradient(transparent 62%, var(--amber-soft) 62%);}
+  .verified{text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:3px;}
+  .margin-note{
+    display:inline-block;font-size:0.62rem;font-weight:700;color:var(--amber);
+    border:1px solid var(--amber);border-radius:999px;padding:1px 7px;margin-left:5px;
+  }
+  .margin-note.ok{color:var(--teal-deep);border-color:var(--teal);}
+
+  .about-copy h2{
+    font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);
+    line-height:1.3;margin:0 0 18px;color:var(--ink);
+  }
+  .about-copy p{color:var(--ink-soft);margin:0 0 22px;max-width:52ch;}
+  .expertise{list-style:none;padding:0;margin:0 0 26px;display:flex;flex-direction:column;gap:12px;}
+  .expertise li{display:flex;gap:12px;align-items:flex-start;font-size:0.94rem;color:var(--ink);}
+  .expertise li::before{content:"";flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:8px;}
+  .expertise b{font-family:var(--display);font-weight:700;}
+  .learn{font-weight:700;color:var(--teal-deep);text-decoration:none;}
+
+  /* ---------- LAB SECTION (dark split) ---------- */
+  .lab{background:var(--teal-deep);color:#fff;padding:100px 0;}
+  .lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .lab .section-label{color:var(--amber);}
+  .lab h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.3;margin:0 0 20px;}
+  .lab p{color:rgba(255,255,255,0.82);margin:0 0 28px;max-width:50ch;}
+  .lab-card{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+    border-radius:20px;padding:30px;
+  }
+  .lab-card .row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);font-size:0.92rem;}
+  .lab-card .row:last-child{border-bottom:none;}
+  .lab-card .row span:first-child{color:rgba(255,255,255,0.7);}
+  .lab-card .row span:last-child{font-family:var(--display);font-weight:700;color:var(--amber);}
+
+  /* ---------- WEEKLY TABS ---------- */
+  .weekly{padding:100px 0;}
+  .weekly-head{text-align:center;max-width:56ch;margin:0 auto 50px;}
+  .weekly-head h2{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);margin:0 0 10px;color:var(--ink);}
+  .weekly-head p{color:var(--ink-soft);margin:0;}
+  .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tab-col{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;}
+  .tab-col h4{font-family:var(--display);font-weight:700;font-size:1rem;margin:0 0 18px;color:var(--teal-deep);}
+  .tab-col ol{list-style:none;margin:0;padding:0;counter-reset:item;}
+  .tab-col li{
+    counter-increment:item;display:flex;align-items:center;gap:12px;
+    padding:9px 0;border-bottom:1px solid var(--line);font-size:0.88rem;color:var(--ink);
+  }
+  .tab-col li:last-child{border-bottom:none;}
+  .tab-col li::before{
+    content:counter(item);flex-shrink:0;width:22px;height:22px;border-radius:50%;
+    background:var(--amber-soft);color:var(--amber);font-family:var(--display);font-weight:700;
+    font-size:0.7rem;display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- INSIGHTS CARDS ---------- */
+  .insights{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:100px 0;}
+  .insights-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:20px;}
+  .insights-head h2{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,2.4vw,1.9rem);margin:6px 0 0;color:var(--ink);}
+  .insights-head p{color:var(--ink-soft);max-width:44ch;margin:0;}
+  .article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .article{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--paper);}
+  .article .thumb{
+    height:150px;background:linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .article .thumb svg{width:38px;height:38px;}
+  .article .body{padding:22px;}
+  .article .date{font-size:0.76rem;color:var(--ink-faint);font-weight:700;text-transform:uppercase;letter-spacing:0.03em;}
+  .article h4{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.4;margin:10px 0 0;color:var(--ink);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:linear-gradient(165deg, #0E2321 0%, #143E38 55%, #1B5148 100%);
+    color:#fff;padding:100px 0;text-align:center;
+  }
+  .contact .section-label{color:var(--amber);}
+  .contact h2{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,2.8vw,2.2rem);margin:0 0 16px;}
+  .contact p{color:rgba(255,255,255,0.8);max-width:52ch;margin:0 auto 32px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0E2321;color:rgba(255,255,255,0.75);padding:60px 0 30px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;}
+  .foot-brand{font-family:var(--display);font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:10px;}
+  .foot-brand span{color:var(--amber);}
+  .foot-grid h5{font-family:var(--display);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin:0 0 14px;}
+  .foot-grid a,.foot-grid p{display:block;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.87rem;margin-bottom:8px;}
+  .foot-grid a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.8rem;color:rgba(255,255,255,0.5);}
+
+  @media (max-width:900px){
+    .about-grid,.lab-grid{grid-template-columns:1fr;gap:40px;}
+    .tabs,.article-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    nav.top{flex-wrap:wrap;gap:6px 0;}
+    .brand{flex-wrap:wrap;gap:4px 10px;}
+    .brand-full{border-left:none;padding-left:0;white-space:normal;font-size:0.82rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <nav class="top">
+      <div class="brand">HEAL<span>.</span> <span class="brand-full">Health Enquiry &amp; AI Literacy</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="team.html">Our People</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Search well today. Health literacy for life.</h1>
+    <p>HEAL studies how people search for, evaluate, and use generative AI tools like ChatGPT for health information, and builds the skills to do it critically and ethically, across a lifetime.</p>
+  </div>
+  <div class="photo-credit">Photo by <a href="https://www.pexels.com/photo/an-elderly-woman-looking-at-the-screen-of-her-cellphone-6838547/" target="_blank" rel="noopener">Kampus Production</a> / Pexels</div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual">
+      <div class="q">You asked: "is this rash something to worry about?"</div>
+      <div class="body-text">
+        Most mild rashes clear up on their own within
+        <span class="flag">a week or two<span class="margin-note">source?</span></span>.
+        However, if the rash is
+        <span class="verified">spreading rapidly, blistering, or accompanied by fever<span class="margin-note ok">check-worthy</span></span>,
+        it may indicate a more serious condition and you should see a clinician promptly.
+      </div>
+    </div>
+    <div class="about-copy">
+      <div class="section-label">About HEAL</div>
+      <h2>To help people search for, evaluate, and use generative AI for health information, safely, critically, and for life.</h2>
+      <p>HEAL researches how people form trust in AI-generated health answers, then builds the practical skills to search well, evaluate rigorously, and act wisely, skills that hold up as both AI tools and health information keep changing.</p>
+      <ul class="expertise">
+        <li><span><b>Search</b>: form the right question and know where to look.</span></li>
+        <li><span><b>Evaluate</b>: check claims, sources, and AI-generated confidence.</span></li>
+        <li><span><b>Use</b>: apply findings critically, ethically, and safely.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">HEAL<span>.</span></div>
+    <p>Health Enquiry &amp; AI Literacy</p>
+    <p>Hi Da Research Lab</p>
+    <p>contact@hidalab.org</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>HEAL: Health Enquiry &amp; AI Literacy</span>
+    <span>© Hi Da Research Lab</span>
+  </div>
+</footer>
+
+</body>
+</html>
