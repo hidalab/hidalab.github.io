@@ -57,13 +57,15 @@
 
   /* ---------- FULL-BLEED HERO ---------- */
   .hero{
-    position:relative;min-height:640px;display:flex;align-items:center;justify-content:center;
+    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
     text-align:center;overflow:hidden;
+    background-color:#0E2321;
     background-image:
-      linear-gradient(165deg, rgba(14,35,33,0.88) 0%, rgba(20,62,56,0.82) 55%, rgba(27,81,72,0.72) 100%),
+      linear-gradient(165deg, rgba(14,35,33,0.75) 0%, rgba(20,62,56,0.68) 55%, rgba(27,81,72,0.6) 100%),
       url('c66c6e7a90f85d1fa1d489b78b718b5d.jpg');
-    background-size:cover;
-    background-position:center 30%;
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
   }
   .hero::after{
     content:"";position:absolute;inset:0;
@@ -194,6 +196,7 @@
     nav.top{flex-wrap:wrap;gap:6px 0;}
     .brand{flex-wrap:wrap;gap:4px 10px;}
     .brand-full{border-left:none;padding-left:0;white-space:normal;font-size:0.82rem;}
+    .hero{min-height:80vh;}
   }
 </style>
 </head>
