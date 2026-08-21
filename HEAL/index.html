@@ -8,16 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper: #F4F6F4;
+    --paper: #F7F8F8;
     --surface: #FFFFFF;
-    --ink: #142A2A;
-    --ink-soft: #55686A;
-    --ink-faint: #8B9B9C;
-    --teal: #1F6F63;
-    --teal-deep: #123F38;
-    --amber: #C97A22;
-    --amber-soft: #F3E3CC;
-    --line: #DCE4E1;
+    --ink: #16202B;
+    --ink-soft: #57626E;
+    --ink-faint: #94A0AA;
+    --teal: #1D5C54;
+    --teal-deep: #0F332E;
+    --amber: #B8842E;
+    --amber-soft: #F1E6D2;
+    --line: #E1E4E8;
     --display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
@@ -55,35 +55,36 @@
   .nav-links a{color:var(--ink);text-decoration:none;font-weight:600;font-size:0.88rem;}
   .nav-links a:hover{color:var(--teal-deep);}
 
-  /* ---------- FULL-BLEED HERO ---------- */
+  /* ---------- BRIGHT SPLIT HERO ---------- */
   .hero{
-    position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
-    text-align:center;overflow:hidden;
-    background-color:#0E2321;
-    background-image:
-      linear-gradient(165deg, rgba(14,35,33,0.75) 0%, rgba(20,62,56,0.68) 55%, rgba(27,81,72,0.6) 100%),
-      url('c66c6e7a90f85d1fa1d489b78b718b5d.jpg');
-    background-size:contain;
-    background-position:center center;
-    background-repeat:no-repeat;
+    background:var(--paper);
+    padding:72px 0 96px;
   }
-  .hero::after{
-    content:"";position:absolute;inset:0;
-    background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size:28px 28px;opacity:0.4;pointer-events:none;
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
   }
-  .photo-credit{
-    position:absolute;z-index:3;right:20px;bottom:14px;
-    font-size:0.7rem;color:rgba(255,255,255,0.6);
+  .hero-copy .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--display);font-weight:700;font-size:0.76rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--teal-deep);
+    background:var(--amber-soft);border-radius:999px;padding:7px 16px;margin-bottom:22px;
   }
-  .photo-credit a{color:rgba(255,255,255,0.6);}
-  .hero-content{position:relative;z-index:2;max-width:760px;padding:0 28px;}
   .hero h1{
-    font-family:var(--display);font-weight:700;color:#fff;
-    font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.1;letter-spacing:-0.01em;margin:0 0 22px;
+    font-family:var(--display);font-weight:800;color:var(--ink);
+    font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.12;letter-spacing:-0.01em;margin:0 0 22px;
   }
-  .hero p{color:rgba(255,255,255,0.82);font-size:1.12rem;max-width:52ch;margin:0 auto 36px;}
-  .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .hero p{color:var(--ink-soft);font-size:1.08rem;max-width:50ch;margin:0 0 0;}
+  .hero-image{
+    position:relative;border-radius:24px;overflow:hidden;
+    box-shadow:0 30px 60px -28px rgba(20,42,42,0.28);
+    aspect-ratio:4/5;
+  }
+  .hero-image img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-credit{
+    margin-top:10px;text-align:right;
+    font-size:0.72rem;color:var(--ink-faint);
+  }
+  .photo-credit a{color:var(--ink-faint);}
 
   /* ---------- ABOUT (split) ---------- */
   .about{padding:100px 0;}
@@ -179,24 +180,23 @@
   .contact p{color:rgba(255,255,255,0.8);max-width:52ch;margin:0 auto 32px;}
 
   /* ---------- FOOTER ---------- */
-  footer{background:#0E2321;color:rgba(255,255,255,0.75);padding:60px 0 30px;}
+  footer{background:var(--surface);color:var(--ink-soft);padding:56px 0 30px;border-top:1px solid var(--line);}
   .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;}
-  .foot-brand{font-family:var(--display);font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:10px;}
+  .foot-brand{font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--teal-deep);margin-bottom:10px;}
   .foot-brand span{color:var(--amber);}
   .foot-grid h5{font-family:var(--display);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);margin:0 0 14px;}
-  .foot-grid a,.foot-grid p{display:block;color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.87rem;margin-bottom:8px;}
-  .foot-grid a:hover{color:#fff;}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,0.12);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.8rem;color:rgba(255,255,255,0.5);}
+  .foot-grid a,.foot-grid p{display:block;color:var(--ink-soft);text-decoration:none;font-size:0.87rem;margin-bottom:8px;}
+  .foot-grid a:hover{color:var(--teal-deep);}
+  .foot-bottom{border-top:1px solid var(--line);margin-top:36px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.8rem;color:var(--ink-faint);}
 
   @media (max-width:900px){
-    .about-grid,.lab-grid{grid-template-columns:1fr;gap:40px;}
-    .tabs,.article-grid{grid-template-columns:1fr;}
+    .about-grid,.hero-grid{grid-template-columns:1fr;gap:40px;}
     .foot-grid{grid-template-columns:1fr 1fr;}
     .nav-links{display:none;}
     nav.top{flex-wrap:wrap;gap:6px 0;}
     .brand{flex-wrap:wrap;gap:4px 10px;}
     .brand-full{border-left:none;padding-left:0;white-space:normal;font-size:0.82rem;}
-    .hero{min-height:80vh;}
+    .hero-image{aspect-ratio:4/3;}
   }
 </style>
 </head>
@@ -215,11 +215,18 @@
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Search well today. Health literacy for life.</h1>
-    <p>HEAL studies how people search for, evaluate, and use generative AI tools like ChatGPT for health information, and builds the skills to do it critically and ethically, across a lifetime.</p>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Ask AI critically. Build health literacy for life.</h1>
+      <p>HEAL studies how people search for, evaluate, and use generative AI tools like ChatGPT for health information, and builds the skills to do it critically and ethically, across a lifetime.</p>
+    </div>
+    <div>
+      <div class="hero-image">
+        <img src="Two%20People.jpg" alt="An elderly couple looking at a phone screen together">
+      </div>
+      <div class="photo-credit">Photo by <a href="https://www.pexels.com/photo/couple-looking-at-phone-screen-together-7477730/" target="_blank" rel="noopener">Kampus Production</a> / Pexels</div>
+    </div>
   </div>
-  <div class="photo-credit">Photo by <a href="https://www.pexels.com/photo/an-elderly-woman-looking-at-the-screen-of-her-cellphone-6838547/" target="_blank" rel="noopener">Kampus Production</a> / Pexels</div>
 </section>
 
 <section class="about" id="about">
