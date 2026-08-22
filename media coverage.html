@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Mentions | Hi Da Research Lab</title>
+<meta name="description" content="Media coverage and press mentions of Hi Da Research Lab's work on human-centered AI, health informatics, and social media analytics.">
+<style>
+  :root {
+    --garnet: #73000A;
+    --ink: #1a1a1a;
+    --paper: #ffffff;
+    --line: #e3ddd2;
+    --muted: #6b645a;
+    --accent-bg: #faf7f0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+  }
+  header {
+    border-bottom: 3px solid var(--garnet);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  header .brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--garnet);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  header .tagline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-left: 0.75rem;
+  }
+  nav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+  }
+  nav a {
+    color: var(--ink);
+    text-decoration: none;
+    margin-left: 1.25rem;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover, nav a.active {
+    border-bottom-color: var(--garnet);
+  }
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  .lede {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .mention {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .mention:first-of-type {
+    border-top: 1px solid var(--line);
+  }
+  .mention .date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding-top: 0.15rem;
+  }
+  .mention .outlet {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--garnet);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+  }
+  .mention h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.35;
+  }
+  .mention h2 a {
+    color: var(--ink);
+    text-decoration: none;
+    background-image: linear-gradient(var(--garnet), var(--garnet));
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+  }
+  .mention h2 a:hover { color: var(--garnet); }
+  .mention p {
+    font-size: 0.97rem;
+    color: #333;
+    margin: 0;
+  }
+  .mention .read-more {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    color: var(--garnet);
+    text-decoration: none;
+  }
+  .mention .read-more::after { content: " →"; }
+  @media (max-width: 560px) {
+    .mention { grid-template-columns: 1fr; gap: 0.35rem; }
+    header { padding: 1rem; }
+    nav a { margin-left: 0; margin-right: 1rem; }
+  }
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--accent-bg);
+    padding: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  footer a { color: var(--garnet); text-decoration: none; margin: 0 0.5rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <a class="brand" href="index.html">Hi Da Research Lab</a>
+    <span class="tagline">Human Insight for Data &amp; AI</span>
+  </div>
+  <nav>
+    <a href="index.html">Welcome</a>
+    <a href="people.html">People</a>
+    <a href="publications.html">Publications</a>
+    <a href="projects.html">Projects</a>
+    <a href="media.html" class="active">Media</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Media Mentions</h1>
+  <p class="lede">Press coverage and features on the lab's research into AI, health information, and the science of science.</p>
+
+  <div class="mention">
+    <div class="date">2026</div>
+    <div>
+      <div class="outlet">Wikipedia</div>
+      <h2><a href="https://en.wikipedia.org/wiki/Algorithmic_bias" target="_blank" rel="noopener">Algorithmic bias</a></h2>
+      <p>Wikipedia's article on algorithmic bias cites the lab's study "Who is a scientist? Gender and racial biases in Google vision AI" (Mohammadi, Cai, Novin, Vera &amp; Soltanmohammadi, <em>AI and Ethics</em>, 2025) in both its gender bias and racial bias sections, noting that Google Cloud Vision AI underidentifies women &mdash; and especially women of color &mdash; as scientists.</p>
+      <a class="read-more" href="https://en.wikipedia.org/wiki/Algorithmic_bias" target="_blank" rel="noopener">View the Wikipedia article</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">May<br>2026</div>
+    <div>
+      <div class="outlet">National Catholic Register</div>
+      <h2><a href="https://www.ncregister.com/commentaries/goodwin-little-mermaid-voice-ai" target="_blank" rel="noopener">The Little Mermaid's Wager: When AI Speaks for Us</a></h2>
+      <p>This commentary on AI and human voice cites the lab's twenty-country study, "Is generative AI reshaping academic practices worldwide?" (Mohammadi, Thelwall, Cai, Collier, Tahamtan &amp; Eftekhar, <em>Information Processing &amp; Management</em>), as evidence that AI tools are now widely used to write academic papers.</p>
+      <a class="read-more" href="https://www.ncregister.com/commentaries/goodwin-little-mermaid-voice-ai" target="_blank" rel="noopener">Read the commentary</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">Apr<br>2025</div>
+    <div>
+      <div class="outlet">Purdue Libraries &amp; School of Information Studies News</div>
+      <h2><a href="https://blogs.lib.purdue.edu/news/2025/04/16/ph-d-students-perceptions-of-ai-generated-content-seed-grant-award/" target="_blank" rel="noopener">Ph.D. students' perceptions of AI-generated content seed grant award</a></h2>
+      <p>The Institute for Information Literacy at Purdue awarded a seed grant to a team led by Ehsan Mohammadi, with Samaneh Borji and Jiaxuan Zhang, to study how Ph.D. students perceive and evaluate ChatGPT-generated content in their coursework.</p>
+      <a class="read-more" href="https://blogs.lib.purdue.edu/news/2025/04/16/ph-d-students-perceptions-of-ai-generated-content-seed-grant-award/" target="_blank" rel="noopener">Read the feature</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">Dec<br>2023</div>
+    <div>
+      <div class="outlet">The Daily Gamecock</div>
+      <h2><a href="https://www.dailygamecock.com/article/2023/12/column-the-internet-is-academias-best-bet-for-relevance-opinion-verma" target="_blank" rel="noopener">Column: The internet is academia's best bet for relevance</a></h2>
+      <p>An opinion column on academia's information gap featured Dr. Ehsan Mohammadi discussing his research on how social media platforms like X and Facebook carry scholarly findings to non-academic audiences.</p>
+      <a class="read-more" href="https://www.dailygamecock.com/article/2023/12/column-the-internet-is-academias-best-bet-for-relevance-opinion-verma" target="_blank" rel="noopener">Read the column</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">May<br>2020</div>
+    <div>
+      <div class="outlet">SSP (Society for Scholarly Publishing) News</div>
+      <h2><a href="https://www.sspnet.org/community/news/lp-spotlight-who-shares-health-and-medical-scholarly-articles-on-facebook/" target="_blank" rel="noopener">LP Spotlight: Who shares health and medical scholarly articles on Facebook?</a></h2>
+      <p>An interview with lead author Ehsan Mohammadi on his <em>Learned Publishing</em> study finding that most Facebook users sharing health and medical research are non-academics, and what that means for measuring societal impact.</p>
+      <a class="read-more" href="https://www.sspnet.org/community/news/lp-spotlight-who-shares-health-and-medical-scholarly-articles-on-facebook/" target="_blank" rel="noopener">Read the interview</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">Dec<br>2018</div>
+    <div>
+      <div class="outlet">USC College of Information and Communications</div>
+      <h2><a href="https://sc.edu/study/colleges_schools/cic/library_and_information_science/news/2018/ehsan_mohammadi_innovator_in_info_science.php" target="_blank" rel="noopener">An innovator in information science</a></h2>
+      <p>A profile tracing Ehsan Mohammadi's path from Iran to Wolverhampton to USC, his research on scholarly communication and social media, and his approach to inclusive teaching in the School of Information Science.</p>
+      <a class="read-more" href="https://sc.edu/study/colleges_schools/cic/library_and_information_science/news/2018/ehsan_mohammadi_innovator_in_info_science.php" target="_blank" rel="noopener">Read the profile</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">Fall<br>2017</div>
+    <div>
+      <div class="outlet">USC College of Information and Communications</div>
+      <h2><a href="https://cic.usccreate.org/wp-content/uploads/2024/11/intercom_fall2017.pdf" target="_blank" rel="noopener">Intercom Newsletter, Fall 2017</a></h2>
+      <p>A feature in the College of Information and Communications' alumni and community newsletter highlighting faculty research and program updates from the School of Information Science.</p>
+      <a class="read-more" href="https://cic.usccreate.org/wp-content/uploads/2024/11/intercom_fall2017.pdf" target="_blank" rel="noopener">Read the newsletter (PDF)</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">Jun<br>2013</div>
+    <div>
+      <div class="outlet">ISSI e-Newsletter</div>
+      <h2><a href="https://www.issi-society.org/media/1138/newsletter34.pdf" target="_blank" rel="noopener">Introducing Ehsan Mohammadi, Awardee of the Eugene Garfield Doctoral Dissertation Scholarship</a></h2>
+      <p>The International Society for Scientometrics and Informetrics profiled Ehsan Mohammadi's doctoral dissertation on altmetrics, examining Faculty of 1000 and Mendeley as sources for measuring the impact of scholarly publications.</p>
+      <a class="read-more" href="https://www.issi-society.org/media/1138/newsletter34.pdf" target="_blank" rel="noopener">Read the newsletter (PDF)</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">May<br>2013</div>
+    <div>
+      <div class="outlet">University of Wolverhampton News</div>
+      <h2><a href="https://www.wlv.ac.uk/news-and-events/latest-news/2013/may-2013/student-lands-prestigious-scholarship.php" target="_blank" rel="noopener">Student lands prestigious scholarship</a></h2>
+      <p>The University of Wolverhampton announced that PhD student Ehsan Mohammadi, of the Statistical Cybermetrics Research Group, had won the Eugene Garfield Doctoral Dissertation Scholarship for his research on altmetrics.</p>
+      <a class="read-more" href="https://www.wlv.ac.uk/news-and-events/latest-news/2013/may-2013/student-lands-prestigious-scholarship.php" target="_blank" rel="noopener">Read the announcement</a>
+    </div>
+  </div>
+
+  <div class="mention">
+    <div class="date">2013</div>
+    <div>
+      <div class="outlet">International Society for Scientometrics and Informetrics</div>
+      <h2><a href="https://www.issi-society.org/awards/eugene-garfield-doctoral-dissertation-award/" target="_blank" rel="noopener">Eugene Garfield Doctoral Dissertation Scholarship — Past Winners</a></h2>
+      <p>ISSI's official awards page lists Ehsan Mohammadi, University of Wolverhampton (UK), as the 2013 winner of the Eugene Garfield Doctoral Dissertation Scholarship, among the society's full history of honorees.</p>
+      <a class="read-more" href="https://www.issi-society.org/awards/eugene-garfield-doctoral-dissertation-award/" target="_blank" rel="noopener">View the awards page</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p><strong>Hi Da Research Lab</strong> · Human Insight for Data &amp; AI<br>
+  School of Information Science, University of South Carolina</p>
+  <a href="index.html">Welcome</a> | <a href="people.html">People</a> | <a href="publications.html">Publications</a> | <a href="projects.html">Projects</a> | <a href="media.html">Media</a>
+</footer>
+
+</body>
+</html>
