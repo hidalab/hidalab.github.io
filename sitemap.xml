@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!--
-    2026 note: <priority> and <changefreq> have been removed.
-    Google has confirmed both are ignored for crawling and ranking -
-    they were rendered meaningless after being universally abused
-    (nearly every site set everything to 1.0).
-    Only <loc> and an ACCURATE <lastmod> carry real signal now.
-    Update lastmod only when a page's actual content changes.
-  -->
+
 
   <!-- Home -->
   <url>
