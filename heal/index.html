@@ -24,7 +24,9 @@
           "Segoe UI", Arial, sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -40,7 +42,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--teal); }
+a {
+  color: var(--teal);
+}
 
 img {
   max-width: 100%;
@@ -136,7 +140,9 @@ a:focus-visible {
   white-space: nowrap;
 }
 
-.brand span { color: var(--gold); }
+.brand span {
+  color: var(--gold);
+}
 
 .nav-links {
   display: flex;
@@ -152,7 +158,9 @@ a:focus-visible {
   transition: color .2s;
 }
 
-.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover {
+  color: var(--gold);
+}
 
 /* ---------- FRAME 1: INTRODUCTION ---------- */
 
@@ -168,7 +176,6 @@ a:focus-visible {
   align-items: center;
 }
 
-
 .hero h1 {
   font-family: var(--body);
   font-weight: 800;
@@ -178,7 +185,6 @@ a:focus-visible {
   color: var(--deep);
   margin: 0 0 20px;
 }
-
 
 .hero-fullname {
   color: var(--gold);
@@ -223,7 +229,9 @@ a:focus-visible {
   margin-top: 10px;
 }
 
-.photo-credit a { color: var(--muted); }
+.photo-credit a {
+  color: var(--muted);
+}
 
 .hero-photo::after {
   content: "";
@@ -244,7 +252,9 @@ a:focus-visible {
   padding: 120px 0;
 }
 
-.problem .eyebrow { color: #E5BC77; }
+.problem .eyebrow {
+  color: #E5BC77;
+}
 
 .problem .section-title {
   color: white;
@@ -295,24 +305,46 @@ a:focus-visible {
   color: #E7C48A;
 }
 
+/* ---------- PROBLEM IMAGE + TEXT ---------- */
+
 .problem-bottom {
   display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 70px;
-  align-items: start;
-  padding-top: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding-top: 55px;
   border-top: 1px solid rgba(255,255,255,.2);
 }
 
-.problem-bottom h3 {
+.problem-image {
+  width: 100%;
+}
+
+.problem-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.problem-image .photo-credit {
+  color: rgba(255,255,255,.65);
+  margin-top: 10px;
+  font-size: .72rem;
+}
+
+.problem-image .photo-credit a {
+  color: #E7C48A;
+}
+
+.problem-content h3 {
   font-family: var(--heading);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 400;
   line-height: 1.25;
-  margin: 0;
+  margin: 0 0 22px;
 }
 
-.problem-bottom p {
+.problem-content p {
   color: rgba(255,255,255,.8);
   font-size: 1.06rem;
   margin: 0;
@@ -480,7 +512,9 @@ a:focus-visible {
   padding-bottom: 3px;
 }
 
-.member-link:hover { color: var(--gold); }
+.member-link:hover {
+  color: var(--gold);
+}
 
 /* ---------- FUNDING ---------- */
 
@@ -654,7 +688,9 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 
   .button,
   .nav-links a {
@@ -697,11 +733,9 @@ footer {
 
     <div class="hero-copy">
 
-      <!--
       <div class="eyebrow">
         Health Information Research
-      </div> 
-      -->
+      </div>
 
       <h1>HEAL<span style="color:var(--gold)">.</span></h1>
 
@@ -819,26 +853,58 @@ footer {
 
     </div>
 
+    <!-- PROBLEM IMAGE AND EXPLANATION -->
+
     <div class="problem-bottom">
 
-      <h3>
-        AI can provide answers.
-        But can people trust them?
-      </h3>
+      <div class="problem-image">
 
-      <p>
-        People managing obesity may turn to
-        generative AI for advice on diet, exercise,
-        weight-loss medications, and related health
-        concerns. While these tools can make
-        information easier to access, their
-        responses may also be inaccurate,
-        incomplete, or unsuitable for an
-        individual's health needs. Understanding
-        how people evaluate and act on these
-        responses is essential for supporting
-        reliable health information seeking.
-      </p>
+        <!--
+          Download the ECPO Media photograph
+          and upload it to your GitHub heal folder
+          as couple-newspaper.jpg.
+        -->
+
+        <img
+          src="./couple-newspaper.jpg"
+          alt="Couple sitting together at a table reading a newspaper"
+          loading="lazy"
+        >
+
+        <div class="photo-credit">
+          Photo by Barattini Stefano /
+          <a
+            href="https://ecpomedia.org/image/couple-newspaper/"
+            target="_blank"
+            rel="noopener noreferrer">
+            ECPO Media
+          </a>
+        </div>
+
+      </div>
+
+      <div class="problem-content">
+
+        <h3>
+          AI can provide answers.
+          But can people trust them?
+        </h3>
+
+        <p>
+          People managing obesity may turn to
+          generative AI for advice on diet, exercise,
+          weight-loss medications, and related health
+          concerns. While these tools can make
+          information easier to access, their
+          responses may also be inaccurate,
+          incomplete, or unsuitable for an
+          individual's health needs. Understanding
+          how people evaluate and act on these
+          responses is essential for supporting
+          reliable health information seeking.
+        </p>
+
+      </div>
 
     </div>
 
@@ -999,7 +1065,6 @@ footer {
       <article class="member">
 
         <div class="member-photo">
-          <!-- Replace initials with an approved photo -->
           <span class="member-initials">EM</span>
         </div>
 
@@ -1177,7 +1242,7 @@ footer {
 
       <img
         src="https://raw.githubusercontent.com/hidalab/hidalab.github.io/main/heal/NIH-NNLM-2024.png"
-        alt="National Network of the National Library of Medicine"
+        alt="Network of the National Library of Medicine"
         loading="lazy"
       >
 
