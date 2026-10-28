@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>HEAL | Health Enquiry & AI Literacy</title>
-<meta name="description" content="HEAL studies how adults living with obesity search for, evaluate, and use generative AI for health information, and supports the development of health and AI literacy.">
+<title>HEAL | Health Enquiry &amp; AI Literacy</title>
+
+<meta name="description" content="HEAL studies how adults living with obesity search for, evaluate, and use generative AI for health information and aims to strengthen health and AI literacy.">
 
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -25,9 +27,13 @@
     --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
     margin: 0;
@@ -38,7 +44,9 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  a { color: var(--teal-deep); }
+  a {
+    color: var(--teal-deep);
+  }
 
   .wrap {
     max-width: 1160px;
@@ -61,7 +69,7 @@
     margin-bottom: 14px;
   }
 
-  /* ---------- NAVIGATION ---------- */
+  /* ---------- HEADER ---------- */
 
   header.site {
     position: sticky;
@@ -88,7 +96,9 @@
     gap: 12px;
   }
 
-  .brand span { color: var(--amber); }
+  .brand span {
+    color: var(--amber);
+  }
 
   .brand-full {
     font-family: var(--display);
@@ -101,7 +111,7 @@
     padding-left: 12px;
   }
 
-  /* ---------- HERO ---------- */
+  /* ---------- ABOUT HEAL / HERO ---------- */
 
   .hero {
     background: var(--paper);
@@ -154,12 +164,15 @@
     color: var(--ink-faint);
   }
 
-  .photo-credit a { color: var(--ink-faint); }
+  .photo-credit a {
+    color: var(--ink-faint);
+  }
 
-  /* ---------- ABOUT ---------- */
+  /* ---------- RESEARCH FOCUS ---------- */
 
   .about {
     padding: 45px 0 80px;
+    background: var(--paper);
   }
 
   .about-grid {
@@ -292,9 +305,7 @@
   /* ---------- WHY OBESITY MATTERS ---------- */
 
   .obesity {
-    background: var(--surface);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    background: var(--paper);
     padding: 80px 0;
   }
 
@@ -399,7 +410,9 @@
     color: var(--teal-deep);
   }
 
-  .team-card a:hover { text-decoration: underline; }
+  .team-card a:hover {
+    text-decoration: underline;
+  }
 
   .team-card p {
     font-size: 0.85rem;
@@ -471,13 +484,17 @@
       gap: 40px;
     }
 
-    .hero-image { aspect-ratio: 4/3; }
+    .hero-image {
+      aspect-ratio: 4/3;
+    }
 
     .team-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    nav.top { flex-wrap: wrap; }
+    nav.top {
+      flex-wrap: wrap;
+    }
 
     .brand {
       flex-wrap: wrap;
@@ -493,7 +510,9 @@
   }
 
   @media (max-width: 600px) {
-    .team-grid { grid-template-columns: 1fr; }
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
 
     .hero {
       padding: 75px 0 30px;
@@ -508,8 +527,13 @@
       padding: 65px 0;
     }
 
-    .logos-inner { gap: 28px; }
-    .logos img { max-width: 100%; }
+    .logos-inner {
+      gap: 28px;
+    }
+
+    .logos img {
+      max-width: 100%;
+    }
   }
 </style>
 </head>
@@ -531,130 +555,164 @@
   </div>
 </header>
 
+<!-- ---------- ABOUT HEAL / HERO ---------- -->
 
-<!-- ---------- HERO ---------- -->
-
-<section class="hero">
+<section class="hero" id="about">
   <div class="wrap hero-grid">
 
     <div class="hero-copy">
+
+      <div class="section-label">About HEAL</div>
+
       <h1>
-        Navigating obesity-related health information in the age of AI.
+        Understanding AI Use in
+        Obesity-Related Health Information
       </h1>
 
       <p>
-        HEAL studies how adults living with obesity search for, evaluate, and use generative AI tools like ChatGPT for health information.
-        The project aims to strengthen health and AI literacy by helping individuals critically assess information about weight, nutrition,
+        HEAL (Health Enquiry &amp; AI Literacy)
+        studies how adults living with obesity
+        search for, evaluate, and use generative
+        AI tools like ChatGPT for health information.
+        The project aims to strengthen health and AI
+        literacy by helping individuals critically
+        assess information about weight, nutrition,
         physical activity, and related health concerns.
       </p>
+
     </div>
 
     <div>
       <div class="hero-image">
         <img
-          src="https://images.pexels.com/photos/5327916/pexels-photo-5327916.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000"
-          alt="Healthcare professional using digital devices to research health information"
+          src="https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000"
+          alt="Laptop and stethoscope on a desk representing digital health information"
         >
       </div>
 
       <div class="photo-credit">
-        Photo by
-        <a href="https://www.pexels.com/photo/a-medical-person-using-a-laptop-for-research-5327916/"
+        Photo via
+        <a href="https://www.pexels.com/photo/computer-desk-laptop-stethoscope-48604/"
            target="_blank" rel="noopener">
-          Thirdman
+          Pexels
         </a>
-        / Pexels
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ---------- ABOUT HEAL ---------- -->
+<!-- ---------- RESEARCH FOCUS ---------- -->
 
-<section class="about" id="about">
+<section class="about" id="research">
   <div class="wrap about-grid">
 
     <div class="about-visual">
 
       <div class="q">
-        You asked: "Can AI help me find reliable information about weight management?"
+        You asked: "Can AI help me find reliable
+        information about weight management?"
       </div>
 
       <div class="body-text">
-        Generative AI tools can provide information about nutrition, physical activity, and weight management.
+        Generative AI tools can provide information
+        about nutrition, physical activity, and
+        weight management.
 
         However,
         <span class="flag">
-          AI-generated recommendations are always accurate and appropriate for everyone
+          AI-generated recommendations are always
+          accurate and appropriate for everyone
           <span class="margin-note">source?</span>
         </span>.
 
         It is important to
         <span class="verified">
-          check information against reliable health sources and consult healthcare professionals when making health decisions
+          check information against reliable health
+          sources and consult healthcare professionals
+          when making health decisions
           <span class="margin-note ok">check-worthy</span>
         </span>.
       </div>
 
       <div class="example-note">
-        Illustrative AI response for demonstrating critical evaluation. The highlighted claim is intentionally unreliable.
+        Illustrative AI response for demonstrating
+        critical evaluation. The highlighted claim
+        is intentionally unreliable.
       </div>
 
     </div>
 
     <div class="about-copy">
 
-      <div class="section-label">About HEAL</div>
+      <div class="section-label">Research Focus</div>
 
       <h2>
-        Helping people search for, evaluate, and use AI-generated health information critically, ethically, and safely.
+        Building Skills to Critically Evaluate
+        AI-Generated Health Information
       </h2>
 
       <p>
-        HEAL examines how people search for health information using generative AI, how they evaluate the credibility of AI-generated
-        responses, and how they use this information to inform their health decisions.
+        HEAL examines how individuals use generative
+        AI tools to obtain information about weight
+        management, nutrition, physical activity,
+        and related health concerns. The project
+        explores how people evaluate the credibility
+        of AI-generated responses, form trust in
+        these tools, and use the information to
+        inform their health decisions.
       </p>
 
       <p>
-        With a particular focus on adults living with obesity, the project investigates how individuals use AI tools to obtain information
-        about weight management, nutrition, physical activity, and related health concerns. It also explores their experiences, trust,
-        privacy concerns, and confidence in evaluating AI-generated health information.
+        The research also investigates individuals'
+        experiences with AI, including their
+        motivations for using these tools, privacy
+        concerns, and confidence in identifying
+        reliable health information.
       </p>
 
       <p>
-        Through this research, HEAL aims to develop educational resources that help individuals find reliable health information, critically
-        evaluate AI-generated responses, and make informed health decisions. These skills remain important as AI technologies and
-        health information continue to evolve.
+        Through this research, HEAL aims to develop
+        educational resources that help individuals
+        strengthen their health information literacy
+        and AI literacy. These resources will support
+        people in searching for, evaluating, and
+        using health information responsibly.
       </p>
 
       <ul class="expertise">
         <li>
           <span>
-            <b>Search:</b> form the right question and know where to look.
+            <b>Search:</b> form the right question
+            and know where to look.
           </span>
         </li>
 
         <li>
           <span>
-            <b>Evaluate:</b> check claims, sources, and AI-generated confidence.
+            <b>Evaluate:</b> check claims, sources,
+            and AI-generated confidence.
           </span>
         </li>
 
         <li>
           <span>
-            <b>Use:</b> apply findings critically, ethically, and safely.
+            <b>Use:</b> apply findings critically,
+            ethically, and safely.
           </span>
         </li>
       </ul>
 
       <p>
-        This project is funded by the Network of the National Library of Medicine (NNLM), Region 2. The project is led by
+        This project is funded by the
+        Network of the National Library of Medicine
+        (NNLM), Region 2. The project is led by
         <a href="https://www.ehsanmohammadi.com/"
            target="_blank" rel="noopener">
           Ehsan Mohammadi
         </a>
-        and a multidisciplinary research team working to improve health information literacy.
+        and a multidisciplinary research team
+        working to improve health information literacy.
       </p>
 
     </div>
@@ -680,25 +738,37 @@
       <div class="section-label">Why Obesity Matters</div>
 
       <h2>
-        Supporting access to reliable
-        obesity-related health information.
+        Supporting Access to Reliable
+        Obesity-Related Health Information
       </h2>
 
       <p>
-        Obesity is a major public health concern in the United States. According to the Centers for Disease Control and Prevention
-        (CDC), obesity is associated with increased risks of several chronic health conditions, including type 2 diabetes, heart disease,
+        Obesity is a major public health concern
+        in the United States. According to the
+        Centers for Disease Control and Prevention
+        (CDC), obesity is associated with increased
+        risks of several chronic health conditions,
+        including type 2 diabetes, heart disease,
         and certain cancers.
       </p>
 
       <p>
-        People seeking information about obesity and weight management may encounter recommendations from many sources,
-        including generative AI tools. Understanding how individuals find, evaluate, and use this information is
-        important for supporting informed health decisions.
+        People seeking information about obesity
+        and weight management may encounter
+        recommendations from many sources,
+        including generative AI tools.
+        Understanding how individuals find,
+        evaluate, and use this information is
+        important for supporting informed
+        health decisions.
       </p>
 
       <p>
-        HEAL addresses this need by examining people's experiences with AI-generated obesity-related information and identifying
-        opportunities to strengthen health and AI literacy.
+        HEAL addresses this need by examining
+        people's experiences with AI-generated
+        obesity-related information and identifying
+        opportunities to strengthen health and
+        AI literacy.
       </p>
 
       <a class="source-link"
@@ -717,14 +787,19 @@
   <div class="wrap">
 
     <div class="team-head">
+
       <div class="section-label">Research Team</div>
 
       <h2>Meet the HEAL Team</h2>
 
       <p>
-        HEAL brings together researchers from different disciplines to investigate health information seeking, generative AI,
-        and health literacy, with a focus on obesity-related information.
+        HEAL brings together researchers from
+        different disciplines to investigate
+        health information seeking, generative AI,
+        and health literacy, with a focus on
+        obesity-related information.
       </p>
+
     </div>
 
     <div class="team-grid">
@@ -743,7 +818,7 @@
         <h3>
           <a href="https://scholar.google.com/citations?user=memUHfAAAAAJ&amp;hl=en"
              target="_blank" rel="noopener">
-            Thanathip Suenghataiphorn
+            Ham
           </a>
         </h3>
         <p>Research Team Member</p>
@@ -753,7 +828,7 @@
         <h3>
           <a href="https://scholar.google.com/citations?user=aD1HX-YAAAAJ&amp;hl=en"
              target="_blank" rel="noopener">
-            Moha Motevalli
+            Moha
           </a>
         </h3>
         <p>Research Team Member</p>
