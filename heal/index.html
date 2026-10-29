@@ -858,7 +858,6 @@ footer {
 
 .team {
   padding: 30px 0 100px;
-  border-top: 1px solid var(--line);
 }
 
 /* Mobile */
@@ -873,6 +872,28 @@ footer {
 }
 
 
+/* ---------- DIVIDER BETWEEN OUR RESEARCH AND OUR TEAM ---------- */
+
+.team {
+  border-top: none;
+  padding: 0 0 100px;
+}
+
+.team .container {
+  border-top: 1px solid var(--line);
+  padding-top: 100px;
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  .team {
+    padding: 0 0 75px;
+  }
+
+  .team .container {
+    padding-top: 75px;
+  }
+}
 
 </style>
 </head>
