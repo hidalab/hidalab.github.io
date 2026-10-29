@@ -460,10 +460,12 @@ a:focus-visible {
 
 /* ---------- FRAME 3: HEAL AIMS ---------- */
 
+
 .aims {
   background: var(--paper);
-  padding: 125px 0;
+  padding: 100px 0 45px;
 }
+
 
 .aims-intro {
   display: grid;
@@ -541,11 +543,13 @@ a:focus-visible {
 
 /* ---------- FRAME 4: TEAM ---------- */
 
+
 .team {
   background: var(--paper);
-  padding: 100px 0 120px;
-  border-top: 1px solid var(--line);
+  padding: 45px 0 100px;
+  border-top: none;
 }
+
 
 .team-heading {
   max-width: 760px;
@@ -843,6 +847,31 @@ footer {
     transition: none;
   }
 }
+
+
+/* ---------- SPACING BETWEEN OUR AIMS AND OUR TEAM ---------- */
+
+/* Desktop */
+.aims {
+  padding: 100px 0 45px;
+}
+
+.team {
+  padding: 45px 0 100px;
+  border-top: none;
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  .aims {
+    padding: 75px 0 35px;
+  }
+
+  .team {
+    padding: 35px 0 75px;
+  }
+}
+
 
 </style>
 </head>
